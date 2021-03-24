@@ -1,3 +1,6 @@
 /.metadata/
 /Rpg/target/
-/.project
+/Rpg/.project
+/Rpg/.classpath
+/Rpg/bin/
+/Rpg/.settings/
