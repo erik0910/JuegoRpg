@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JLabel;
 
 public class InterfazInicial extends JFrame {
 
@@ -42,7 +43,7 @@ public class InterfazInicial extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewGame = new JButton("Nueva Partida");
-		btnNewGame.setBounds(216, 125, 195, 27);
+		btnNewGame.setBounds(191, 171, 220, 27);
 		btnNewGame.setForeground(SystemColor.text);
 		btnNewGame.setBackground(Color.WHITE);
 		btnNewGame.setBorder(null);
@@ -61,7 +62,7 @@ public class InterfazInicial extends JFrame {
 		contentPane.add(btnNewGame);
 		
 		JButton btnLoadGame = new JButton("Cargar Partida");
-		btnLoadGame.setBounds(216, 247, 195, 27);
+		btnLoadGame.setBounds(191, 247, 220, 27);
 		btnLoadGame.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnLoadGame.setForeground(SystemColor.text);
 		btnLoadGame.setBackground(Color.WHITE);
@@ -74,13 +75,24 @@ public class InterfazInicial extends JFrame {
 		contentPane.add(btnLoadGame);
 		
 		JButton btnOptions = new JButton("Opciones");
+		btnOptions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnOptions.setForeground(SystemColor.text);
 		btnOptions.setBackground(Color.WHITE);
 		btnOptions.setBorder(null);
 		btnOptions.setOpaque(false);
-		btnOptions.setBounds(216, 369, 195, 27);
+		btnOptions.setBounds(191, 326, 220, 27);
 		btnOptions.setFont(new Font("Algerian", Font.PLAIN, 18));
 		contentPane.add(btnOptions);
+		
+		JLabel lblTitulo = new JLabel("After-Age");
+		lblTitulo.setForeground(new Color(102, 0, 0));
+		lblTitulo.setFont(new Font("Algerian", Font.BOLD | Font.ITALIC, 30));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(191, 32, 220, 38);
+		contentPane.add(lblTitulo);
 	}
 
 }
