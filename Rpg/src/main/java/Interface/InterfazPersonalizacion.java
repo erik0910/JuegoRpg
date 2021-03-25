@@ -13,13 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 
 public class InterfazPersonalizacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
 	private FondoIntPers MainPanel;
-
+	private String[] rutasSprite = new String[2];
+	private String[] nombresPersonajes = new String[2];
+	int contador = 0;
+	private JLabel lblSkin;
+	private JLabel lblNombrePersonaje;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,6 +41,14 @@ public class InterfazPersonalizacion extends JFrame {
 	}
 
 	public InterfazPersonalizacion() {
+		
+		rutasSprite[0] = "/Resources/SpritesSkins/1Personaje.png";
+		rutasSprite[1] = "/Resources/SpritesSkins/2Personaje.png";
+		
+		nombresPersonajes[0] = "Geralt de Rivia";
+		nombresPersonajes[1] = "Ezio, el Caballero Blanco";
+		
+		
 		setResizable(false);
 		setTitle("Rpg");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,6 +56,18 @@ public class InterfazPersonalizacion extends JFrame {
 		MainPanel = new FondoIntPers();
 		MainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(MainPanel);
+		
+	    lblSkin = new JLabel("");
+		lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+		lblSkin.setBounds(187, 99, 369, 569);
+		MainPanel.add(lblSkin);
+		
+		lblNombrePersonaje = new JLabel(nombresPersonajes[contador]);
+		lblNombrePersonaje.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombrePersonaje.setForeground(Color.WHITE);
+		lblNombrePersonaje.setFont(new Font("Algerian", Font.PLAIN, 33));
+		lblNombrePersonaje.setBounds(67, 678, 537, 47);
+		MainPanel.add(lblNombrePersonaje);
 		
 		JButton btnFlechaIzq = new JButton("");
 		btnFlechaIzq.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource("/Resources/arrow-2.png")));
@@ -51,15 +77,20 @@ public class InterfazPersonalizacion extends JFrame {
 		btnFlechaIzq.setBackground(new Color(0,0,0,0));
 		btnFlechaIzq.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(contador>0) {
+				contador--;
+				lblNombrePersonaje.setText(nombresPersonajes[contador]);
+				lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+				}
 			}
 		});
 		MainPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Seleccione su personaje");
-		lblNewLabel.setBounds(177, 52, 348, 36);
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Algerian", Font.PLAIN, 27));
-		MainPanel.add(lblNewLabel);
+		JLabel lblTitulo = new JLabel("Seleccione su personaje");
+		lblTitulo.setBounds(177, 52, 348, 36);
+		lblTitulo.setForeground(new Color(0, 0, 0));
+		lblTitulo.setFont(new Font("Algerian", Font.PLAIN, 27));
+		MainPanel.add(lblTitulo);
 		MainPanel.add(btnFlechaIzq);
 		
 		JButton btnFlechaDrch = new JButton("");
@@ -68,6 +99,15 @@ public class InterfazPersonalizacion extends JFrame {
 		btnFlechaDrch.setOpaque(false);
 		btnFlechaDrch.setBorder(null);
 		btnFlechaDrch.setBackground(new Color(0, 0, 0, 0));
+		btnFlechaDrch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contador<1) {
+				contador++;
+				lblNombrePersonaje.setText(nombresPersonajes[contador]);
+				lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+				}
+			}	
+		});
 		MainPanel.add(btnFlechaDrch);
 		
 		JButton btnSalir = new JButton("Salir");
@@ -101,5 +141,9 @@ public class InterfazPersonalizacion extends JFrame {
 			}
 		});
 		MainPanel.add(btnContinuar);
+		
+		
+		
+		
 	}
 }
