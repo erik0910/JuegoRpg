@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.SystemColor;
@@ -19,7 +18,7 @@ public class InterfazPersonalizacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
-	private JPanel MainPanel;
+	private FondoIntPers MainPanel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,13 +39,13 @@ public class InterfazPersonalizacion extends JFrame {
 		setTitle("Rpg");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 900);
-		FondoIntPersonalizacion MainPanel = new FondoIntPersonalizacion();
+		MainPanel = new FondoIntPers();
 		MainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(MainPanel);
 		
 		JButton btnFlechaIzq = new JButton("");
-		btnFlechaIzq.setBounds(12, 380, 97, 25);
 		btnFlechaIzq.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource("/Resources/arrow-2.png")));
+		btnFlechaIzq.setBounds(12, 380, 97, 25);
 		btnFlechaIzq.setOpaque(false); 
 		btnFlechaIzq.setBorder(null);
 		btnFlechaIzq.setBackground(new Color(0,0,0,0));
@@ -64,7 +63,7 @@ public class InterfazPersonalizacion extends JFrame {
 		MainPanel.add(btnFlechaIzq);
 		
 		JButton btnFlechaDrch = new JButton("");
-		btnFlechaDrch.setBounds(575, 380, 97, 25);
+		btnFlechaDrch.setBounds(566, 380, 97, 25);
 		btnFlechaDrch.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource("/Resources/arrow-1.png")));
 		btnFlechaDrch.setOpaque(false);
 		btnFlechaDrch.setBorder(null);
@@ -78,6 +77,14 @@ public class InterfazPersonalizacion extends JFrame {
 		btnSalir.setOpaque(false);
 		btnSalir.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnSalir.setBounds(12, 815, 97, 23);
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				InterfazInicial inter = new InterfazInicial();
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
+			}
+		});
 		MainPanel.add(btnSalir);
 		
 		JButton btnContinuar = new JButton("Continuar");
@@ -87,7 +94,12 @@ public class InterfazPersonalizacion extends JFrame {
 		btnContinuar.setOpaque(false);
 		btnContinuar.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnContinuar.setBounds(566, 815, 97, 23);
+		btnContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Iniciar mundo y guardar seleccion
+				
+			}
+		});
 		MainPanel.add(btnContinuar);
 	}
-
 }
