@@ -3,6 +3,7 @@ public class Arma {
 private String nombre;
 private String nombreImagen;
 private int daño;
+private int dinero; //se le llamar� dinero aunque hace referencia al coste del arma;
 public Arma(String nombre, String nombreImagen, int daño) {
     this.nombre = nombre;
     this.nombreImagen = nombreImagen;

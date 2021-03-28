@@ -6,16 +6,18 @@ public class Personaje {
     private int ataque;
     private int vida;
     private int defensa;
+    private int dinero;
     //esto puede cambiar porque el peronaje puede tener por defecto unos atributos bases iguales
-    public Personaje(int ataque, int vida, int defensa) {
+    public Personaje(int ataque, int vida, int defensa, int dinero) {
         this.ataque = ataque;
         this.vida = vida;
         this.defensa = defensa;
+        this.dinero = dinero;
     }
     
     @Override
     public String toString() {
-        return "Personaje [ataque=" + ataque + ", defensa=" + defensa + ", vida=" + vida + "]";
+        return "Personaje [ataque=" + ataque + ", defensa=" + defensa + ", vida=" + vida + ", dinero" + dinero "]";
     }
     public int getAtaque() {
         return ataque;
@@ -35,6 +37,11 @@ public class Personaje {
     public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
-  
+    public int getDinero() {
+        return dinero;
+    }
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
     
 }
