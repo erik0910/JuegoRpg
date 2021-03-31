@@ -37,7 +37,7 @@ public class Player extends Objeto  {
 	private static final int[] fps = {400,40,-1,100,100};
 	
 	//Arma
-	private Armas espada =new Armas(20/*Da�o*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Da�o*/);
+	// private Armas espada =new Armas(20/*Da�o*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Da�o*/);
 	
 	public Player(int player) {
 		ancho = 30;
@@ -191,9 +191,9 @@ public class Player extends Objeto  {
 		if(derecha) mDerecha = true;
 		if(izquierda) mDerecha = false;
 		
-		//Arma
-		espada.setX((int)this.x+5);
-		espada.setY((int)this.x+5);
+		// //Arma
+		// espada.setX((int)this.x+5);
+		// espada.setY((int)this.x+5);
 	}
 	
 	public void draw(Graphics2D g) {
