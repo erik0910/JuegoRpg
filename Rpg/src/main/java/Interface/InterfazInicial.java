@@ -77,6 +77,10 @@ public class InterfazInicial extends JFrame {
 		JButton btnOptions = new JButton("Opciones");
 		btnOptions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				InterfazOpciones inter = new InterfazOpciones();
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
 			}
 		});
 		btnOptions.setForeground(SystemColor.text);
