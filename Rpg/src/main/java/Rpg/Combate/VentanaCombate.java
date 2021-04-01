@@ -40,7 +40,7 @@ public class VentanaCombate {
 				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
 					if(obj == 1) fin = 2; else fin = 1; //Fin almacena el personaje que ha ganado.
-					System.out.println("Gana el player"+fin); //Mostrar el personaje ganador.
+					System.out.println("Gana el player"+fin); //Mostrar el personaje ganador. ya que contamos como si el boss Fuese el rival
 				}
 				borrar = disparos.indexOf(dispis); //almacenar el index del disparo.
 			}
