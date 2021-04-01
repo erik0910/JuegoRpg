@@ -17,7 +17,7 @@ public class Personaje {
     
     @Override
     public String toString() {
-        return "Personaje [ataque=" + ataque + ", defensa=" + defensa + ", vida=" + vida + ", dinero" + dinero +"]";
+        return "Personaje [ataque=" + ataque + ", defensa=" + defensa + ", vida=" + vida + ", dinero" + dinero + "]";
     }
     public int getAtaque() {
         return ataque;
