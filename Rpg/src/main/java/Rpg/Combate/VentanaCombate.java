@@ -36,7 +36,7 @@ public class VentanaCombate {
 			if(dispis.getX() > 320 || dispis.getX() < 0) borrar = disparos.indexOf(dispis); else dispis.update(); //Si hay un disparo fuera del campo almacenar su index.
 			if(dispis.getF()){ //F es si el disparo ha entrado en colisi�n con el disparo, es decir, �ste disparo debe�a haber acabado y se debe restar hp del jugador.
 				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que est� dirigido el ataque.
-				player[obj].setHealth((player[obj].getHealth()-dispis.getDa�o())); //Restarle la vida al jugador
+				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
 					if(obj == 1) fin = 2; else fin = 1; //Fin almacena el personaje que ha ganado.

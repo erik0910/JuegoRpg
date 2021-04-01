@@ -75,9 +75,9 @@ import javax.swing.JPanel;
 			/*===========================================*/
 		}
 		
-		/*Room===========================================*/
-		// private void update() {Room.update();}
-		// private void draw() {Room.draw(g);}
+		/*Actualización de la VentanaCombate===========================================*/
+		 private void update() {VentanaCombate.update();}
+		 private void draw() {VentanaCombate.draw(g);}
 		/*==============================================*/
 		private void pintarPantalla() {
 			Graphics g2 = getGraphics();
