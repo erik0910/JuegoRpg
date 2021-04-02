@@ -57,6 +57,8 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[2].setPlaneo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(2); else disp[2] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_L)) player[2].setPlaneo(true);
+		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
