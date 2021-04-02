@@ -36,7 +36,7 @@ public class Player extends Objeto  {
 	private static final int[] fps = {400,40,-1,100,100};
 	
 	//Arma
-	private Armas espada =new Armas(20/*Daño*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Daño*/);
+	//private Armas espada =new Armas(20/*Daï¿½o*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Daï¿½o*/);
 	
 	public Player(int player) {
 		ancho = 30;
@@ -56,7 +56,7 @@ public class Player extends Objeto  {
 		
 		/*Imagenes===================================================*/
 		try {
-			/*Cargar hoja de imágenes================================*/
+			/*Cargar hoja de imï¿½genes================================*/
 			BufferedImage hoja = ImageIO.read(
 				getClass().getResource(
 					"/Prueba/Sprites/Player/player.png"
@@ -64,14 +64,14 @@ public class Player extends Objeto  {
 			);
 			/*======================================================*/
 			sprites = new ArrayList<BufferedImage[]>();
-			/*Array de imágenes====================================*/
+			/*Array de imï¿½genes====================================*/
 			/*Crear en bucle cada imagen separada*/
 			for(int i = 0; i < 5; i++) {
 				BufferedImage[] bi = new BufferedImage[numFrames[i]];//Crear la array de imagenes
-				for(int j = 0; j < numFrames[i]; j++) bi[j] = hoja.getSubimage(j * ancho, i * (alto-1), ancho, alto); //Añadir las imagenes
+				for(int j = 0; j < numFrames[i]; j++) bi[j] = hoja.getSubimage(j * ancho, i * (alto-1), ancho, alto); //Aï¿½adir las imagenes
 				sprites.add(bi); 
-				/*Se añade en cada posición de la arraylist el conjunto de imagenes de cada animación
-				 *lo que luego vale para aplicarlas llamandolas con un número que es asignado a cada nombre clave.*/
+				/*Se aï¿½ade en cada posiciï¿½n de la arraylist el conjunto de imagenes de cada animaciï¿½n
+				 *lo que luego vale para aplicarlas llamandolas con un nï¿½mero que es asignado a cada nombre clave.*/
 			}
 			/*====================================================*/
 		}

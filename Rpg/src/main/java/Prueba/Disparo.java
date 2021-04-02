@@ -9,25 +9,25 @@ public class Disparo extends Objeto {
 	private ColisionDisparos colisiondisp;
 	int player;
 	private boolean col,f,mDerecha;
-	private int daño;
+	private int danyo;
 	private BufferedImage[] bi = new BufferedImage[2];
 	private BufferedImage hoja = null;
 	
 	Disparo(double x, double y, boolean dir, int pl) {
 		this.x = x;
 		this.y = y;
-		ancho = alto = daño = 10;
+		ancho = alto = danyo = 10;
 		mDerecha = dir; //Hacia donde mira el personaje.
 		this.player = pl; //Player almacena el jugador que lanza el golpe
 		this.f = false; //f es la variable de muerte del personaje.
-		colisiondisp = new ColisionDisparos(this.x, this.y, this.ancho, this.alto); //Crear una máscara de colisiones para el disparo
+		colisiondisp = new ColisionDisparos(this.x, this.y, this.ancho, this.alto); //Crear una mï¿½scara de colisiones para el disparo
 		
 		try {
-			if(player==1) hoja = ImageIO.read(getClass().getResource("/Prueba/Sprites/Player/disparo.png")); //Según el jugador el disparo contendrá un aspecto o otro.
+			if(player==1) hoja = ImageIO.read(getClass().getResource("/Prueba/Sprites/Player/disparo.png")); //Segï¿½n el jugador el disparo contendrï¿½ un aspecto o otro.
 			else hoja = ImageIO.read(getClass().getResource("/Prueba/Sprites/Player/disparo2.png"));
 		} catch (IOException e) {e.printStackTrace();}
 		
-		for(int j = 0; j < 2; j++) bi[j] = hoja.getSubimage((j * ancho)+1*(1+j), 1, ancho, alto); //Añadir las imagenes 0 o 10 + 1, 1 , 10, 10
+		for(int j = 0; j < 2; j++) bi[j] = hoja.getSubimage((j * ancho)+1*(1+j), 1, ancho, alto); //Aï¿½adir las imagenes 0 o 10 + 1, 1 , 10, 10
 		animacion = new Animacion();
 		animacion.setAnimacion(bi);
 	}
@@ -51,8 +51,8 @@ public class Disparo extends Objeto {
 	public double getX() {return this.x;}
 	public boolean getF() {return f;}
 	public int getPlayer() {return player;}
-	public int getDaño() {return daño;}
-	public void setDaño(int daño) {this.daño = daño;}
+	public int getDanyo() {return danyo;}
+	public void setDanyo(int danyo) {this.danyo = danyo;}
 	//==================================================
 	
 }

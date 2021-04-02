@@ -32,9 +32,9 @@ public class Room {
 		for(Disparo dispis: disparos) { //Recorrer disparos
 			dispis.draw(g); //Pintar los disparos
 			if(dispis.getX() > 320 || dispis.getX() < 0) borrar = disparos.indexOf(dispis); else dispis.update(); //Si hay un disparo fuera del campo almacenar su index.
-			if(dispis.getF()){ //F es si el disparo ha entrado en colisión con el disparo, es decir, éste disparo debeía haber acabado y se debe restar hp del jugador.
-				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que está dirigido el ataque.
-				player[obj].setHealth((player[obj].getHealth()-dispis.getDaño())); //Restarle la vida al jugador
+			if(dispis.getF()){ //F es si el disparo ha entrado en colisiï¿½n con el disparo, es decir, ï¿½ste disparo debeï¿½a haber acabado y se debe restar hp del jugador.
+				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que estï¿½ dirigido el ataque.
+				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
 					if(obj == 1) fin = 2; else fin = 1; //Fin almacena el personaje que ha ganado.
@@ -58,14 +58,7 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[2].setPlaneo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(2); else disp[2] = false;
 		//======================================================
-		//Player2=====================================================
-		if(Juego.teclas.contains(KeyEvent.VK_A)) player[2].setIzquierda(true);
-		if(Juego.teclas.contains(KeyEvent.VK_D)) player[2].setDerecha(true);
-		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_W)) player[2].setSalto(true);
-		if(Juego.teclas.contains(KeyEvent.VK_K)) player[1].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_L)) disparo(1); else disp[1] = false;
-		
+	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
 	}
 	

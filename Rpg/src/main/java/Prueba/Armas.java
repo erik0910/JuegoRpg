@@ -2,12 +2,12 @@ package Prueba;
 
 
 public class Armas {
-	private int daño,speed,knockback,frames,x,y,alto,ancho;
+	private int danyo,speed,knockback,frames,x,y,alto,ancho;
 	private String nombre;
 	
-	public Armas(int daño, int speed, int knockback, int frames, int x, int y, int alto, int ancho, String nombre) {
+	public Armas(int danyo, int speed, int knockback, int frames, int x, int y, int alto, int ancho, String nombre) {
 		super();
-		this.daño = daño;
+		this.danyo = danyo;
 		this.speed = speed;
 		this.knockback = knockback;
 		this.frames = frames;
@@ -29,8 +29,8 @@ public class Armas {
 		return ataque;
 	}
 	
-	public int getDaño() {return daño;}
-	public void setDaño(int daño) {this.daño = daño;}
+	public int getDanyo() {return danyo;}
+	public void setDanyo(int danyo) {this.danyo = danyo;}
 	public int getSpeed() {return speed;}
 	public void setSpeed(int speed) {this.speed = speed;}
 	public int getKnockback() {return knockback;}
