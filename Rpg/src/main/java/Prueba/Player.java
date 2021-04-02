@@ -191,8 +191,8 @@ public class Player extends Objeto  {
 		if(izquierda) mDerecha = false;
 		
 		//Arma
-		espada.setX((int)this.x+5);
-		espada.setY((int)this.x+5);
+//		espada.setX((int)this.x+5);
+//		espada.setY((int)this.x+5);
 	}
 	
 	public void draw(Graphics2D g) {

@@ -5,14 +5,19 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+import java.util.List;
+import java.util.Scanner;
+import java.io.File;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 	public class Juego extends JPanel 
 		implements Runnable, KeyListener{
 		
+	
 		/*Ventana============================*/
 		public static final int ANCHO = 320,ALTO = 240,SCALE = 2;
 		/*===================================*/
@@ -20,11 +25,11 @@ import javax.swing.JPanel;
 		/*Limitador de FPS===================*/
 		private Thread thread;
 		private boolean running;
-		private int FPS = 60;
-		private long tiempo = 1000 / FPS;
+		private int FPS;
+		private long tiempo;
 		/*===================================*/
 		
-		/*Imágenes===========================*/
+		/*Imï¿½genes===========================*/
 		private BufferedImage img;
 		private Graphics2D g;
 		/*===================================*/
@@ -32,6 +37,7 @@ import javax.swing.JPanel;
 		/*Constructor========================*/
 		public Juego() {
 			super();
+			
 			setPreferredSize(
 					new Dimension(613, 477));
 			setFocusable(true);
@@ -56,9 +62,34 @@ import javax.swing.JPanel;
 		}
 		
 		public void run() {
+			int i = 0;
+			List<String> arrayList = new ArrayList<String>();
+			
+			//Lectura de la configuracion
+			File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
+			if(file.length()!=0) {
+				try {
+				      Scanner myReader = new Scanner(file);
+				      while (myReader.hasNextLine()) {
+				        arrayList.add(myReader.nextLine());
+				        i++;
+				      }
+				      myReader.close();
+				} catch (FileNotFoundException e1) {
+				      System.out.println("An error occurred.");
+				      e1.printStackTrace();
+				}
+				
+			}
+			String[] data = arrayList.toArray(new String[5]);
+			int newFPS = Integer.parseInt(data[2]);
+			this.FPS = newFPS;
+			this.tiempo = 1000/this.FPS; 
+			System.out.println(FPS);
+			
 			init();
 			long start, elapsed, wait;
-			/*Bucle mortál===============================*/
+			/*Bucle mortï¿½l===============================*/
 			while(running) {
 				start = System.nanoTime(); //Tiempo inicial
 				Room.teclas();
