@@ -6,6 +6,8 @@ import java.util.List; //Op
 
 import javax.swing.JComponent;
 
+
+
 public class Room {
 	public static boolean finalizar = false;// este atributo representa que la partida haya termindo
 	public static boolean estado = false; // este atributo represe ta que elll jugador ha ganado la partida
@@ -39,9 +41,10 @@ public class Room {
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
-
-					if(obj == 1) estado=true;//Fin almacena el personaje que ha ganado.
+						System.out.println("he entrado");
+					//if(obj == 1) estado=true;//Fin almacena el personaje que ha ganado.
 					finalizar=true;
+					System.out.println(finalizar);
 				}
 				borrar = disparos.indexOf(dispis); //almacenar el index del disparo.
 			}
@@ -59,9 +62,9 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_DOWN)) player[1].setAbajo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[1].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(2); else disp[2] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(1); else disp[1] = false;
 		if(Juego.teclas.contains(KeyEvent.VK_L)) player[2].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(1); else disp[1] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================

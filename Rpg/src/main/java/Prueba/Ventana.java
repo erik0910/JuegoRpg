@@ -6,8 +6,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 public class Ventana {
+	public static JFrame window = null;
 	public static void main(String[] args) {
-		JFrame window = new JFrame("Batalla cobtra Boss");
+		window = new JFrame("Batalla contra Boss");
 		window.setContentPane(new Juego());
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);

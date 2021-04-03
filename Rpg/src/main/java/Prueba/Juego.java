@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.io.File;
 import javax.swing.JPanel;
 
+
 @SuppressWarnings("serial")
 	public class Juego extends JPanel 
 		implements Runnable, KeyListener{
@@ -25,8 +26,8 @@ import javax.swing.JPanel;
 		/*Limitador de FPS===================*/
 		private Thread thread;
 		private boolean running;
-		private int FPS;
-		private long tiempo;
+		private int FPS= 60;
+		private long tiempo= 1000/FPS;
 		/*===================================*/
 		
 		/*Im�genes===========================*/
@@ -62,29 +63,30 @@ import javax.swing.JPanel;
 		}
 		
 		public void run() {
+		
 			int i = 0;
 			List<String> arrayList = new ArrayList<String>();
 			
-			//Lectura de la configuracion
-			File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
-			if(file.length()!=0) {
-				try {
-				      Scanner myReader = new Scanner(file);
-				      while (myReader.hasNextLine()) {
-				        arrayList.add(myReader.nextLine());
-				        i++;
-				      }
-				      myReader.close();
-				} catch (FileNotFoundException e1) {
-				      System.out.println("An error occurred.");
-				      e1.printStackTrace();
-				}
-				
-			}
-			String[] data = arrayList.toArray(new String[5]);
-			int newFPS = Integer.parseInt(data[2]);
-			this.FPS = newFPS;
-			this.tiempo = 1000/this.FPS; 
+//			//Lectura de la configuracion
+//			File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
+//			if(file.length()!=0) {
+//				try {
+//				      Scanner myReader = new Scanner(file);
+//				      while (myReader.hasNextLine()) {
+//				        arrayList.add(myReader.nextLine());
+//				        i++;
+//				      }
+//				      myReader.close();
+//				} catch (FileNotFoundException e1) {
+//				      System.out.println("An error occurred.");
+//				      e1.printStackTrace();
+//				}
+//				
+//			}
+//			String[] data = arrayList.toArray(new String[5]);
+//			int newFPS = Integer.parseInt(data[2]);
+//			this.FPS = newFPS;
+//			this.tiempo = 1000/this.FPS; 
 			System.out.println(FPS);
 			
 			init();
@@ -96,14 +98,22 @@ import javax.swing.JPanel;
 				update();
 				draw();
 				pintarPantalla();
+				if(Room.finalizar) {
+					System.out.println("ha terminado");
+					running= false;
+					Ventana.window.dispose();
+				}
 				elapsed = System.nanoTime() - start;
 				wait = tiempo - elapsed / 1000000;
 				if(wait < 0) wait = 5;
 				try {Thread.sleep(wait);}
-				catch(Exception e) {e.printStackTrace();}
+				catch(Exception e) {e.printStackTrace();
+				
+				}
 			}
 			/*===========================================*/
 		}
+		
 		
 		/*Room===========================================*/
 		private void update() {Room.update();}
