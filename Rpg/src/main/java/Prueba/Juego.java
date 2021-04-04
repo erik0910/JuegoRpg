@@ -101,6 +101,7 @@ import javax.swing.JPanel;
 				if(Room.finalizar) {
 					System.out.println("ha terminado");
 					running= false;
+					
 					Ventana.window.dispose();
 				}
 				elapsed = System.nanoTime() - start;

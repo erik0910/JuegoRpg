@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 public class Ventana {
 	public static JFrame window = null;
 	public static void main(String[] args) {
+		cargarCombate();
+	}
+	private static void cargarCombate() {
 		window = new JFrame("Batalla contra Boss");
 		window.setContentPane(new Juego());
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
