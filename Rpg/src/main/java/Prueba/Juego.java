@@ -26,8 +26,8 @@ import javax.swing.JPanel;
 		/*Limitador de FPS===================*/
 		private Thread thread;
 		private boolean running;
-		private int FPS= 60;
-		private long tiempo= 1000/FPS;
+		private int FPS;
+		private long tiempo;
 		/*===================================*/
 		
 		/*Im�genes===========================*/
@@ -67,26 +67,26 @@ import javax.swing.JPanel;
 			int i = 0;
 			List<String> arrayList = new ArrayList<String>();
 			
-//			//Lectura de la configuracion
-//			File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
-//			if(file.length()!=0) {
-//				try {
-//				      Scanner myReader = new Scanner(file);
-//				      while (myReader.hasNextLine()) {
-//				        arrayList.add(myReader.nextLine());
-//				        i++;
-//				      }
-//				      myReader.close();
-//				} catch (FileNotFoundException e1) {
-//				      System.out.println("An error occurred.");
-//				      e1.printStackTrace();
-//				}
-//				
-//			}
-//			String[] data = arrayList.toArray(new String[5]);
-//			int newFPS = Integer.parseInt(data[2]);
-//			this.FPS = newFPS;
-//			this.tiempo = 1000/this.FPS; 
+			//Lectura de la configuracion
+			File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
+			if(file.length()!=0) {
+				try {
+				      Scanner myReader = new Scanner(file);
+				      while (myReader.hasNextLine()) {
+				        arrayList.add(myReader.nextLine());
+				        i++;
+				      }
+				      myReader.close();
+				} catch (FileNotFoundException e1) {
+				      System.out.println("An error occurred.");
+				      e1.printStackTrace();
+				}
+				
+			}
+			String[] data = arrayList.toArray(new String[5]);
+			int newFPS = Integer.parseInt(data[2]);
+			this.FPS = newFPS;
+			this.tiempo = 1000/this.FPS; 
 			System.out.println(FPS);
 			
 			init();
