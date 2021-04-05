@@ -17,12 +17,31 @@ public class Room {
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
-	
+	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
+	//cargar el fondo de la pantalla
 	public Room() {
 		fondo = new Fondo("/Prueba/Backgrounds/grassbg1.gif", 0.1);
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
 			player[i].setPosition(100*i, 100*i);
+		}
+	}
+	//inteligencia del enemigo del juego
+	public static void bossIa() {
+		
+		disparo(2); //diparamos todo el rato
+		if(derecha) {
+			if (playergetX(2)< 297) {//tamaño limite
+				System.out.println(playergetX(2));
+				System.out.println("entra");
+			}else {derecha=false;}
+		}else {
+			if(playergetX(2)>2){//obtenemos la posicion x para saber donde se tiene que mover
+				System.out.println("entra 2");
+				System.out.println(playergetX(2));
+				player[2].setIzquierda(true);
+				} else {
+					derecha=true;				} 	
 		}
 	}
 	
@@ -63,11 +82,15 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[1].setPlaneo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(1); else disp[1] = false;
-		if(Juego.teclas.contains(KeyEvent.VK_L)) player[2].setPlaneo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
+		if(!derecha) player[2].setIzquierda(true);
+		if(derecha) player[2].setDerecha(true);
+		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
+		if(Juego.teclas.contains(KeyEvent.VK_W)) player[2].setSalto(true);
+		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
 	}
 	
 	public static double playergetX(int p) {return player[p].getx();}

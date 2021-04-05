@@ -98,10 +98,12 @@ import javax.swing.JPanel;
 				update();
 				draw();
 				pintarPantalla();
+				//veamos a ver si funciona la ia
+				System.out.println("entra en la ia");
+				Room.bossIa();
 				if(Room.finalizar) {
 					System.out.println("ha terminado");
 					running= false;
-					
 					Ventana.window.dispose();
 				}
 				elapsed = System.nanoTime() - start;
