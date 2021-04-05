@@ -20,8 +20,8 @@ public class InterfazPersonalizacion extends JFrame {
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
 	private FondoIntPers MainPanel;
-	private String[] rutasSprite = new String[2];
-	private String[] nombresPersonajes = new String[2];
+	private String[] rutasSprite = new String[3];
+	private String[] nombresPersonajes = new String[3];
 	int contador = 0;
 	private JLabel lblSkin;
 	private JLabel lblNombrePersonaje;
@@ -42,11 +42,13 @@ public class InterfazPersonalizacion extends JFrame {
 
 	public InterfazPersonalizacion() {
 		
-		rutasSprite[0] = "/Resources/SpritesSkins/1Personaje.png";
-		rutasSprite[1] = "/Resources/SpritesSkins/2Personaje.png";
+		rutasSprite[0] = "/Resources/SpritesSkins/Caballero.png";
+		rutasSprite[1] = "/Resources/SpritesSkins/Arquero.png";
+		rutasSprite[2] = "/Resources/SpritesSkins/Mago.png";
 		
 		nombresPersonajes[0] = "Geralt de Rivia";
-		nombresPersonajes[1] = "Ezio, el Caballero Blanco";
+		nombresPersonajes[1] = "Ezio, el Arquero Centenario";
+		nombresPersonajes[2] = "Kalgar de Boria";
 		
 		
 		setResizable(false);
@@ -101,7 +103,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnFlechaDrch.setBackground(new Color(0, 0, 0, 0));
 		btnFlechaDrch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(contador<1) {
+				if(contador<2) {
 				contador++;
 				lblNombrePersonaje.setText(nombresPersonajes[contador]);
 				lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
