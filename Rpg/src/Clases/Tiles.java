@@ -7,20 +7,18 @@ public class Tiles {
 	private boolean down;
 	private boolean left;
 	private boolean right;
-	private String file;
 
 	public Tiles() {
 		super();
 	}
 
-	public Tiles(String code, boolean up, boolean down, boolean left, boolean right, String file) {
+	public Tiles(String code, boolean up, boolean down, boolean left, boolean right) {
 		super();
 		this.code = code;
 		this.up = up;
 		this.down = down;
 		this.left = left;
 		this.right = right;
-		this.file = file;
 	}
 
 	public String getCode() {
@@ -61,14 +59,6 @@ public class Tiles {
 
 	public void setRight(boolean right) {
 		this.right = right;
-	}
-
-	public String getFile() {
-		return file;
-	}
-
-	public void setFile(String file) {
-		this.file = file;
 	}
 
 }
