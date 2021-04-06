@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Clases.Tiles;
+import Tiles;
 
 public class Array extends JFrame implements KeyListener {
 
@@ -240,30 +240,30 @@ public class Array extends JFrame implements KeyListener {
 
 				if (mundo[i + x_dib][u + y_dib].getCode().equals("grass")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/hierba.png")));
+					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/hierba.png")));
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("walls")) {
 
 					if ((u == 0 || u == 9) && (i != 0 && i != 9)) {
-						mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/paredgirada.png")));
+						mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/paredgirada.png")));
 
 					} else {
 
-						mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/pared.png")));
+						mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/pared.png")));
 					}
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("river")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/Agua.png")));
+					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/Agua.png")));
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("bridg")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/bridge.png")));
+					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/bridge.png")));
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("fight")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/hierba.png")));
-					pelea.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/calabera.png")));
+					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/hierba.png")));
+					pelea.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/calabera.png")));
 
 				} else {
 
@@ -281,19 +281,19 @@ public class Array extends JFrame implements KeyListener {
 					// Arquero
 					if (direcccion.equals("UP")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/arquero_detras_sf.png")));
+						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_detras_sf.png")));
 
 					} else if (direcccion.equals("DOWN")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/arquero_delante_sf.png")));
+						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_delante_sf.png")));
 
 					} else if (direcccion.equals("RIGHT")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/arquero.png")));
+						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero.png")));
 
 					} else if (direcccion.equals("LEFT")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Imagenes/arquero_girado_sf.png")));
+						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_girado_sf.png")));
 
 					}
 
