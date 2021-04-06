@@ -1,4 +1,4 @@
-package Prueba;
+package Combate;
 public class MascaraColisiones {
 	private int[] x = {200,0,0};
 	private int[] y = {165,110,170};

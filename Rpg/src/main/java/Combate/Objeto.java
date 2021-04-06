@@ -1,4 +1,4 @@
-package Prueba;
+package Combate;
 
 public abstract class Objeto {
 	
@@ -62,8 +62,8 @@ public abstract class Objeto {
 		//====================================
 		col = bloque.Colision(x, y+10, alto, ancho);
 		if(bloque.Colision(x, y+10, alto, ancho) > 0) {
-			if (y-5 <= (bloque.getY(col-1)) ) {ydest -=dy;caer = false;ydest = bloque.getY(col-1)-10; dy = 0;} //No se mueve la y si está arriba.
-			else if(y < (bloque.getY(col-1) + bloque.getAlto(col-1)))xdest -= dx; //Si no está abajo
+			if (y-5 <= (bloque.getY(col-1)) ) {ydest -=dy;caer = false;ydest = bloque.getY(col-1)-10; dy = 0;} //No se mueve la y si estï¿½ arriba.
+			else if(y < (bloque.getY(col-1) + bloque.getAlto(col-1)))xdest -= dx; //Si no estï¿½ abajo
 		} 
 		this.setPosition(xdest, ydest); //Aplicar
 	}

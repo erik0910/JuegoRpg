@@ -1,4 +1,4 @@
-package Prueba;
+package Combate;
 
 import java.awt.image.BufferedImage;
 
@@ -7,7 +7,7 @@ public class Animacion {
 	private int frameActual;
 	private long tiempoInicial,delay;
 	
-	public void setAnimacion(BufferedImage[] frames) { //Mandas una imagen y la cambias a la animación privada del objeto que la ha llamado.
+	public void setAnimacion(BufferedImage[] frames) { //Mandas una imagen y la cambias a la animaciï¿½n privada del objeto que la ha llamado.
 		this.frames = frames; //Cambiar las imagenes
 		frameActual = 0;
 		tiempoInicial = System.nanoTime();

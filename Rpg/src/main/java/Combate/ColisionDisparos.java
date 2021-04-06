@@ -1,4 +1,4 @@
-package Prueba;
+package Combate;
 public class ColisionDisparos {
 	private double x, y;
 	private int alto, ancho;

@@ -1,4 +1,4 @@
-package Prueba;
+package Combate;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
