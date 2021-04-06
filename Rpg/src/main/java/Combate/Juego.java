@@ -104,7 +104,14 @@ import mapa.Array;
 				System.out.println("entra en la ia");
 				Room.bossIa();
 				if(Room.finalizar) {
-					System.out.println("ha terminado");
+					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
+					System.out.println("el monedero actual es de"+Array.cartera);
+					if(Room.estado) {
+					Array.cartera.ganar();
+					}else {
+						Array.cartera.perder();
+					}
+					System.out.println("el monedero despues de el combate es de"+Array.cartera);
 					running= false;
 					Array.contentPane.setFocusable(true);
 					Ventana.window.dispose();

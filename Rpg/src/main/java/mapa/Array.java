@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Combate.*;
+import Dinero.Monedero;
 
 public class Array extends JFrame implements KeyListener {
 
@@ -30,6 +31,8 @@ public class Array extends JFrame implements KeyListener {
 	static int y_dib = 0;
 	static String direccion = "RIGHT";
 	private static String skin = "";
+	// atributo moneda que contendra la mondeda que disponde el jugador en ese momento
+	public static Monedero cartera= new Monedero();
 	
 	private static final long serialVersionUID = 1L;
 

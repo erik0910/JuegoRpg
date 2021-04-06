@@ -33,11 +33,9 @@ public class Room {
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
 				System.out.println(playergetX(2));
-				System.out.println("entra");
 			}else {derecha=false;}
 		}else {
 			if(playergetX(2)>2){//obtenemos la posicion x para saber donde se tiene que mover
-				System.out.println("entra 2");
 				System.out.println(playergetX(2));
 				player[2].setIzquierda(true);
 				} else {
@@ -61,9 +59,8 @@ public class Room {
 				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
 						System.out.println("he entrado");
-					//if(obj == 1) estado=true;//Fin almacena el personaje que ha ganado.
+					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
-					System.out.println(finalizar);
 				}
 				borrar = disparos.indexOf(dispis); //almacenar el index del disparo.
 			}
