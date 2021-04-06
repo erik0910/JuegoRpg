@@ -374,8 +374,9 @@ public class Array extends JFrame implements KeyListener {
 
 			}
 		}
-
-		// Consola System.out.println(); System.out.println(); System.out.println();
+		
+		/**
+		// Consola 
 		System.out.println();
 
 		for (int i = 0; i < 50; i++) {
@@ -401,7 +402,7 @@ public class Array extends JFrame implements KeyListener {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-
+	**/
 	}
 
 	public void keyPressed(KeyEvent e) {
