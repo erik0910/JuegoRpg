@@ -138,7 +138,11 @@ public class InterfazPersonalizacion extends JFrame {
 		btnContinuar.setBounds(566, 815, 97, 23);
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Iniciar mundo y guardar seleccion
+				mapa.Array inter = new mapa.Array();
+				inter.setSkin(lblNombrePersonaje.getText());
+				dispose();
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
 				
 			}
 		});

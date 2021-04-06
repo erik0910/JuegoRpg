@@ -26,8 +26,9 @@ public class Array extends JFrame implements KeyListener {
 	static int y_ant;
 	static int x_dib = 0;
 	static int y_dib = 0;
-	static String direcccion = "UP";
-
+	static String direccion = "RIGHT";
+	private static String skin = "";
+	
 	private static final long serialVersionUID = 1L;
 
 	private static JPanel contentPane;
@@ -43,6 +44,10 @@ public class Array extends JFrame implements KeyListener {
 				}
 			}
 		});
+	}
+
+	public void setSkin(String skin) {
+		Array.skin = skin;
 	}
 
 	public Array() {
@@ -272,29 +277,89 @@ public class Array extends JFrame implements KeyListener {
 
 					// Personajes
 
-					// Caballero
-					// perso.setIcon(new
-					// ImageIcon(prueba.class.getResource("/Imagenes/caballero.png")));
-
 					// Arquero
-					if (direcccion.equals("UP")) {
+					if (skin.equals("Ezio, el Arquero Centenario")) {
+						
+						if (direccion.equals("UP")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_detras_sf.png")));
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_detras_sf.png")));
 
-					} else if (direcccion.equals("DOWN")) {
+						} else if (direccion.equals("DOWN")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_delante_sf.png")));
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_delante_sf.png")));
 
-					} else if (direcccion.equals("RIGHT")) {
+						} else if (direccion.equals("RIGHT")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero.png")));
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero.png")));
 
-					} else if (direcccion.equals("LEFT")) {
+						} else if (direccion.equals("LEFT")) {
 
-						perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_girado_sf.png")));
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_girado_sf.png")));
 
-					}
+						}
+					// Caballero (faltan los sprites para el movimiento)
+					} else if(skin.equals("Geralt de Rivia")) {
+						
+						if (direccion.equals("UP")) {
 
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("DOWN")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("RIGHT")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("LEFT")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						}
+					// Mago (sin completar las imagenes)
+					} else if(skin.equals("Kalgar de Boria")) {
+						
+						if (direccion.equals("UP")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("DOWN")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("RIGHT")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						} else if (direccion.equals("LEFT")) {
+
+							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+
+						}
+					// Default	
+					} 
+//					else {
+//						
+//						if (direccion.equals("UP")) {
+//
+//							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_detras_sf.png")));
+//
+//						} else if (direccion.equals("DOWN")) {
+//
+//							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_delante_sf.png")));
+//
+//						} else if (direccion.equals("RIGHT")) {
+//
+//							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero.png")));
+//
+//						} else if (direccion.equals("LEFT")) {
+//
+//							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_girado_sf.png")));
+//
+//						}
+//					}
+					
 				}
 
 				pos_x = pos_x + 60;
@@ -352,7 +417,7 @@ public class Array extends JFrame implements KeyListener {
 						x_dib = x_dib + 1;
 					}
 				}
-				direcccion = "DOWN";
+				direccion = "DOWN";
 				dibujado();
 			}
 
@@ -367,7 +432,7 @@ public class Array extends JFrame implements KeyListener {
 						y_dib = y_dib - 1;
 					}
 				}
-				direcccion = "LEFT";
+				direccion = "LEFT";
 				dibujado();
 			}
 
@@ -383,7 +448,7 @@ public class Array extends JFrame implements KeyListener {
 					}
 
 				}
-				direcccion = "RIGHT";
+				direccion = "RIGHT";
 				dibujado();
 
 			}
@@ -400,7 +465,7 @@ public class Array extends JFrame implements KeyListener {
 					}
 				}
 
-				direcccion = "UP";
+				direccion = "UP";
 				dibujado();
 
 			}
