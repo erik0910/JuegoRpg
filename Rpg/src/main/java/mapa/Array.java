@@ -1,4 +1,4 @@
-package Code;
+package mapa;
 
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Tiles;
 
 public class Array extends JFrame implements KeyListener {
 
