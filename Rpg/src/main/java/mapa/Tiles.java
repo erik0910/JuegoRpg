@@ -1,4 +1,4 @@
-package Clases;
+package mapa;
 
 public class Tiles {
 
