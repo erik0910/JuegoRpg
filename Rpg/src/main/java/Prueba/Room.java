@@ -20,7 +20,7 @@ public class Room {
 	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
 	//cargar el fondo de la pantalla
 	public Room() {
-		fondo = new Fondo("/Prueba/Backgrounds/grassbg1.gif", 0.1);
+		fondo = new Fondo("/Prueba/Backgrounds/mapa1.gif", 0.1);
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
 			player[i].setPosition(100*i, 100*i);
@@ -89,7 +89,7 @@ public class Room {
 		if(!derecha) player[2].setIzquierda(true);
 		if(derecha) player[2].setDerecha(true);
 		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_W)) player[2].setSalto(true);
+		//if(true) player[2].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
 	}
 	

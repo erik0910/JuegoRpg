@@ -91,7 +91,7 @@ import javax.swing.JPanel;
 			
 			init();
 			long start, elapsed, wait;
-			/*Bucle mort�l===============================*/
+			/*                Bucle mortal                    */
 			while(running) {
 				start = System.nanoTime(); //Tiempo inicial
 				Room.teclas();
