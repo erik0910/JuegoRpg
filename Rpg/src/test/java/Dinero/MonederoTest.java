@@ -14,6 +14,8 @@ public class MonederoTest {
 		assertTrue(mondeda.getDinero()==1100);// ya que el metodo ganar nos incrementa 100 deberia de dar 1100 el total
 		mondeda.perder();
 		assertTrue(mondeda.getDinero()==1000);
+		mondeda.compra(500);
+		assertTrue(mondeda.getDinero()==500);// una vez comprado se le restara esa compra 
 	}
 
 }

@@ -30,5 +30,7 @@ public void perder() {
 public String toString() {
 	return "Monedero [dinero=" + dinero + "]";
 }
- 
+ public void compra(int gasto) {
+	 this.dinero -=gasto;
+ }
 }
