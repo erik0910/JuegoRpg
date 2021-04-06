@@ -13,6 +13,8 @@ import java.util.Scanner;
 import java.io.File;
 import javax.swing.JPanel;
 
+import mapa.Array;
+
 
 @SuppressWarnings("serial")
 	public class Juego extends JPanel 
@@ -104,6 +106,7 @@ import javax.swing.JPanel;
 				if(Room.finalizar) {
 					System.out.println("ha terminado");
 					running= false;
+					Array.contentPane.setFocusable(true);
 					Ventana.window.dispose();
 				}
 				elapsed = System.nanoTime() - start;

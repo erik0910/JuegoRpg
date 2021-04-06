@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Combate.*;
+
 public class Array extends JFrame implements KeyListener {
 
 	static Tiles[][] mundo = new Tiles[50][50];
@@ -31,7 +33,7 @@ public class Array extends JFrame implements KeyListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	private static JPanel contentPane;
+	public static JPanel contentPane;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -217,8 +219,8 @@ public class Array extends JFrame implements KeyListener {
 		repaint();
 
 		if (mundo[x][y].getCode() == ("fight")) {
-
-			JOptionPane.showMessageDialog(null, "Pelea");
+			contentPane.setFocusable(false);
+			Ventana.cargarCombate();
 
 		}
 		repaint();
