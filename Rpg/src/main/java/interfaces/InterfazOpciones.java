@@ -75,7 +75,7 @@ public class InterfazOpciones extends JFrame {
 		
 		
 		setResizable(false);
-		setTitle("Rpg");
+		setTitle("rpg");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 619, 580);
 		contentPane = new FondoIntOpciones();
