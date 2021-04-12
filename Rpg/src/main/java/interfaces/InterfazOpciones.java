@@ -55,7 +55,7 @@ public class InterfazOpciones extends JFrame {
 		List<String> arrayList = new ArrayList<String>();
 		
 		//Lectura de la configuracion
-		File file = new File(".\\src\\main\\java\\Resources\\Opciones.txt");
+		File file = new File(".\\src\\main\\java\\resources\\Opciones.txt");
 		if(file.length()!=0) {
 			try {
 			      Scanner myReader = new Scanner(file);
