@@ -23,8 +23,8 @@ public class Disparo extends Objeto {
 		colisiondisp = new ColisionDisparos(this.x, this.y, this.ancho, this.alto); //Crear una m�scara de colisiones para el disparo
 		
 		try {
-			if(player==1) hoja = ImageIO.read(getClass().getResource("/Resources/disparo.png")); //Seg�n el jugador el disparo contendr� un aspecto o otro.
-			else hoja = ImageIO.read(getClass().getResource("/Resources/disparo2.png"));
+			if(player==1) hoja = ImageIO.read(getClass().getResource("/Resources/combate/disparo.png")); //Seg�n el jugador el disparo contendr� un aspecto o otro.
+			else hoja = ImageIO.read(getClass().getResource("/Resources/combate/disparo2.png"));
 		} catch (IOException e) {e.printStackTrace();}
 		
 		for(int j = 0; j < 2; j++) bi[j] = hoja.getSubimage((j * ancho)+1*(1+j), 1, ancho, alto); //A�adir las imagenes 0 o 10 + 1, 1 , 10, 10
