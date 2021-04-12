@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -14,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class InterfazInicial extends JFrame {
 
@@ -42,7 +45,7 @@ public class InterfazInicial extends JFrame {
 		contentPane = new FondoIntInicial();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+	
 		JButton btnNewGame = new JButton("Nueva Partida");
 		btnNewGame.setBounds(196, 171, 220, 27);
 		btnNewGame.setForeground(SystemColor.text);

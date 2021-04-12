@@ -99,9 +99,9 @@ public class InterfazOpciones extends JFrame {
 		cbCancion.setOpaque(false);
 		cbCancion.setFont(new Font("Algerian", Font.PLAIN, 11));
 		//Agregar canciones
-		cbCancion.addItem("1ºCancion");
-		cbCancion.addItem("2ºCancion");
-		cbCancion.addItem("3ºCancion");
+		cbCancion.addItem("1Cancion");
+		cbCancion.addItem("2Cancion");
+		cbCancion.addItem("3Cancion");
 		
 		if(data[3]!=null) {
 			cbCancion.setSelectedItem(data[3]);	
