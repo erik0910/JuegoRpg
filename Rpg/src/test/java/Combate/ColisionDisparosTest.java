@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import combate.Armas;
+import combate.ColisionDisparos;
+
 public class ColisionDisparosTest {
 	
 

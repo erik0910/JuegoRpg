@@ -1,4 +1,4 @@
-package Combate;
+package combate;
 
 
 public class Armas {

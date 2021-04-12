@@ -1,5 +1,5 @@
 normal
 no
-60
+144
 1ºCancion
 50

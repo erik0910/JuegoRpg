@@ -1,4 +1,4 @@
-package Interface;
+package interfaces;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

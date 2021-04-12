@@ -1,4 +1,4 @@
-package Combate;
+package combate;
 
 public abstract class Objeto {
 	

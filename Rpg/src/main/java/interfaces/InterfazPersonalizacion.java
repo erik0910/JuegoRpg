@@ -1,4 +1,4 @@
-package Interface;
+package interfaces;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -52,7 +52,7 @@ public class InterfazPersonalizacion extends JFrame {
 		
 		
 		setResizable(false);
-		setTitle("Rpg");
+		setTitle("rpg");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 900);
 		MainPanel = new FondoIntPers();

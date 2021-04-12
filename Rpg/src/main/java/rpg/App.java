@@ -1,6 +1,6 @@
-package Rpg;
+package rpg;
 
-import Interface.InterfazInicial;
+import interfaces.InterfazInicial;
 
 public class App 
 {

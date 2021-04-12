@@ -1,4 +1,4 @@
-package Dinero;
+package dinero;
 
 public class Monedero {
 /*

@@ -1,4 +1,4 @@
-package Interface;
+package interfaces;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -35,7 +35,7 @@ public class InterfazInicial extends JFrame {
 	}
 
 	public InterfazInicial() {
-		setTitle("Rpg");
+		setTitle("rpg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 539);

@@ -1,4 +1,4 @@
-package Combate;
+package combate;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 

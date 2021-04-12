@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import dinero.Monedero;
+
 public class MonederoTest {
 //funcionamineto de la clase monedero
 	@Test

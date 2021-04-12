@@ -1,19 +1,19 @@
-package Interface;
+package interfaces;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class FondoIntInicial extends javax.swing.JPanel{
+public class FondoIntCargar extends javax.swing.JPanel{
     
-    public FondoIntInicial() {
+    public FondoIntCargar() {
     	this.setSize(619, 539);       
     }
      
     public void paintComponent(Graphics g) {
     	  Dimension tamanio = getSize();
-    	  ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/resources/fondoInicial.jpg"));
+    	  ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/resources/fondoCargar.jpg"));
     	  g.drawImage(imagenFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
     	  setOpaque(false);
     	  super.paintComponent(g);

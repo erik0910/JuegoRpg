@@ -1,4 +1,4 @@
-package Combate;
+package combate;
 
 import java.awt.image.BufferedImage;
 
