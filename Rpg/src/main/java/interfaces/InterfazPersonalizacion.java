@@ -19,6 +19,7 @@ public class InterfazPersonalizacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
+	static final ClassLoader loader = InterfazPersonalizacion.class.getClassLoader();
 	private FondoIntPers MainPanel;
 	private String[] rutasSprite = new String[3];
 	private String[] nombresPersonajes = new String[3];
@@ -42,9 +43,9 @@ public class InterfazPersonalizacion extends JFrame {
 
 	public InterfazPersonalizacion() {
 		
-		rutasSprite[0] = "/Resources/SpritesSkins/Caballero.png";
-		rutasSprite[1] = "/Resources/SpritesSkins/Arquero.png";
-		rutasSprite[2] = "/Resources/SpritesSkins/Mago.png";
+		rutasSprite[0] = "spritesSkins/Caballero.png";
+		rutasSprite[1] = "spritesSkins/Arquero.png";
+		rutasSprite[2] = "spritesSkins/Mago.png";
 		
 		nombresPersonajes[0] = "Geralt de Rivia";
 		nombresPersonajes[1] = "Ezio, el Arquero Centenario";
@@ -52,7 +53,7 @@ public class InterfazPersonalizacion extends JFrame {
 		
 		
 		setResizable(false);
-		setTitle("rpg");
+		setTitle("Rpg");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 900);
 		MainPanel = new FondoIntPers();
@@ -60,7 +61,7 @@ public class InterfazPersonalizacion extends JFrame {
 		setContentPane(MainPanel);
 		
 	    lblSkin = new JLabel("");
-		lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+		lblSkin.setIcon(new ImageIcon(loader.getResource(rutasSprite[contador])));
 		lblSkin.setBounds(187, 99, 369, 569);
 		MainPanel.add(lblSkin);
 		
@@ -72,7 +73,7 @@ public class InterfazPersonalizacion extends JFrame {
 		MainPanel.add(lblNombrePersonaje);
 		
 		JButton btnFlechaIzq = new JButton("");
-		btnFlechaIzq.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource("/Resources/arrow-2.png")));
+		btnFlechaIzq.setIcon(new ImageIcon(loader.getResource("arrow-2.png")));
 		btnFlechaIzq.setBounds(12, 380, 97, 25);
 		btnFlechaIzq.setOpaque(false); 
 		btnFlechaIzq.setBorder(null);
@@ -82,7 +83,7 @@ public class InterfazPersonalizacion extends JFrame {
 				if(contador>0) {
 				contador--;
 				lblNombrePersonaje.setText(nombresPersonajes[contador]);
-				lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+				lblSkin.setIcon(new ImageIcon(loader.getResource(rutasSprite[contador])));
 				}
 			}
 		});
@@ -97,7 +98,7 @@ public class InterfazPersonalizacion extends JFrame {
 		
 		JButton btnFlechaDrch = new JButton("");
 		btnFlechaDrch.setBounds(566, 380, 97, 25);
-		btnFlechaDrch.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource("/Resources/arrow-1.png")));
+		btnFlechaDrch.setIcon(new ImageIcon(loader.getResource("arrow-1.png")));
 		btnFlechaDrch.setOpaque(false);
 		btnFlechaDrch.setBorder(null);
 		btnFlechaDrch.setBackground(new Color(0, 0, 0, 0));
@@ -106,7 +107,7 @@ public class InterfazPersonalizacion extends JFrame {
 				if(contador<2) {
 				contador++;
 				lblNombrePersonaje.setText(nombresPersonajes[contador]);
-				lblSkin.setIcon(new ImageIcon(InterfazPersonalizacion.class.getResource(rutasSprite[contador])));
+				lblSkin.setIcon(new ImageIcon(loader.getResource(rutasSprite[contador])));
 				}
 			}	
 		});

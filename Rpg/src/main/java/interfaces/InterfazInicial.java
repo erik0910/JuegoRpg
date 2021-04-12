@@ -38,7 +38,7 @@ public class InterfazInicial extends JFrame {
 	}
 
 	public InterfazInicial() {
-		setTitle("rpg");
+		setTitle("Rpg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 619, 539);

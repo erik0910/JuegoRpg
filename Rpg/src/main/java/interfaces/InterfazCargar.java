@@ -36,7 +36,7 @@ public class InterfazCargar extends JFrame {
 	}
 
 	public InterfazCargar() {
-		setTitle("rpg");
+		setTitle("Rpg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 539);
