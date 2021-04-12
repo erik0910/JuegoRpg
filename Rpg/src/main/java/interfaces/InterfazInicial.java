@@ -38,13 +38,13 @@ public class InterfazInicial extends JFrame {
 		setTitle("rpg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 539);
+		setBounds(100, 100, 619, 539);
 		contentPane = new FondoIntInicial();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JButton btnNewGame = new JButton("Nueva Partida");
-		btnNewGame.setBounds(207, 171, 220, 27);
+		btnNewGame.setBounds(196, 171, 220, 27);
 		btnNewGame.setForeground(SystemColor.text);
 		btnNewGame.setBackground(Color.WHITE);
 		btnNewGame.setBorder(null);
@@ -63,7 +63,7 @@ public class InterfazInicial extends JFrame {
 		contentPane.add(btnNewGame);
 		
 		JButton btnLoadGame = new JButton("Cargar Partida");
-		btnLoadGame.setBounds(207, 247, 220, 27);
+		btnLoadGame.setBounds(196, 247, 220, 27);
 		btnLoadGame.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnLoadGame.setForeground(SystemColor.text);
 		btnLoadGame.setBackground(Color.WHITE);
@@ -92,7 +92,7 @@ public class InterfazInicial extends JFrame {
 		btnOptions.setBackground(Color.WHITE);
 		btnOptions.setBorder(null);
 		btnOptions.setOpaque(false);
-		btnOptions.setBounds(207, 326, 220, 27);
+		btnOptions.setBounds(196, 326, 220, 27);
 		btnOptions.setFont(new Font("Algerian", Font.PLAIN, 18));
 		contentPane.add(btnOptions);
 		
@@ -100,7 +100,7 @@ public class InterfazInicial extends JFrame {
 		lblTitulo.setForeground(new Color(102, 0, 0));
 		lblTitulo.setFont(new Font("Algerian", Font.BOLD | Font.ITALIC, 30));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(207, 32, 220, 38);
+		lblTitulo.setBounds(196, 32, 220, 38);
 		contentPane.add(lblTitulo);
 	}
 }

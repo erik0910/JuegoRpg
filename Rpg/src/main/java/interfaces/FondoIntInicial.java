@@ -12,9 +12,8 @@ public class FondoIntInicial extends javax.swing.JPanel{
     }
      
     public void paintComponent(Graphics g) {
-    	  Dimension tamanio = getSize();
     	  ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/resources/fondoInicial.jpg"));
-    	  g.drawImage(imagenFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
+    	  g.drawImage(imagenFondo.getImage(), 0, 0, 619, 539, null);
     	  setOpaque(false);
     	  super.paintComponent(g);
     }
