@@ -20,7 +20,7 @@ public class Room {
 	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
 	//cargar el fondo de la pantalla
 	public Room() {
-		fondo = new Fondo("/Prueba/Backgrounds/mapaEspacio.gif", 0.1);
+		fondo = new Fondo("/Resources/mapaEspacio.gif", 0.1);
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
 			player[i].setPosition(100*i, 100*i);

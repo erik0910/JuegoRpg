@@ -59,7 +59,7 @@ public class Player extends Objeto  {
 			/*Cargar hoja de im�genes================================*/
 			BufferedImage hoja = ImageIO.read(
 				getClass().getResource(
-					"/Prueba/Sprites/Player/player.png"
+					"/Resources/player.png"
 				)
 			);
 			/*======================================================*/
