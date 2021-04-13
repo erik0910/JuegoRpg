@@ -35,6 +35,8 @@ public class Array extends JFrame implements KeyListener {
 	public static Monedero cartera= new Monedero();
 	
 	private static final long serialVersionUID = 1L;
+	
+	static final ClassLoader loader = Array.class.getClassLoader();
 
 	public static JPanel contentPane;
 
@@ -248,30 +250,46 @@ public class Array extends JFrame implements KeyListener {
 
 				if (mundo[i + x_dib][u + y_dib].getCode().equals("grass")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/hierba.png")));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/hierba.png"));
+
+					mapa.setIcon(imagenFondo);
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("walls")) {
 
 					if ((u == 0 || u == 9) && (i != 0 && i != 9)) {
-						mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/paredgirada.png")));
+						
+						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/paredgirada.png"));
+
+						mapa.setIcon(imagenFondo);
 
 					} else {
 
-						mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/pared.png")));
+						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/pared.png"));
+
+						mapa.setIcon(imagenFondo);
 					}
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("river")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/Agua.png")));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/Agua.png"));
+
+					mapa.setIcon(imagenFondo);
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("bridg")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/bridge.png")));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/bridge.png"));
 
+					mapa.setIcon(imagenFondo);
+					
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("fight")) {
 
-					mapa.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/hierba.png")));
-					pelea.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/calabera.png")));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/hierba.png"));
+
+					mapa.setIcon(imagenFondo);
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/calabera.png"));
+
+					pelea.setIcon(imagenFondo);
 
 				} else {
 
@@ -286,20 +304,28 @@ public class Array extends JFrame implements KeyListener {
 					if (skin.equals("Ezio, el Arquero Centenario")) {
 						
 						if (direccion.equals("UP")) {
+							
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_detras_sf.png"));
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_detras_sf.png")));
+							perso.setIcon(imagenFondo);
+							
 
 						} else if (direccion.equals("DOWN")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_delante_sf.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_delante_sf.png"));
 
+							perso.setIcon(imagenFondo);
 						} else if (direccion.equals("RIGHT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/arquero_girado_sf.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_girado_sf.png"));
+
+							perso.setIcon(imagenFondo);
 
 						}
 					// Caballero (faltan los sprites para el movimiento)
@@ -307,19 +333,27 @@ public class Array extends JFrame implements KeyListener {
 						
 						if (direccion.equals("UP")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("DOWN")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("RIGHT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						}
 					// Mago (sin completar las imagenes)
@@ -327,19 +361,27 @@ public class Array extends JFrame implements KeyListener {
 						
 						if (direccion.equals("UP")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("DOWN")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("RIGHT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							perso.setIcon(new ImageIcon(Array.class.getResource("/Resources/mundo/caballero.png")));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+
+							perso.setIcon(imagenFondo);
 
 						}
 					// Default	
