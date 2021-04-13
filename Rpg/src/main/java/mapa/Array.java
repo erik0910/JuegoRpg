@@ -250,7 +250,7 @@ public class Array extends JFrame implements KeyListener {
 
 				if (mundo[i + x_dib][u + y_dib].getCode().equals("grass")) {
 
-					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/hierba.png"));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/hierba.png"));
 
 					mapa.setIcon(imagenFondo);
 
@@ -258,36 +258,36 @@ public class Array extends JFrame implements KeyListener {
 
 					if ((u == 0 || u == 9) && (i != 0 && i != 9)) {
 						
-						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/paredgirada.png"));
+						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/paredgirada.png"));
 
 						mapa.setIcon(imagenFondo);
 
 					} else {
 
-						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/pared.png"));
+						ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/pared.png"));
 
 						mapa.setIcon(imagenFondo);
 					}
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("river")) {
 
-					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/Agua.png"));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/Agua.png"));
 
 					mapa.setIcon(imagenFondo);
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("bridg")) {
 
-					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/bridge.png"));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/bridge.png"));
 
 					mapa.setIcon(imagenFondo);
 					
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("fight")) {
 
-					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/hierba.png"));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/hierba.png"));
 
 					mapa.setIcon(imagenFondo);
 					
-					ImageIcon imagendelante = new ImageIcon(loader.getResource("/mundo/calabera.png"));
+					ImageIcon imagendelante = new ImageIcon(loader.getResource("/resources/mundo/calabera.png"));
 
 					pelea.setIcon(imagendelante);
 
@@ -305,25 +305,25 @@ public class Array extends JFrame implements KeyListener {
 						
 						if (direccion.equals("UP")) {
 							
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_detras_sf.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/arquero_detras_sf.png"));
 
 							perso.setIcon(imagenFondo);
 							
 
 						} else if (direccion.equals("DOWN")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_delante_sf.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/arquero_delante_sf.png"));
 
 							perso.setIcon(imagenFondo);
 						} else if (direccion.equals("RIGHT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/arquero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/arquero_girado_sf.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/arquero_girado_sf.png"));
 
 							perso.setIcon(imagenFondo);
 
@@ -333,25 +333,25 @@ public class Array extends JFrame implements KeyListener {
 						
 						if (direccion.equals("UP")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("DOWN")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("RIGHT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
@@ -361,25 +361,25 @@ public class Array extends JFrame implements KeyListener {
 						
 						if (direccion.equals("UP")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("DOWN")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("RIGHT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
 						} else if (direccion.equals("LEFT")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/caballero.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("/resources/mundo/caballero.png"));
 
 							perso.setIcon(imagenFondo);
 
