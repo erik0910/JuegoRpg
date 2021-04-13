@@ -2,6 +2,8 @@ package combate;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
+import interfaces.FondoIntCargar;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -37,7 +39,8 @@ public class Player extends Objeto  {
 	
 	//Arma
 	//private Armas espada =new Armas(20/*Da�o*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Da�o*/);
-	
+	//carga de imagenes de la clase resources
+	static final ClassLoader loader = Player.class.getClassLoader();
 	public Player(int player) {
 		ancho = 30;
 		alto = 30;
@@ -57,11 +60,13 @@ public class Player extends Objeto  {
 		/*Imagenes===================================================*/
 		try {
 			/*Cargar hoja de im�genes================================*/
-			BufferedImage hoja = ImageIO.read(
-				getClass().getResource(
-					"/Resources/combate/player.png"
-				)
-			);
+//			BufferedImage hoja = ImageIO.read(
+//				getClass().getResource(
+//					"/Resources/combate/player.png"
+//				)
+//			);
+			//cambios debido al fallo con maven
+			BufferedImage hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
 			/*======================================================*/
 			sprites = new ArrayList<BufferedImage[]>();
 			/*Array de im�genes====================================*/

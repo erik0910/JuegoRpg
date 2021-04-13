@@ -8,9 +8,10 @@ public class Fondo {
 	private BufferedImage image;
 	private double x;
 	private double y;
+	static final ClassLoader loader = Fondo.class.getClassLoader();
 	
 	public Fondo(String s, double ms) {
-		try {image = ImageIO.read(getClass().getResource(s));}
+		try {image = ImageIO.read(loader.getResource(s));}
 		catch(Exception e) {e.printStackTrace();}	
 	}
 	
