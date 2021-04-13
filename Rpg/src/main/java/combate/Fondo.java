@@ -12,7 +12,8 @@ public class Fondo {
 	
 	public Fondo(String s, double ms) {
 		try {image = ImageIO.read(loader.getResource(s));}
-		catch(Exception e) {e.printStackTrace();}	
+		catch(Exception e) {
+		}	
 	}
 	
 	public void draw(Graphics2D g) {g.drawImage(image, (int)x, (int)y, null);}
