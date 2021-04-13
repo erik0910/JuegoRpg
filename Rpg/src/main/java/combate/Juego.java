@@ -114,6 +114,7 @@ import mapa.Array;
 					System.out.println("el monedero despues de el combate es de"+Array.cartera);
 					Array.contentPane.setFocusable(true);
 					Room.finalizar=false;
+					running = false;
 					Ventana.window.dispose();
 				}
 				elapsed = System.nanoTime() - start;
