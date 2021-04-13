@@ -30,7 +30,7 @@ public class Array extends JFrame implements KeyListener {
 	static int x_dib = 0;
 	static int y_dib = 0;
 	static String direccion = "RIGHT";
-	private static String skin = "";
+	private static String skin = interfaces.InterfazPersonalizacion.skin;
 	// atributo moneda que contendra la mondeda que disponde el jugador en ese momento
 	public static Monedero cartera= new Monedero();
 	
@@ -51,10 +51,6 @@ public class Array extends JFrame implements KeyListener {
 				}
 			}
 		});
-	}
-
-	public void setSkin(String skin) {
-		Array.skin = skin;
 	}
 
 	public Array() {
