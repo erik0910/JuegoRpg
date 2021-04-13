@@ -141,7 +141,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mapa.Array inter = new mapa.Array();
-				skin = lblNombrePersonaje.getText();
+				inter.skin = lblNombrePersonaje.getText();
 				dispose();
 				inter.setVisible(true);
 				inter.setLocationRelativeTo(null);
