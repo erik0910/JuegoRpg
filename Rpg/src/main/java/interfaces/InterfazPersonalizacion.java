@@ -20,6 +20,7 @@ public class InterfazPersonalizacion extends JFrame {
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
 	static final ClassLoader loader = InterfazPersonalizacion.class.getClassLoader();
+	public static String skin;
 	private FondoIntPers MainPanel;
 	private String[] rutasSprite = new String[3];
 	private String[] nombresPersonajes = new String[3];
@@ -140,7 +141,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mapa.Array inter = new mapa.Array();
-				inter.setSkin(lblNombrePersonaje.getText());
+				skin = lblNombrePersonaje.getText();
 				dispose();
 				inter.setVisible(true);
 				inter.setLocationRelativeTo(null);
