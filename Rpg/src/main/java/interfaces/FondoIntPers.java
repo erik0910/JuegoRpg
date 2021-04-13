@@ -17,7 +17,7 @@ public class FondoIntPers extends javax.swing.JPanel{
      
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
-    	URL imgUrl = loader.getResource("fondoPersonalizacion.png");
+    	URL imgUrl = loader.getResource("menus/fondoPersonalizacion.png");
     	ImageIcon imagenFondo = new ImageIcon(imgUrl);
     	g.drawImage(imagenFondo.getImage(), 0, 0, 1024, 1536, null);
     	setOpaque(false);

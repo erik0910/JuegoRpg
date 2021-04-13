@@ -73,7 +73,7 @@ public class InterfazPersonalizacion extends JFrame {
 		MainPanel.add(lblNombrePersonaje);
 		
 		JButton btnFlechaIzq = new JButton("");
-		btnFlechaIzq.setIcon(new ImageIcon(loader.getResource("arrow-2.png")));
+		btnFlechaIzq.setIcon(new ImageIcon(loader.getResource("menus/arrow-2.png")));
 		btnFlechaIzq.setBounds(12, 380, 97, 25);
 		btnFlechaIzq.setOpaque(false); 
 		btnFlechaIzq.setBorder(null);
@@ -98,7 +98,7 @@ public class InterfazPersonalizacion extends JFrame {
 		
 		JButton btnFlechaDrch = new JButton("");
 		btnFlechaDrch.setBounds(566, 380, 97, 25);
-		btnFlechaDrch.setIcon(new ImageIcon(loader.getResource("arrow-1.png")));
+		btnFlechaDrch.setIcon(new ImageIcon(loader.getResource("menus/arrow-1.png")));
 		btnFlechaDrch.setOpaque(false);
 		btnFlechaDrch.setBorder(null);
 		btnFlechaDrch.setBackground(new Color(0, 0, 0, 0));

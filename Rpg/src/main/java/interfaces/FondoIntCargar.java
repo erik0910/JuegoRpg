@@ -17,7 +17,7 @@ public class FondoIntCargar extends javax.swing.JPanel{
      
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
-    	URL imgUrl = loader.getResource("fondoCargar.jpg");
+    	URL imgUrl = loader.getResource("menus/fondoCargar.jpg");
     	ImageIcon imagenFondo = new ImageIcon(imgUrl);
     	g.drawImage(imagenFondo.getImage(), 0, 0, 619, 539, null);
     	setOpaque(false);

@@ -17,7 +17,7 @@ public class FondoIntInicial extends javax.swing.JPanel{
      
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
-    	URL imgUrl = loader.getResource("fondoInicial.jpg");
+    	URL imgUrl = loader.getResource("menus/fondoInicial.jpg");
     	ImageIcon imagenFondo = new ImageIcon(imgUrl);
     	g.drawImage(imagenFondo.getImage(), 0, 0, 619, 539, null);
     	setOpaque(false);
