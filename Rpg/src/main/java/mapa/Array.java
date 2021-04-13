@@ -287,9 +287,9 @@ public class Array extends JFrame implements KeyListener {
 
 					mapa.setIcon(imagenFondo);
 					
-					ImageIcon imagenFondo = new ImageIcon(loader.getResource("/mundo/calabera.png"));
+					ImageIcon imagendelante = new ImageIcon(loader.getResource("/mundo/calabera.png"));
 
-					pelea.setIcon(imagenFondo);
+					pelea.setIcon(imagendelante);
 
 				} else {
 
