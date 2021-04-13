@@ -52,7 +52,9 @@ public class Array extends JFrame implements KeyListener {
 			}
 		});
 	}
-
+	public void setSkin(String skin) {
+		Array.skin = skin;
+	}
 	public Array() {
 		addKeyListener(this);
 		setResizable(false);
