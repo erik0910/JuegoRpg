@@ -96,7 +96,6 @@ public class Room {
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
 	
 	public static void disparo(int p) {
-		System.out.println("Disparo "+p);
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
 			player[p].setAtaque(true); 
 			if(tempdisp == -1) disparo/*[numDisparos]*/ = new Disparo(player[p].getx(), player[p].gety(), player[p].getmDerecha(), p);
