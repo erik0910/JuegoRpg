@@ -32,11 +32,11 @@ public class Room {
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
-				System.out.println(playergetX(2));
+				
 			}else {derecha=false;}
 		}else {
 			if(playergetX(2)>2){//obtenemos la posicion x para saber donde se tiene que mover
-				System.out.println(playergetX(2));
+				
 				player[2].setIzquierda(true);
 				} else {
 					derecha=true;				} 	
@@ -56,7 +56,7 @@ public class Room {
 			if(dispis.getF()){ //F es si el disparo ha entrado en colisi�n con el disparo, es decir, �ste disparo debe�a haber acabado y se debe restar hp del jugador.
 				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que est� dirigido el ataque.
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
-				System.out.println("Vida del player"+obj+": "+player[obj].getHealth()); //Mostrar la vida
+			
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
 						System.out.println("he entrado");
 					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
