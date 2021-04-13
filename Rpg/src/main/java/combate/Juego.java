@@ -80,7 +80,6 @@ import mapa.Array;
 				      }
 				      myReader.close();
 				} catch (FileNotFoundException e1) {
-				      System.out.println("An error occurred.");
 				      e1.printStackTrace();
 				}
 				
@@ -89,7 +88,6 @@ import mapa.Array;
 			int newFPS = Integer.parseInt(data[2]);
 			this.FPS = newFPS;
 			this.tiempo = 1000/this.FPS; 
-			System.out.println(FPS);
 			
 			init();
 			long start, elapsed, wait;
@@ -101,17 +99,14 @@ import mapa.Array;
 				draw();
 				pintarPantalla();
 				//veamos a ver si funciona la ia
-				System.out.println("entra en la ia");
 				Room.bossIa();
 				if(Room.finalizar) {
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
-					System.out.println("el monedero actual es de"+Array.cartera);
 					if(Room.estado) {
 					Array.cartera.ganar();
 					}else {
 						Array.cartera.perder();
 					}
-					System.out.println("el monedero despues de el combate es de"+Array.cartera);
 					Array.contentPane.setFocusable(true);
 					Room.finalizar=false;
 					running = false;
