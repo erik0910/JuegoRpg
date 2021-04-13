@@ -1,6 +1,6 @@
 # JuegoRpg
 
-**Configuración**
+**Configuración:**
 
 **1.** Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:
 
