@@ -58,7 +58,6 @@ public class Room {
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
-						System.out.println("he entrado");
 					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
 				}
