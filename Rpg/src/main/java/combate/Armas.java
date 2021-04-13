@@ -22,7 +22,6 @@ public class Armas {
 		boolean ataque = false;
 		if(ye >= y && (ye <= y+alto)) { //y >= 200 y y <= 250
 			if(xe >= x && xe <= x+ancho) {// x >= 100 y x <= 200
-				System.out.println("Ataque");
 				ataque = true;
 			}
 		}
