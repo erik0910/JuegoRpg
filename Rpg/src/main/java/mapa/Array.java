@@ -253,19 +253,10 @@ public class Array extends JFrame implements KeyListener {
 					mapa.setIcon(imagenFondo);
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("walls")) {
-
-					if ((u == 0 || u == 9) && (i != 0 && i != 9)) {
 						
-						ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/paredgirada.png"));
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/pared.png"));
 
-						mapa.setIcon(imagenFondo);
-
-					} else {
-
-						ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/pared.png"));
-
-						mapa.setIcon(imagenFondo);
-					}
+					mapa.setIcon(imagenFondo);
 
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("river")) {
 
