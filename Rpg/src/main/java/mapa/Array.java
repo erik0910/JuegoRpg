@@ -337,7 +337,7 @@ public class Array extends JFrame implements KeyListener {
 
 						} else if (direccion.equals("DOWN")) {
 
-							ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/caballerodelante.png"));
+							ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/caballerodefrente.png"));
 
 							perso.setIcon(imagenFondo);
 
