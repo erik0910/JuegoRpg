@@ -18,6 +18,6 @@
 
 **7.** Si todo funciona bien, deberia de terminar la compilación sin mostrar ningun error.
 
-**8.** Una vez acabado este paso introduzca el siguiente comando ```mvn exec:java -Dexec.mainClass="rpg.App```.
+**8.** Una vez acabado este paso introduzca el siguiente comando ```mvn exec:java -Dexec.mainClass="rpg.App"```.
 
 **9.** Ahora cargara la ventana principal del juego y podra jugar sin problemas.

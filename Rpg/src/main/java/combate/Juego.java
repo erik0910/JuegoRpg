@@ -80,7 +80,7 @@ import mapa.Array;
 				      }
 				      myReader.close();
 				} catch (FileNotFoundException e1) {
-				      e1.printStackTrace();
+				     
 				}
 				
 			}
@@ -116,7 +116,7 @@ import mapa.Array;
 				wait = tiempo - elapsed / 1000000;
 				if(wait < 0) wait = 5;
 				try {Thread.sleep(wait);}
-				catch(Exception e) {e.printStackTrace();
+				catch(Exception e) {
 				
 				}
 			}

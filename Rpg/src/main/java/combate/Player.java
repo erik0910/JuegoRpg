@@ -80,7 +80,8 @@ public class Player extends Objeto  {
 			}
 			/*====================================================*/
 		}
-		catch(Exception e) {e.printStackTrace();}
+		catch(Exception e) {
+		}
 		animacion = new Animacion();
 		accion = NORMAL;
 		animacion.setAnimacion(sprites.get(NORMAL));

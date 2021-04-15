@@ -58,7 +58,6 @@ public class Room {
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
 				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
-						System.out.println("he entrado");
 					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
 				}
@@ -96,7 +95,6 @@ public class Room {
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
 	
 	public static void disparo(int p) {
-		System.out.println("Disparo "+p);
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
 			player[p].setAtaque(true); 
 			if(tempdisp == -1) disparo/*[numDisparos]*/ = new Disparo(player[p].getx(), player[p].gety(), player[p].getmDerecha(), p);
