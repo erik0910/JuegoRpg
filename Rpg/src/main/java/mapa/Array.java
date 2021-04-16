@@ -59,7 +59,7 @@ public class Array extends JFrame implements KeyListener {
 		addKeyListener(this);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 700);
+		setBounds(100, 100, 710, 730);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -231,14 +231,14 @@ public class Array extends JFrame implements KeyListener {
 		// Visual
 		this.getContentPane().removeAll();
 
-		int pos_x = -12;
+		int pos_x = -70;
 
-		int pos_y = -35;
+		int pos_y = -70;
 
 		for (int i = 0; i < 10; i++) {
 
-			pos_y = pos_y + 60;
-			pos_x = -12;
+			pos_y = pos_y + 70;
+			pos_x = -70;
 
 			for (int u = 0; u < 10; u++) {
 
@@ -398,7 +398,7 @@ public class Array extends JFrame implements KeyListener {
 					
 				}
 
-				pos_x = pos_x + 60;
+				pos_x = pos_x + 70;
 				pelea.setBounds(pos_x, pos_y, 70, 70);
 				contentPane.add(pelea);
 				perso.setBounds(pos_x, pos_y, 70, 70);
