@@ -7,11 +7,14 @@ import javax.jdo.Query;
 import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
-public class MainDB {
+import mapa.Tiles;
 
+public class MainDB {
+	
+	private static PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+	
 	public static void main(String[] args) {
 		// Create a PersistenceManagerFactory for this datastore
-        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 
         // Introducir datos
         PersistenceManager pm = pmf.getPersistenceManager();
@@ -77,6 +80,33 @@ public class MainDB {
             pm.close();
         }
 
+	}
+	
+	public void guardarPartida(Partida partida) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {	
+            tx.begin();					 
+            tx.commit();
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+        System.out.println("");
+	}
+	
+	public void cargarPartida() {
+		
+	}
+	
+	public void mostrarPartidas() {
+		
 	}
 
 }
