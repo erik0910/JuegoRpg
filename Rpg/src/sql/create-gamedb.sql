@@ -1,11 +1,11 @@
-/* DELETE 'gameDB' database*/
-DROP SCHEMA IF EXISTS DB;
-/* DELETE USER 'grupo1' AT LOCAL SERVER*/
-DROP USER IF EXISTS 'grupo1'@'localhost';
+/* DELETE 'gamedb' database*/
+DROP SCHEMA IF EXISTS gamedb;
+/* DELETE USER 'rpg' AT LOCAL SERVER*/
+DROP USER IF EXISTS 'rpg'@'localhost';
 
-/* CREATE 'gameDB' DATABASE */
-CREATE SCHEMA gameDB;
-/* CREATE THE USER 'grupo1' AT LOCAL SERVER WITH PASSWORD 'afterage' */
-CREATE USER IF NOT EXISTS 'grupo1'@'localhost' IDENTIFIED BY 'afterage';
+/* CREATE 'gamedb' DATABASE */
+CREATE SCHEMA gamedb;
+/* CREATE THE USER 'rpg' AT LOCAL SERVER WITH PASSWORD 'rpg' */
+CREATE USER IF NOT EXISTS 'rpg'@'localhost' IDENTIFIED BY 'rpg';
 
-GRANT ALL ON messagesDB.* TO 'grupo1'@'localhost';
+GRANT ALL ON gamedb.* TO 'rpg'@'localhost';
