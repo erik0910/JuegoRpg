@@ -1,26 +1,36 @@
 package interfaces;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+
+import db.MainDB;
+import db.Partida;
+
 import javax.swing.JList;
 import javax.swing.JLabel;
 
 public class InterfazCargar extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private FondoIntCargar contentPane;
-
+	private MainDB DBManager = new MainDB();
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,7 +56,7 @@ public class InterfazCargar extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		JList listPartidas = new JList();
+		JList<String> listPartidas = new JList<String>();
 		listPartidas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listPartidas.setFixedCellHeight(30);
 		listPartidas.setFont(new Font("Algerian", Font.PLAIN, 15));
@@ -56,11 +66,20 @@ public class InterfazCargar extends JFrame {
 		contentPane.add(listPartidas);
 		
 		//Añadir partidas guardadas
-		DefaultListModel modelo = new DefaultListModel();
-		modelo.addElement("1ºPartida");
-		modelo.addElement("2ºPartida");
-		modelo.addElement("3ºPartida");
+		Partida partida = new Partida("Example", 100, "caballero",2,2,3,3);
+		partida.setNombrePartida("Example");
+		DBManager.guardarPartida(partida);
+		
+		DefaultListModel<String> modelo = new DefaultListModel<String>();
+		List<Partida> listaPartidas = new ArrayList<Partida>();
+		listaPartidas = DBManager.mostrarPartidas();
+		for(int num=0; num<listaPartidas.size(); num++) {
+			Partida p = listaPartidas.get(num);
+			modelo.addElement(p.getNombrePartida());
+//			System.out.println("nombre de la partida= " + p.getNombrePartida() + " ; clase de objeto= " + p.getClass());
+		}
 		listPartidas.setModel(modelo);
+		DBManager.borrarPartidas();
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setForeground(SystemColor.text);

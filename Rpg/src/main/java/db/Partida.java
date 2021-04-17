@@ -8,10 +8,11 @@ import javax.jdo.annotations.PrimaryKey;
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Partida {
-	protected String nombrePartida = null;
-	protected int vida = 0;
-	protected String skin = null;
-	protected int x,y,x_dib,y_dib = 0;
+	@PrimaryKey
+	private String nombrePartida;
+	private int vida;
+	private String skin;
+	private int x,y,x_dib,y_dib;
 	
 	public Partida() {
 	}
@@ -83,5 +84,12 @@ public class Partida {
 		this.y_dib = y_dib;
 	}
 
+	@Override
+	public String toString() {
+		return "Partida [nombrePartida=" + nombrePartida + ", vida=" + vida + ", skin=" + skin + ", x=" + x + ", y=" + y
+				+ ", x_dib=" + x_dib + ", y_dib=" + y_dib + "]";
+	}
+	
+	
 	
 }

@@ -3,7 +3,9 @@ package db;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.jdo.Extent;
 import javax.jdo.Query;
@@ -13,26 +15,32 @@ import javax.jdo.Transaction;
 
 public class MainDB {
 
+	
 	private static PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+	
+	public MainDB() {
+		
+	}
 	
 	// Usar el void main para pruebas con la base de datos
 	public static void main(String[] args) {
+		System.out.println("DBManager inicializado");
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-//		Partida partida = new Partida();
-//		partida.setNombrePartida("PartidaEjemplo");
-//		partida.setSkin("caballero");
-//		partida.setVida(100);
-//		partida.setX(2);
-//		partida.setX_dib(2);
-//		partida.setY(3);
-//		partida.setY_dib(3);
 		try {
 			tx.begin();
 			Partida partida = new Partida("PartidaEjemplo", 100, "caballero",2,2,3,3);
 			System.out.println("Guardando partida " + partida.getNombrePartida());
 			pm.makePersistent(partida);
+			System.out.println("Devolviendo todas las partidas");
+			Extent<Partida> e = pm.getExtent(Partida.class, true);
+			Iterator<Partida> iter = e.iterator();
+
+			while (iter.hasNext()) {
+				Object obj = iter.next();
+				System.out.println("> " + obj);
+			}
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -40,11 +48,12 @@ public class MainDB {
 			}
 			pm.close();
 		}
-		System.out.println("");
+		System.out.println("DBManager finalizado");
 	}
 
 	// Metodo para guardar partida e insertar en la base de datos
 	public void guardarPartida(Partida partida) {
+		System.out.println("Guardando Partida");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
@@ -68,7 +77,8 @@ public class MainDB {
 	}
 
 	// Metodo para obtener la lista de partidas para luego mostrar en InterfazCargar
-	public void mostrarPartidas() {
+	public List<Partida> mostrarPartidas() {
+		List<Partida> listPartidas = new ArrayList<Partida>();
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
@@ -78,8 +88,10 @@ public class MainDB {
 			Iterator<Partida> iter = e.iterator();
 
 			while (iter.hasNext()) {
-				Object obj = iter.next();
-				System.out.println("> " + obj);
+				Partida p = iter.next();
+				listPartidas.add(p);
+//				System.out.println(p.getClass());
+				System.out.println("> " + p);
 			}
 			tx.commit();
 		} catch (Exception e) {
@@ -90,7 +102,8 @@ public class MainDB {
 			}
 			pm.close();
 		}
-		System.out.println("");
+		System.out.println("Finalizado metodo mostrarPartidas");
+		return listPartidas;
 	}
 
 	// Limpieza de la base de datos y de todas las partidas
@@ -101,9 +114,9 @@ public class MainDB {
 		try {
 			tx.begin();
 			System.out.println("Borrado de partidas");
-//			Query<Partida> q = pm.newQuery(Partida.class);
-//			long numPartidasBorradas = q.deletePersistentAll();
-//			System.out.println("Borradas " + numPartidasBorradas + " partidas en total");
+			Query<Partida> q = pm.newQuery(Partida.class);
+			long numPartidasBorradas = q.deletePersistentAll();
+			System.out.println("Borradas " + numPartidasBorradas + " partidas en total");
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
