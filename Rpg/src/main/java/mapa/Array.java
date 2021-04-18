@@ -3,6 +3,7 @@ package mapa;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Robot;
 import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
@@ -18,11 +19,24 @@ import dinero.Monedero;
 public class Array extends JFrame implements KeyListener {
 
 	static Tiles[][] mundo = new Tiles[50][50];
+	private Tiles[][] extra = new Tiles[50][50];
+	private Tiles[][] guardado = new Tiles[50][50];
 	static Tiles suelo = new Tiles("grass", true, true, true, true);
 	static Tiles rio = new Tiles("river", false, false, false, false);
 	static Tiles puente = new Tiles("bridg", true, true, true, true);
 	static Tiles pared = new Tiles("walls", false, false, false, false);
 	static Tiles pelea = new Tiles("fight", true, true, true, true);
+	
+	private Tiles tejado = new Tiles("roofs", false, false, false, false);
+	private Tiles puerta = new Tiles("doors", true, true, true, true);
+	private Tiles madera = new Tiles("woods", true, true, true, true);
+	private Tiles casa = new Tiles("house", false, false, false, false);
+	private Tiles shop = new Tiles("shops", true, true, true, true);
+	private Tiles tallgrass = new Tiles("talls", true, true, true, true);
+	private Tiles camino = new Tiles("paths", true, true, true, true);
+	
+	public int vida;
+	
 	static int x = 5;
 	static int y = 5;
 	static int x_ant;
@@ -31,6 +45,8 @@ public class Array extends JFrame implements KeyListener {
 	static int y_dib = 0;
 	static String direccion = "RIGHT";
 	private static String skin = "";
+	boolean in = false;
+
 	// atributo moneda que contendra la mondeda que disponde el jugador en ese momento
 	public static Monedero cartera= new Monedero();
 	
@@ -55,6 +71,7 @@ public class Array extends JFrame implements KeyListener {
 	public void setSkin(String skin) {
 		Array.skin = skin;
 	}
+	
 	public Array() {
 		addKeyListener(this);
 		setResizable(false);
@@ -94,29 +111,6 @@ public class Array extends JFrame implements KeyListener {
 
 			}
 		}
-
-		for (int i = 25; i < 30; i++) {
-			for (int u = 25; u < 30; u++) {
-
-				mundo[i][u] = pared;
-
-			}
-		}
-
-		mundo[27][25] = suelo;
-		mundo[27][26] = suelo;
-		mundo[27][28] = suelo;
-
-		mundo[26][26] = suelo;
-		mundo[28][26] = suelo;
-
-		mundo[26][27] = suelo;
-		mundo[28][27] = suelo;
-
-		mundo[26][28] = suelo;
-		mundo[28][28] = suelo;
-
-		mundo[27][27] = pelea;
 
 		// Vertical
 		for (int y = 1; y < 49; y++) {
@@ -199,8 +193,6 @@ public class Array extends JFrame implements KeyListener {
 		mundo[34][5] = puente;
 
 		// Demos
-		mundo[6][8] = pelea;
-		mundo[8][3] = pelea;
 		mundo[2][2] = pelea;
 		mundo[2][7] = pelea;
 
@@ -213,6 +205,134 @@ public class Array extends JFrame implements KeyListener {
 			mundo[47][y] = pared;
 		}
 
+		mundo[10][11] = tejado;
+		mundo[10][12] = tejado;
+		mundo[10][13] = tejado;
+
+		mundo[11][12] = casa;
+		mundo[11][11] = casa;
+		mundo[11][13] = casa;
+		mundo[12][11] = casa;
+		mundo[12][13] = casa;
+		mundo[12][12] = puerta;
+		mundo[13][11] = tallgrass;
+		mundo[13][13] = tallgrass;
+		
+		mundo[5][6] = camino;
+		mundo[6][6] = camino;
+		
+		mundo[5][7] = camino;
+		mundo[6][7] = camino;
+		
+		mundo[5][8] = camino;
+		mundo[6][8] = camino;
+		
+		mundo[5][9] = camino;
+		mundo[6][9] = camino;
+		
+		mundo[7][8] = camino;
+		mundo[7][9] = camino;
+		
+		mundo[8][8] = camino;
+		mundo[8][9] = camino;
+		
+		mundo[9][8] = camino;
+		mundo[9][9] = camino;
+		
+		mundo[10][8] = camino;
+		mundo[10][9] = camino;
+		
+		mundo[11][8] = camino;
+		mundo[11][9] = camino;
+		
+		mundo[12][8] = camino;
+		mundo[12][9] = camino;
+		
+		mundo[13][8] = camino;
+		mundo[13][9] = camino;
+		
+		mundo[14][8] = camino;
+		mundo[14][9] = camino;
+		
+		mundo[15][8] = camino;
+		mundo[15][9] = camino;
+		
+		mundo[14][10] = camino;
+		mundo[14][11] = camino;
+		mundo[15][10] = camino;
+		mundo[15][11] = camino;
+		
+		mundo[14][12] = camino;
+		mundo[14][11] = camino;
+		mundo[15][12] = camino;
+		mundo[15][13] = camino;
+		
+		mundo[14][14] = camino;
+		mundo[14][13] = camino;
+		mundo[15][14] = camino;
+		
+		for (int i = 0; i < 50; i++) {
+			for (int u = 0; u < 50; u++) {
+
+				guardado[i][u] = mundo[i][u];
+			}
+		}
+
+		for (int i = 0; i < 50; i++) {
+			for (int u = 0; u < 50; u++) {
+
+				extra[i][u] = suelo;
+
+				for (int t = 5; t < 12; t++) {
+					for (int p = 9; p < 16; p++) {
+						extra[t][p] = madera;
+						extra[8][12] = shop;
+						extra[13][11] = tallgrass;
+						extra[13][13] = tallgrass;
+					}
+				}
+			}
+		}
+			extra[8][8] = casa;
+
+			extra[4][8] = casa;
+			extra[5][8] = casa;
+			extra[6][8] = casa;
+			extra[7][8] = casa;
+
+			extra[9][8] = casa;
+			extra[10][8] = casa;
+			extra[11][8] = casa;
+			extra[12][8] = casa;
+
+			extra[4][9] = casa;
+			extra[4][10] = casa;
+			extra[4][11] = casa;
+			extra[4][12] = casa;
+			extra[4][13] = casa;
+			extra[4][14] = casa;
+			extra[4][15] = casa;
+			extra[4][16] = casa;
+
+			extra[12][9] = casa;
+			extra[12][10] = casa;
+			extra[12][11] = casa;
+			extra[12][12] = puerta;
+			extra[12][13] = casa;
+			extra[12][14] = casa;
+			extra[12][15] = casa;
+			extra[12][16] = casa;
+
+			extra[4][16] = casa;
+			extra[5][16] = casa;
+			extra[6][16] = casa;
+			extra[7][16] = casa;
+			extra[8][16] = casa;
+			extra[9][16] = casa;
+			extra[10][16] = casa;
+			extra[11][16] = casa;
+			extra[12][16] = casa;
+				
 		dibujado();
 
 	}
@@ -224,6 +344,17 @@ public class Array extends JFrame implements KeyListener {
 		if (mundo[x][y].getCode() == ("fight")) {
 			contentPane.setFocusable(false);
 			Ventana.cargarCombate();
+
+		}
+		if (mundo[x][y].getCode() == ("shops")) {
+
+			JOptionPane.showMessageDialog(null, "Tienda");
+
+		}
+
+		if (mundo[x][y].getCode() == ("doors")) {
+
+			cargar();
 
 		}
 		repaint();
@@ -245,6 +376,7 @@ public class Array extends JFrame implements KeyListener {
 				JLabel mapa = new JLabel();
 				JLabel perso = new JLabel();
 				JLabel pelea = new JLabel();
+				JLabel path = new JLabel();
 
 				if (mundo[i + x_dib][u + y_dib].getCode().equals("grass")) {
 
@@ -279,6 +411,60 @@ public class Array extends JFrame implements KeyListener {
 					ImageIcon imagendelante = new ImageIcon(loader.getResource("mundo/calabera.png"));
 
 					pelea.setIcon(imagendelante);
+					
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("doors")) {
+
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/puerta.png"));
+
+					mapa.setIcon(imagenFondo);
+
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("woods")) {
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/madera.png"));
+
+					mapa.setIcon(imagenFondo);
+
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("roofs")) {
+
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/tejado.png"));
+
+					mapa.setIcon(imagenFondo);
+
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("house")) {
+
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/casa_pared.png"));
+
+					mapa.setIcon(imagenFondo);
+					
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("shops")) {
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/madera.png"));
+
+					mapa.setIcon(imagenFondo);
+					
+					ImageIcon imagenFondos = new ImageIcon(loader.getResource("mundo/Shop.png"));
+
+					path.setIcon(imagenFondos);
+					
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("talls")) {
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/hierba.png"));
+
+					mapa.setIcon(imagenFondo);
+					
+					ImageIcon imagenFondos = new ImageIcon(loader.getResource("mundo/arbusto.png"));
+
+					pelea.setIcon(imagenFondos);
+					
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("paths")) {
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/grabilla.png"));
+
+					mapa.setIcon(imagenFondo);
+					
+					ImageIcon imagenFondos = new ImageIcon(loader.getResource("mundo/camino.png"));
+
+					path.setIcon(imagenFondos);
 
 				} else {
 
@@ -373,28 +559,8 @@ public class Array extends JFrame implements KeyListener {
 							perso.setIcon(imagenFondo);
 
 						}
-					// Default	
+					
 					} 
-//					else {
-//						
-//						if (direccion.equals("UP")) {
-//
-//							perso.setIcon(new ImageIcon(Array.class.getResource("mundo/arquero_detras_sf.png")));
-//
-//						} else if (direccion.equals("DOWN")) {
-//
-//							perso.setIcon(new ImageIcon(Array.class.getResource("mundo/arquero_delante_sf.png")));
-//
-//						} else if (direccion.equals("RIGHT")) {
-//
-//							perso.setIcon(new ImageIcon(Array.class.getResource("mundo/arquero.png")));
-//
-//						} else if (direccion.equals("LEFT")) {
-//
-//							perso.setIcon(new ImageIcon(Array.class.getResource("mundo/arquero_girado_sf.png")));
-//
-//						}
-//					}
 					
 				}
 
@@ -403,36 +569,76 @@ public class Array extends JFrame implements KeyListener {
 				contentPane.add(pelea);
 				perso.setBounds(pos_x, pos_y, 70, 70);
 				contentPane.add(perso);
+				path.setBounds(pos_x, pos_y, 70, 70);
+				contentPane.add(path);
 				mapa.setBounds(pos_x, pos_y, 70, 70);
 				contentPane.add(mapa);
+				repaint();
+			}
+		}
 
-			}
-		}
-		
-		/**
-		// Consola 
-		System.out.println();
-		for (int i = 0; i < 50; i++) {
-			System.out.println();
-			for (int u = 0; u < 50; u++) {
-				if (i == x && u == y) {
-					System.out.print("perso");
-					System.out.print(" ");
-				} else {
-					System.out.print(mundo[i][u].getCode());
-					System.out.print(" ");
-				}
-			}
-		}
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-	**/
 	}
 
+	
+	public void cargar() {
+
+		try {
+			Robot robot = new Robot();
+
+			if (x > x_ant) {
+
+				robot.keyPress(KeyEvent.VK_DOWN);
+				robot.keyRelease(KeyEvent.VK_DOWN);
+
+			} else if (x < x_ant) {
+
+				robot.keyPress(KeyEvent.VK_UP);
+				robot.keyRelease(KeyEvent.VK_UP);
+
+			} else if (y > y_ant) {
+
+				robot.keyPress(KeyEvent.VK_RIGHT);
+				robot.keyRelease(KeyEvent.VK_RIGHT);
+
+			} else if (y < y_ant) {
+
+				robot.keyPress(KeyEvent.VK_LEFT);
+				robot.keyRelease(KeyEvent.VK_LEFT);
+
+			}
+
+		} catch (Exception e) {
+
+		}
+
+		if (in == false) {
+
+			for (int i = 0; i < 50; i++) {
+				for (int u = 0; u < 50; u++) {
+
+					mundo[i][u] = extra[i][u];
+
+				}
+			}
+
+			in = true;
+
+		} else if (in == true) {
+
+			for (int i = 0; i < 50; i++) {
+				for (int u = 0; u < 50; u++) {
+
+					mundo[i][u] = guardado[i][u];
+
+				}
+			}
+
+			in = false;
+		}
+
+		repaint();
+
+	}
 	public void keyPressed(KeyEvent e) {
 
 		int key = e.getKeyCode();
@@ -442,7 +648,9 @@ public class Array extends JFrame implements KeyListener {
 			if (x <= 47) {
 
 				if (mundo[x + 1][y].isDown()) {
-
+					
+					y_ant = y;
+					x_ant = x;
 					x = x + 1;
 					if (x > 5 && x < 46) {
 						x_dib = x_dib + 1;
@@ -457,7 +665,9 @@ public class Array extends JFrame implements KeyListener {
 			if (y >= 2) {
 
 				if (mundo[x][y - 1].isLeft()) {
-
+					
+					y_ant = y;
+					x_ant = x;
 					y = y - 1;
 					if (y > 4 && y < 45) {
 						y_dib = y_dib - 1;
@@ -473,6 +683,8 @@ public class Array extends JFrame implements KeyListener {
 
 				if (mundo[x][y + 1].isRight()) {
 
+					y_ant = y;
+					x_ant = x;
 					y = y + 1;
 					if (y > 5 && y < 46) {
 						y_dib = y_dib + 1;
@@ -490,6 +702,8 @@ public class Array extends JFrame implements KeyListener {
 
 				if (mundo[x - 1][y].isUp()) {
 
+					y_ant = y;
+					x_ant = x;
 					x = x - 1;
 					if (x < 45 && x > 4) {
 						x_dib = x_dib - 1;
