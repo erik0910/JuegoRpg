@@ -1,6 +1,5 @@
 package interfaces;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.net.URL;
 
@@ -19,7 +18,7 @@ public class FondoIntPers extends javax.swing.JPanel{
     	super.paintComponent(g);  
     	URL imgUrl = loader.getResource("menus/fondoPersonalizacion.png");
     	ImageIcon imagenFondo = new ImageIcon(imgUrl);
-    	g.drawImage(imagenFondo.getImage(), 0, 0, 1024, 1536, null);
+    	g.drawImage(imagenFondo.getImage(), 0, 0, 1028, 1536, null);
     	setOpaque(false);
   }
     

@@ -7,7 +7,6 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -18,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 
 import db.MainDB;
 import db.Partida;
-
 import javax.swing.JList;
 import javax.swing.JLabel;
 
@@ -29,6 +27,7 @@ public class InterfazCargar extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private FondoIntCargar contentPane;
+	private JList<String> listPartidas;
 	private MainDB DBManager = new MainDB();
 	
 	public static void main(String[] args) {
@@ -56,7 +55,7 @@ public class InterfazCargar extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		JList<String> listPartidas = new JList<String>();
+		listPartidas = new JList<String>();
 		listPartidas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listPartidas.setFixedCellHeight(30);
 		listPartidas.setFont(new Font("Algerian", Font.PLAIN, 15));
@@ -66,9 +65,10 @@ public class InterfazCargar extends JFrame {
 		contentPane.add(listPartidas);
 		
 		//Añadir partidas guardadas
-		Partida partida = new Partida("Example", 100, "caballero",2,2,3,3);
-		partida.setNombrePartida("Example");
-		DBManager.guardarPartida(partida);
+//		Monedero m = new Monedero();
+//		Partida partida = new Partida("Example", 100, "caballero",2,2,3,3, m);
+//		partida.setNombrePartida("Example");
+//		DBManager.guardarPartida(partida);
 		
 		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		List<Partida> listaPartidas = new ArrayList<Partida>();
@@ -79,7 +79,7 @@ public class InterfazCargar extends JFrame {
 //			System.out.println("nombre de la partida= " + p.getNombrePartida() + " ; clase de objeto= " + p.getClass());
 		}
 		listPartidas.setModel(modelo);
-		DBManager.borrarPartidas();
+//		DBManager.borrarPartidas();
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setForeground(SystemColor.text);
@@ -102,6 +102,7 @@ public class InterfazCargar extends JFrame {
 		btnCargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Cargar partida
+				DBManager.cargarPartida(listPartidas.getSelectedValue());
 			}
 		});
 		btnCargar.setOpaque(false);

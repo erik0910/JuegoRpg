@@ -5,6 +5,8 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 
+import dinero.Monedero;
+
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Partida {
@@ -13,11 +15,12 @@ public class Partida {
 	private int vida;
 	private String skin;
 	private int x,y,x_dib,y_dib;
+	private Monedero monedero;
 	
 	public Partida() {
 	}
 
-	public Partida(String nombrePartida, int vida, String skin, int x, int y, int x_dib, int y_dib) {
+	public Partida(String nombrePartida, int vida, String skin, int x, int y, int x_dib, int y_dib, Monedero monedero) {
 		this.nombrePartida = nombrePartida;
 		this.vida = vida;
 		this.skin = skin;
@@ -25,6 +28,7 @@ public class Partida {
 		this.y = y;
 		this.x_dib = x_dib;
 		this.y_dib = y_dib;
+		this.monedero = monedero;
 		
 	}
 
@@ -84,11 +88,20 @@ public class Partida {
 		this.y_dib = y_dib;
 	}
 
+	public Monedero getMonedero() {
+		return monedero;
+	}
+
+	public void setMonedero(Monedero monedero) {
+		this.monedero = monedero;
+	}
+
 	@Override
 	public String toString() {
 		return "Partida [nombrePartida=" + nombrePartida + ", vida=" + vida + ", skin=" + skin + ", x=" + x + ", y=" + y
-				+ ", x_dib=" + x_dib + ", y_dib=" + y_dib + "]";
+				+ ", x_dib=" + x_dib + ", y_dib=" + y_dib + ", monedero=" + monedero.getDinero() + "]";
 	}
+	
 	
 	
 	

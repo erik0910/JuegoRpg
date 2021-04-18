@@ -12,6 +12,8 @@ import javax.jdo.Query;
 import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
+import dinero.Monedero;
+
 
 public class MainDB {
 
@@ -30,7 +32,8 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Partida partida = new Partida("PartidaEjemplo", 100, "caballero",2,2,3,3);
+			Monedero m = new Monedero();
+			Partida partida = new Partida("PartidaEjemplo", 100, "caballero",2,2,3,3, m);
 			System.out.println("Guardando partida " + partida.getNombrePartida());
 			pm.makePersistent(partida);
 			System.out.println("Devolviendo todas las partidas");
