@@ -1,22 +1,19 @@
 package combate;
 
+import java.awt.image.BufferedImage;
 
 public class Armas {
 	private int danyo,speed,knockback,frames,x,y,alto,ancho;
 	private String nombre;
-	
-	public Armas(int danyo, int speed, int knockback, int frames, int x, int y, int alto, int ancho, String nombre) {
-		super();
+	private BufferedImage image;//imagen del arma
+	public Armas (int danyo , int x , int y) {
 		this.danyo = danyo;
-		this.speed = speed;
-		this.knockback = knockback;
-		this.frames = frames;
-		this.x = x;
-		this.y = y;
-		this.alto = alto;
-		this.ancho = ancho;
-		this.nombre = nombre;
+		this.x= x;
+		this.y = y;	
+		this.alto = 6;
+		this.ancho = 2;
 	}
+	// metodo para detección de las armas tipo mele solo se activara cuando estas armas sean mele
 
 	public boolean ataque(double xe, double ye, int altoe, int anchoe) {
 		boolean ataque = false;

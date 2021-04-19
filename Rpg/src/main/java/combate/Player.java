@@ -38,7 +38,9 @@ public class Player extends Objeto  {
 	private static final int[] fps = {400,40,-1,100,100};
 	
 	//Arma
-	//private Armas espada =new Armas(20/*Da�o*/, 10/*Speed*/, 0/*Knockback*/, 3/*Frames*/,(int) this.x+5/*x*/,(int) this.y+5/*y*/, 6/*alto*/, 2/*ancho*/, "Stegosaurio"/*Da�o*/);
+	Armas espada=new Armas(20,(int)this.x+5,(int)this.y+5);
+	Armas arco = new Armas (30,(int)this.x+5,(int)this.y+5);
+	//tendriamos una tercera arma que seria el arma que seria la magia
 	//carga de imagenes de la clase resources
 	static final ClassLoader loader = Player.class.getClassLoader();
 	public Player(int player) {
@@ -54,18 +56,9 @@ public class Player extends Objeto  {
 		this.mana = 100;
 		//this.player = player;
 		mDerecha = true;
-		
 		health = maxHealth = 100;	
-		
 		/*Imagenes===================================================*/
 		try {
-			/*Cargar hoja de im�genes================================*/
-//			BufferedImage hoja = ImageIO.read(
-//				getClass().getResource(
-//					"/Resources/combate/player.png"
-//				)
-//			);
-			//cambios debido al fallo con maven
 			BufferedImage hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
 			/*======================================================*/
 			sprites = new ArrayList<BufferedImage[]>();
@@ -197,8 +190,8 @@ public class Player extends Objeto  {
 		if(izquierda) mDerecha = false;
 		
 		//Arma
-//		espada.setX((int)this.x+5);
-//		espada.setY((int)this.x+5);
+		espada.setX((int)this.x+5);
+		espada.setY((int)this.x+5);
 	}
 	
 	public void draw(Graphics2D g) {
@@ -212,8 +205,6 @@ public class Player extends Objeto  {
 		g.setColor(Color.red);
 		g.fillRect((int)x-9, (int)y-29, (((health*100/maxHealth)*30)/100)-1, 4);
 		//Mana
-		
-		
 		g.setColor(Color.BLACK);
 		g.drawRect ((int)x-10, (int)y-15, (int)(((mana*100/100)*30)/100), 5);
 		g.setColor(Color.green);
