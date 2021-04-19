@@ -14,8 +14,11 @@ public class Partida {
 	private String nombrePartida;
 	private int vida;
 	private String skin;
-	private int x,y,x_dib,y_dib;
-	private Monedero monedero;
+	private int x;
+	private int y;
+	private int x_dib;
+	private int y_dib;
+	private Monedero monedero = new Monedero();
 	
 	public Partida() {
 	}

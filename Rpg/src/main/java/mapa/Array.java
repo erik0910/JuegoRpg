@@ -15,6 +15,8 @@ import javax.swing.border.EmptyBorder;
 
 import combate.*;
 import dinero.Monedero;
+import interfaces.InterfazOpciones;
+import interfaces.InterfazOpcionesJuego;
 
 public class Array extends JFrame implements KeyListener {
 
@@ -37,12 +39,12 @@ public class Array extends JFrame implements KeyListener {
 	
 	public int vida;
 	
-	static int x = 5;
-	static int y = 5;
-	static int x_ant;
-	static int y_ant;
-	static int x_dib = 0;
-	static int y_dib = 0;
+	private static int x = 5;
+	private static int y = 5;
+	private static int x_ant;
+	private static int y_ant;
+	private static int x_dib = 0;
+	private static int y_dib = 0;
 	static String direccion = "RIGHT";
 	private static String skin = "";
 	boolean in = false;
@@ -56,6 +58,50 @@ public class Array extends JFrame implements KeyListener {
 
 	public static JPanel contentPane;
 
+	
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+	public int getX() {
+		return x;
+	}
+	public static void setX(int x) {
+		Array.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public static void setY(int y) {
+		Array.y = y;
+	}
+	public static int getX_dib() {
+		return x_dib;
+	}
+	public static void setX_dib(int x_dib) {
+		Array.x_dib = x_dib;
+	}
+	public static int getY_dib() {
+		return y_dib;
+	}
+	public static void setY_dib(int y_dib) {
+		Array.y_dib = y_dib;
+	}
+	public static Monedero getCartera() {
+		return cartera;
+	}
+	public static void setCartera(Monedero cartera) {
+		Array.cartera = cartera;
+	}
+	public static String getSkin() {
+		return skin;
+	}
+	public void setSkin(String skin) {
+		Array.skin = skin;
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -67,9 +113,6 @@ public class Array extends JFrame implements KeyListener {
 				}
 			}
 		});
-	}
-	public void setSkin(String skin) {
-		Array.skin = skin;
 	}
 	
 	public Array() {
@@ -715,6 +758,32 @@ public class Array extends JFrame implements KeyListener {
 
 			}
 
+		} else if (key == KeyEvent.VK_ESCAPE) {
+			if(in==false) {
+				
+				String[] info = new String[7];
+				info[0] = skin;
+				info[1] = Integer.toString(x);
+				info[2] = Integer.toString(y);
+				info[3] = Integer.toString(x_dib);
+				info[4] = Integer.toString(y_dib);
+				info[5] = Integer.toString(cartera.getDinero());
+				info[6] = Integer.toString(vida);
+				System.out.println("Impresion de los datos de partida = "+ info[0] +" "+ info[1]+ " " + info[2]+ " "+info[3]
+						+" "+ info[4]+ " " + info[5]+ " "+info[6]);
+				contentPane.setFocusable(false);
+				
+				InterfazOpcionesJuego inter = new InterfazOpcionesJuego();
+				inter.setInfoJuego(info);
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
+				
+			} else {
+				
+				contentPane.setFocusable(false);
+				JOptionPane.showMessageDialog(null, "Salga de la tienda para guardar");
+			}
+			
 		}
 
 	}

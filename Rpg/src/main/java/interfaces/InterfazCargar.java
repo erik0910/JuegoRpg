@@ -17,6 +17,8 @@ import javax.swing.border.EmptyBorder;
 
 import db.MainDB;
 import db.Partida;
+import dinero.Monedero;
+
 import javax.swing.JList;
 import javax.swing.JLabel;
 
@@ -64,19 +66,26 @@ public class InterfazCargar extends JFrame {
 		listPartidas.setBounds(163, 117, 317, 277);
 		contentPane.add(listPartidas);
 		
-		//Añadir partidas guardadas
+//		Añadir partidas guardadas
 //		Monedero m = new Monedero();
-//		Partida partida = new Partida("Example", 100, "caballero",2,2,3,3, m);
+//		Partida partida = new Partida();
 //		partida.setNombrePartida("Example");
+//		partida.setSkin("Ezio, el Arquero Centenario");
+//		partida.setVida(100);
+//		partida.setX(8);
+//		partida.setY(8);
+//		partida.setX_dib(3);
+//		partida.setY_dib(3);
+//		partida.setMonedero(m);
 //		DBManager.guardarPartida(partida);
-		
+	
 		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		List<Partida> listaPartidas = new ArrayList<Partida>();
 		listaPartidas = DBManager.mostrarPartidas();
 		for(int num=0; num<listaPartidas.size(); num++) {
-			Partida p = listaPartidas.get(num);
+			Partida p = new Partida();
+			p = listaPartidas.get(num);
 			modelo.addElement(p.getNombrePartida());
-//			System.out.println("nombre de la partida= " + p.getNombrePartida() + " ; clase de objeto= " + p.getClass());
 		}
 		listPartidas.setModel(modelo);
 //		DBManager.borrarPartidas();
@@ -101,8 +110,25 @@ public class InterfazCargar extends JFrame {
 		JButton btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Cargar partida
-				DBManager.cargarPartida(listPartidas.getSelectedValue());
+				//Cargar partida e introducir datos en la ventana
+				String[] info = DBManager.cargarPartida(listPartidas.getSelectedValue());
+				System.out.println("Skin = " + info[0] + "; X = " + info[1] + "; Y = " + info[2] + 
+						"; X_dib = " + info[3] + "; Y_dib = " + info[4] + "; Dinero = " + info[5] + 
+						"; Vida = " + info[6]);
+				mapa.Array inter = new mapa.Array();
+				inter.setSkin(info[0]);
+				inter.setX(Integer.parseInt(info[1]));
+				inter.setY(Integer.parseInt(info[2]));
+				inter.setX_dib(Integer.parseInt(info[3]));
+				inter.setY_dib(Integer.parseInt(info[4]));
+				Monedero m = new Monedero();
+				m.setDinero(Integer.parseInt(info[5]));
+				inter.setCartera(m);
+				inter.setVida(Integer.parseInt(info[6]));
+				
+				dispose();
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
 			}
 		});
 		btnCargar.setOpaque(false);
