@@ -1,11 +1,12 @@
 package combate;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class Armas {
 	private int danyo,speed,knockback,frames,x,y,alto,ancho;
 	private String nombre;
-	private BufferedImage image;//imagen del arma
+	private BufferedImage image = null;//imagen del arma
 	public Armas (int danyo , int x , int y) {
 		this.danyo = danyo;
 		this.x= x;
@@ -24,7 +25,9 @@ public class Armas {
 		}
 		return ataque;
 	}
-	
+	public void cargaImagen(BufferedImage imagen) {// metodo para cargar la imagen
+		this.image=imagen;
+	}
 	public int getDanyo() {return danyo;}
 	public void setDanyo(int danyo) {this.danyo = danyo;}
 	public int getSpeed() {return speed;}

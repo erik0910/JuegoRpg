@@ -1,5 +1,4 @@
 package combate;
-
 import java.awt.image.BufferedImage;
 
 public class Animacion {

@@ -6,6 +6,7 @@ import interfaces.FondoIntCargar;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Player extends Objeto  {
 	
@@ -15,9 +16,6 @@ public class Player extends Objeto  {
 	
 	private boolean parpadeo;
 	private long parpadeoT;
-	//private int player;
-	//private int enemigo;
-	//private int objetivo;
 	// gliding
 	private boolean planeo;
 	boolean ataquef;
@@ -36,10 +34,11 @@ public class Player extends Objeto  {
 	private static final int CAER = 3;
 	private static final int PLANEAR = 4;
 	private static final int[] fps = {400,40,-1,100,100};
+	public int estado = 0;// estado 0 = magia estado =1 arco y estado = 3 espada
 	
 	//Arma
-	Armas espada=new Armas(20,(int)this.x+5,(int)this.y+5);
-	Armas arco = new Armas (30,(int)this.x+5,(int)this.y+5);
+	Armas espada=new Armas(20,(int)this.x+5,(int)this.y-10);
+	Armas arco = new Armas (30,(int)this.x+5,(int)this.y-10);
 	//tendriamos una tercera arma que seria el arma que seria la magia
 	//carga de imagenes de la clase resources
 	static final ClassLoader loader = Player.class.getClassLoader();
@@ -56,7 +55,14 @@ public class Player extends Objeto  {
 		this.mana = 100;
 		//this.player = player;
 		mDerecha = true;
-		health = maxHealth = 100;	
+		health = maxHealth = 100;
+		//carga de las imagenes de las diferentes armas
+		try {
+			espada.cargaImagen(ImageIO.read(loader.getResource("combate/espada.png")));
+//			arco.cargaImagen(ImageIO.read(loader.getResource("combate/disparo2.png")));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		/*Imagenes===================================================*/
 		try {
 			BufferedImage hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
@@ -189,9 +195,11 @@ public class Player extends Objeto  {
 		if(derecha) mDerecha = true;
 		if(izquierda) mDerecha = false;
 		
-		//Arma
+		//Armas update
 		espada.setX((int)this.x+5);
-		espada.setY((int)this.x+5);
+		espada.setY((int)this.y-10);
+		arco.setX((int)this.x+5);
+		arco.setY((int)this.y-10);
 	}
 	
 	public void draw(Graphics2D g) {
@@ -199,8 +207,18 @@ public class Player extends Objeto  {
 			long elapsed = (System.nanoTime() - parpadeoT) / 1000000;
 			if(elapsed / 100 % 2 == 0) return;
 		}
+		BufferedImage imagen = null;
+		//pintado del arma
+		if(estado==2) {
+		try {
+			imagen = ImageIO.read(loader.getResource("combate/espada.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)this.x-13, (int)this.y-23, 50,40,null);
+		}
 		//HP
-		
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
 		g.setColor(Color.red);
 		g.fillRect((int)x-9, (int)y-29, (((health*100/maxHealth)*30)/100)-1, 4);
@@ -213,7 +231,10 @@ public class Player extends Objeto  {
 		super.draw(g);
 		
 	}
-	
+	// metodo que permitira cambiar de arma a el jugador
+	public void cambiarEstado() {
+		if(estado==0) {estado = 2;}else {estado=0;}
+	}
 	public void setFalse() {
 		this.abajo = false;
 		this.izquierda = false;
