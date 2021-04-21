@@ -89,7 +89,7 @@
 					<artifactId>datanucleus-maven-plugin</artifactId>
 					<version>5.2.1</version>
 					<configuration>
-<!-- 						<api>JDO</api> -->
+						<!-- <api>JDO</api> -->
 						<log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
 						<verbose>true</verbose>
 						<fork>false</fork>
@@ -120,14 +120,40 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.2.1</version>
-					<configuration>
-						<descriptors>
-							<descriptor>${basedir}/assembly.xml</descriptor>
-						</descriptors>
-					</configuration>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.8.6</version>
+					<executions>
+						<execution>
+							<id>default-prepare-agent</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>default-report</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>default-check</id>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
+<!-- 				<plugin> -->
+<!-- 					<artifactId>maven-assembly-plugin</artifactId> -->
+<!-- 					<version>2.2.1</version> -->
+<!-- 					<configuration> -->
+<!-- 						<descriptors> -->
+<!-- 							<descriptor>${basedir}/assembly.xml</descriptor> -->
+<!-- 						</descriptors> -->
+<!-- 					</configuration> -->
+<!-- 				</plugin> -->
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.1</version>
