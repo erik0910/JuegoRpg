@@ -207,17 +207,8 @@ public class Player extends Objeto  {
 			long elapsed = (System.nanoTime() - parpadeoT) / 1000000;
 			if(elapsed / 100 % 2 == 0) return;
 		}
-		BufferedImage imagen = null;
-		//pintado del arma
-		if(estado==2) {
-		try {
-			imagen = ImageIO.read(loader.getResource("combate/espada.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		g.drawImage(imagen, (int)this.x-13, (int)this.y-23, 50,40,null);
-		}
+		//añadimos el pintado del arma y todas sus caracteristicas
+		pintadoArma(g);
 		//HP
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
 		g.setColor(Color.red);
@@ -230,6 +221,25 @@ public class Player extends Objeto  {
 		g.setColor(Color.BLACK);
 		super.draw(g);
 		
+	}
+	private void pintadoArma(Graphics2D g) {
+		BufferedImage imagen = null;
+		//pintado del arma
+		if(estado==2) {
+			try {
+				imagen = ImageIO.read(loader.getResource("combate/espada.png"));
+					} catch (IOException e) {
+				e.printStackTrace();
+					}
+			if(mDerecha) {
+				g.drawImage(imagen, (int)this.x-13, (int)this.y-23, 50,40,null);	
+				}else {
+				g.drawImage(imagen, (int)this.x-35, (int)this.y-23, 50,40,null);
+			
+			
+		}
+	}
+
 	}
 	// metodo que permitira cambiar de arma a el jugador
 	public void cambiarEstado() {
