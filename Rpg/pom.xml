@@ -17,6 +17,7 @@
 	<properties>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -56,7 +57,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -67,6 +68,7 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
+		
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>
@@ -84,6 +86,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 				</plugin>
+				
+				<!-- Database plugins -->
 				<plugin>
 					<groupId>org.datanucleus</groupId>
 					<artifactId>datanucleus-maven-plugin</artifactId>
@@ -104,6 +108,8 @@
 						</execution>
 					</executions>
 				</plugin>
+				
+				<!-- Main exec -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>exec-maven-plugin</artifactId>
@@ -119,44 +125,30 @@
 						<mainClass>rpg.App</mainClass>
 					</configuration>
 				</plugin>
+				
+				<!-- Jacoco plugin -->
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.8.6</version>
+					<version>0.8.5</version>
 					<executions>
 						<execution>
-							<id>default-prepare-agent</id>
+							<id>prepare-agent</id>
 							<goals>
 								<goal>prepare-agent</goal>
 							</goals>
 						</execution>
 						<execution>
-							<id>default-report</id>
-							<phase>prepare-package</phase>
+							<phase>test</phase>
 							<goals>
 								<goal>report</goal>
 							</goals>
 						</execution>
-						<execution>
-							<id>default-check</id>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
 					</executions>
 				</plugin>
-<!-- 				<plugin> -->
-<!-- 					<artifactId>maven-assembly-plugin</artifactId> -->
-<!-- 					<version>2.2.1</version> -->
-<!-- 					<configuration> -->
-<!-- 						<descriptors> -->
-<!-- 							<descriptor>${basedir}/assembly.xml</descriptor> -->
-<!-- 						</descriptors> -->
-<!-- 					</configuration> -->
-<!-- 				</plugin> -->
 				<plugin>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.22.1</version>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -172,14 +164,27 @@
 				</plugin>
 				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.7.1</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-project-info-reports-plugin</artifactId>
-					<version>3.0.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.1.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 </project>
