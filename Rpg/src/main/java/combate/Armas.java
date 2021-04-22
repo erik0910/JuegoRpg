@@ -11,23 +11,25 @@ public class Armas {
 		this.danyo = danyo;
 		this.x= x;
 		this.y = y;	
-		this.alto = 6;
-		this.ancho = 2;
+		this.alto = 70;
+		this.ancho = 50;
 	}
 	// metodo para detección de las armas tipo mele solo se activara cuando estas armas sean mele
 
 	public boolean ataque(double xe, double ye, int altoe, int anchoe) {
 		boolean ataque = false;
-		if(ye >= y && (ye <= y+alto)) { //y >= 200 y y <= 250
-			if(xe >= x && xe <= x+ancho) {// x >= 100 y x <= 200
+		if(ye >= y-23 && (ye <= y+alto)) { //y >= 200 y y <= 250
+			if(xe >= x-10 && xe <= x+ancho) {// x >= 100 y x <= 200
 				ataque = true;
 			}
 		}
 		return ataque;
 	}
+	
 	public void cargaImagen(BufferedImage imagen) {// metodo para cargar la imagen
 		this.image=imagen;
 	}
+
 	public int getDanyo() {return danyo;}
 	public void setDanyo(int danyo) {this.danyo = danyo;}
 	public int getSpeed() {return speed;}

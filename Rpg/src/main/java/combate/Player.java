@@ -37,8 +37,8 @@ public class Player extends Objeto  {
 	public int estado = 0;// estado 0 = magia estado =1 arco y estado = 3 espada
 	
 	//Arma
-	Armas espada=new Armas(20,(int)this.x+5,(int)this.y-10);
-	Armas arco = new Armas (30,(int)this.x+5,(int)this.y-10);
+	Armas espada=new Armas(20,(int)this.x,(int)this.y-23);
+	Armas arco = new Armas (30,(int)this.x,(int)this.y-23);
 	//tendriamos una tercera arma que seria el arma que seria la magia
 	//carga de imagenes de la clase resources
 	static final ClassLoader loader = Player.class.getClassLoader();
@@ -146,6 +146,7 @@ public class Player extends Objeto  {
 	public void update() {
 		
 		// update position
+		updateArma();
 		pTemporal();
 		checkSuelo();
 		if(mana < 100) {
@@ -222,6 +223,22 @@ public class Player extends Objeto  {
 		super.draw(g);
 		
 	}
+	//metodo para representar el ataque del jugador si esta usando la espada
+	// recibimos por parametro el jugador para obtener sus coordenadas y tambien poder alterar su vida 
+	// su el ataque se ha producido
+	public void ataque(Player jugador) {
+		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)) {
+			System.out.println("el jugador ha atacado");
+			jugador.setHealth(jugador.getHealth()-10);
+			this.mana-=80;
+		}
+		System.out.println("no ataca");
+	}
+	// metodo que cambiara constantemente la posicion del arma o mas bien el area de impacto del arma
+	private void updateArma() {
+		espada.setSpeed((int)this.x);
+		espada.setY((int)this.y -23);
+	}
 	private void pintadoArma(Graphics2D g) {
 		BufferedImage imagen = null;
 		//pintado del arma
@@ -235,8 +252,6 @@ public class Player extends Objeto  {
 				g.drawImage(imagen, (int)this.x-13, (int)this.y-23, 50,40,null);	
 				}else {
 				g.drawImage(imagen, (int)this.x-35, (int)this.y-23, 50,40,null);
-			
-			
 		}
 	}
 

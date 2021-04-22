@@ -28,7 +28,6 @@ public class Room {
 	}
 	//inteligencia del enemigo del juego
 	public static void bossIa() {
-		
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
@@ -77,14 +76,22 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_DOWN)) player[1].setAbajo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[1].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(1); else disp[1] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_E)) {
+			if(player[1].estado==0) {
+				disparo(1);
+				}else {
+					player[1].ataque(player[2]);
+				}
+			}else {
+			disp[1] = false;
+		}
 		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
 		if(Juego.teclas.contains(KeyEvent.VK_R))player[1].cambiarEstado();
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
-		if(!derecha) player[2].setIzquierda(true);
-		if(derecha) player[2].setDerecha(true);
+//		if(!derecha) player[2].setIzquierda(true);
+//		if(derecha) player[2].setDerecha(true);
 		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
 		//if(true) player[2].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
