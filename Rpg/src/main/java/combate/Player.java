@@ -13,14 +13,14 @@ public class Player extends Objeto  {
 	// player stuff
 	private int health, maxHealth;
 	private int manad1 = 30;
-	
+	public boolean animarEspada=false;
 	private boolean parpadeo;
 	private long parpadeoT;
 	// gliding
 	private boolean planeo;
 	boolean ataquef;
 	private double mana;
-	
+	private BufferedImage [] imagenes;
 	// animacions
 	private ArrayList<BufferedImage[]> sprites;
 	private final int[] numFrames = {
@@ -209,7 +209,11 @@ public class Player extends Objeto  {
 			if(elapsed / 100 % 2 == 0) return;
 		}
 		//añadimos el pintado del arma y todas sus caracteristicas
+		if(!animarEspada) {
 		pintadoArma(g);
+		}else {
+			animacion(g);
+		}
 		//HP
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
 		g.setColor(Color.red);
@@ -227,8 +231,11 @@ public class Player extends Objeto  {
 	// recibimos por parametro el jugador para obtener sus coordenadas y tambien poder alterar su vida 
 	// su el ataque se ha producido
 	public void ataque(Player jugador) {
+		
 		if(jugador.getHealth()<0) {Room.finalizar=true;}//Detección de si el jugador a terminado en la parte de mele
+		animarEspada=true;
 		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)&& this.mana>=100) {
+			//para iniciar la animacion de la espada
 			System.out.println("el jugador ha atacado");
 			jugador.setHealth(jugador.getHealth()-50);
 			this.mana-=80;
@@ -255,6 +262,60 @@ public class Player extends Objeto  {
 		}
 	}
 
+	}
+	//animacion para el arma
+	public void animacion(Graphics2D g) {
+		BufferedImage[] derecha = new BufferedImage[3];
+		BufferedImage[] izquierda = new BufferedImage[3];
+		//cargamos la correspondientes imagenes
+		System.out.println("esta animando");
+		try {
+			derecha[0]=ImageIO.read(loader.getResource("combate/espada.png"));
+			izquierda[0]=ImageIO.read(loader.getResource("combate/espada.png"));
+			derecha[1]=ImageIO.read(loader.getResource("combate/espadaDerecha1.png"));
+			derecha[2]=ImageIO.read(loader.getResource("combate/espadaDerecha2.png"));
+			izquierda[1]=ImageIO.read(loader.getResource("combate/espadaIzquierda1.png"));
+			izquierda[2]= ImageIO.read(loader.getResource("combate/espadaIzquierda2.png"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		if(mDerecha) {
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+		}else {
+			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+		}
+		animarEspada=false;
 	}
 	// metodo que permitira cambiar de arma a el jugador
 	public void cambiarEstado() {

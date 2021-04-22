@@ -6,7 +6,9 @@ import java.awt.image.BufferedImage;
 public class Armas {
 	private int danyo,speed,knockback,frames,x,y,alto,ancho;
 	private String nombre;
-	private BufferedImage image = null;//imagen del arma
+	private BufferedImage  image = null;//imagen del arma
+	public Boolean derecha=true;
+	static final ClassLoader loader = Armas.class.getClassLoader();
 	public Armas (int danyo , int x , int y) {
 		this.danyo = danyo;
 		this.x= x;
@@ -26,9 +28,11 @@ public class Armas {
 		return ataque;
 	}
 	
-	public void cargaImagen(BufferedImage imagen) {// metodo para cargar la imagen
+	public void cargaImagen(BufferedImage imagen) {// metodo para cargar la imagen de las espadas
 		this.image=imagen;
 	}
+	
+	
 
 	public int getDanyo() {return danyo;}
 	public void setDanyo(int danyo) {this.danyo = danyo;}
