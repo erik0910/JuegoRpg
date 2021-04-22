@@ -27,6 +27,12 @@ public class PartidaTest {
 	public void testGetters() {
 		assertEquals(prueba.getNombrePartida(),"PARTIDA");
 		assertEquals(prueba.getMonedero(), m);
+		assertEquals(prueba.getSkin(), "caballero");
+		assertEquals(prueba.getVida(), 100);
+		assertEquals(prueba.getX(), 2);
+		assertEquals(prueba.getY(), 2);
+		assertEquals(prueba.getX_dib(), 3);
+		assertEquals(prueba.getY_dib(), 3);
 	}
 
 }

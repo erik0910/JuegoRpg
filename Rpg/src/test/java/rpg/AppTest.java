@@ -1,4 +1,4 @@
-package Rpg;
+package rpg;
 
 import static org.junit.Assert.assertTrue;
 

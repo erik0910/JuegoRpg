@@ -1,4 +1,4 @@
-package Combate;
+package combate;
 
 import static org.junit.Assert.*;
 

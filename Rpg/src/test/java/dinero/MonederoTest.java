@@ -1,4 +1,4 @@
-package Dinero;
+package dinero;
 
 import static org.junit.Assert.*;
 
