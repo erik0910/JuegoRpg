@@ -227,12 +227,12 @@ public class Player extends Objeto  {
 	// recibimos por parametro el jugador para obtener sus coordenadas y tambien poder alterar su vida 
 	// su el ataque se ha producido
 	public void ataque(Player jugador) {
-		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)) {
+		if(jugador.getHealth()<0) {Room.finalizar=true;}//Detección de si el jugador a terminado en la parte de mele
+		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)&& this.mana>=100) {
 			System.out.println("el jugador ha atacado");
-			jugador.setHealth(jugador.getHealth()-10);
+			jugador.setHealth(jugador.getHealth()-50);
 			this.mana-=80;
 		}
-		System.out.println("no ataca");
 	}
 	// metodo que cambiara constantemente la posicion del arma o mas bien el area de impacto del arma
 	private void updateArma() {

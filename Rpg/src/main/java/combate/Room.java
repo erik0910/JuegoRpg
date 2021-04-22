@@ -56,7 +56,7 @@ public class Room {
 				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que est� dirigido el ataque.
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
-				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
+				if(player[obj].getHealth() < 0) { //Si el pj ha muerto
 					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
 				}
