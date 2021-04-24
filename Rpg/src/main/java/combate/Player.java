@@ -17,11 +17,13 @@ public class Player extends Objeto  {
 	private boolean parpadeo;
 	private long parpadeoT;
 	private boolean animar=true;
+	int cont =0;
 	// gliding
 	private boolean planeo;
 	boolean ataquef;
 	private double mana;
 	private BufferedImage [] imagenes;
+	private BufferedImage [] izquierdaArma , derechaArma;//para las fotos de las armas
 	// animacions
 	private ArrayList<BufferedImage[]> sprites;
 	private final int[] numFrames = {
@@ -44,6 +46,7 @@ public class Player extends Objeto  {
 	//carga de imagenes de la clase resources
 	static final ClassLoader loader = Player.class.getClassLoader();
 	public Player(int player) {
+		animacion();// cargamos la animación
 		ancho = 30;
 		alto = 30;
 		moveSpeed = 0.3;
@@ -213,12 +216,13 @@ public class Player extends Objeto  {
 		if(!animarEspada) {
 		pintadoArma(g);
 		}else {
-			animacion();
 			if(mDerecha) {
-				g.drawImage(Animacion.imagenArma(), (int)this.x-13, (int)this.y-23, 50,40,null);
+				g.drawImage(derechaArma[cont], (int)this.x, (int)this.y-23, 50,40,null);	
 				}else {
-				g.drawImage(Animacion.imagenArma(), (int)this.x-35, (int)this.y-23, 50,40,null);
+				g.drawImage(izquierdaArma[cont], (int)this.x-45, (int)this.y-23, 50,40,null);
 				}
+			cont ++;
+			if(cont==3) {animarEspada= false; cont=0;}
 		}
 		//HP
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
@@ -274,7 +278,6 @@ public class Player extends Objeto  {
 		BufferedImage[] derecha = new BufferedImage[3];
 		BufferedImage[] izquierda = new BufferedImage[3];
 		//cargamos la correspondientes imagenes
-		System.out.println("esta animando");
 		try {
 			derecha[0]=ImageIO.read(loader.getResource("combate/espada.png"));
 			izquierda[0]=ImageIO.read(loader.getResource("combate/espada.png"));
@@ -282,23 +285,10 @@ public class Player extends Objeto  {
 			derecha[2]=ImageIO.read(loader.getResource("combate/espadaDerecha2.png"));
 			izquierda[1]=ImageIO.read(loader.getResource("combate/espadaIzquierda1.png"));
 			izquierda[2]= ImageIO.read(loader.getResource("combate/espadaIzquierda2.png"));
+			derechaArma=derecha;
+			izquierdaArma=izquierda;
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
-		if(animar) {
-			animar=false;
-		if(mDerecha) {
-			Animacion.setAnimacionEspada(derecha);
-			Animacion.setDelayArma(400);
-			Animacion.espadaUpdate();
-			System.out.println("a");
-			
-		}else {
-			Animacion.setAnimacionEspada(izquierda);
-			Animacion.setDelayArma(400);
-			Animacion.espadaUpdate();
-			
-		}
 		}
 	}
 	// metodo que permitira cambiar de arma a el jugador
