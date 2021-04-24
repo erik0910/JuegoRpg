@@ -1,33 +1,39 @@
 package combate;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 public class Armas {
 	private int danyo,speed,knockback,frames,x,y,alto,ancho;
 	private String nombre;
-	
-	public Armas(int danyo, int speed, int knockback, int frames, int x, int y, int alto, int ancho, String nombre) {
-		super();
+	private BufferedImage  image = null;//imagen del arma
+	public Boolean derecha=true;
+	static final ClassLoader loader = Armas.class.getClassLoader();
+	public Armas (int danyo , int x , int y) {
 		this.danyo = danyo;
-		this.speed = speed;
-		this.knockback = knockback;
-		this.frames = frames;
-		this.x = x;
-		this.y = y;
-		this.alto = alto;
-		this.ancho = ancho;
-		this.nombre = nombre;
+		this.x= x;
+		this.y = y;	
+		this.alto = 70;
+		this.ancho = 50;
 	}
+	// metodo para detección de las armas tipo mele solo se activara cuando estas armas sean mele
 
 	public boolean ataque(double xe, double ye, int altoe, int anchoe) {
 		boolean ataque = false;
-		if(ye >= y && (ye <= y+alto)) { //y >= 200 y y <= 250
-			if(xe >= x && xe <= x+ancho) {// x >= 100 y x <= 200
+		if(ye >= y-23 && (ye <= y+alto)) { //y >= 200 y y <= 250
+			if(xe >= x-10 && xe <= x+ancho) {// x >= 100 y x <= 200
 				ataque = true;
 			}
 		}
 		return ataque;
 	}
 	
+	public void cargaImagen(BufferedImage imagen) {// metodo para cargar la imagen de las espadas
+		this.image=imagen;
+	}
+	
+	
+
 	public int getDanyo() {return danyo;}
 	public void setDanyo(int danyo) {this.danyo = danyo;}
 	public int getSpeed() {return speed;}

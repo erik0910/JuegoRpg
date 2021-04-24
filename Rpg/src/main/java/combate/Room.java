@@ -20,7 +20,7 @@ public class Room {
 	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
 	//cargar el fondo de la pantalla
 	public Room() {
-		fondo = new Fondo("combate/mapaEspacio.gif", 0.1);
+		fondo = new Fondo("combate/p.gif", 0.1);
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
 			player[i].setPosition(100*i, 100*i);
@@ -28,7 +28,6 @@ public class Room {
 	}
 	//inteligencia del enemigo del juego
 	public static void bossIa() {
-		
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
@@ -57,7 +56,7 @@ public class Room {
 				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que est� dirigido el ataque.
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
-				if(player[obj].getHealth() <= 0) { //Si el pj ha muerto
+				if(player[obj].getHealth() < 0) { //Si el pj ha muerto
 					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
 				}
@@ -77,13 +76,22 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_DOWN)) player[1].setAbajo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[1].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_E)) disparo(1); else disp[1] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_E)) {
+			if(player[1].estado==0) {
+				disparo(1);
+				}else {
+					player[1].ataque(player[2]);
+				}
+			}else {
+			disp[1] = false;
+		}
 		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
+		if(Juego.teclas.contains(KeyEvent.VK_R))player[1].cambiarEstado();
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
-		if(!derecha) player[2].setIzquierda(true);
-		if(derecha) player[2].setDerecha(true);
+//		if(!derecha) player[2].setIzquierda(true);
+//		if(derecha) player[2].setDerecha(true);
 		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
 		//if(true) player[2].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
