@@ -16,6 +16,7 @@ public class Player extends Objeto  {
 	public boolean animarEspada=false;
 	private boolean parpadeo;
 	private long parpadeoT;
+	private boolean animar=true;
 	// gliding
 	private boolean planeo;
 	boolean ataquef;
@@ -212,7 +213,12 @@ public class Player extends Objeto  {
 		if(!animarEspada) {
 		pintadoArma(g);
 		}else {
-			animacion(g);
+			animacion();
+			if(mDerecha) {
+				g.drawImage(Animacion.imagenArma(), (int)this.x-13, (int)this.y-23, 50,40,null);
+				}else {
+				g.drawImage(Animacion.imagenArma(), (int)this.x-35, (int)this.y-23, 50,40,null);
+				}
 		}
 		//HP
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
@@ -264,7 +270,7 @@ public class Player extends Objeto  {
 
 	}
 	//animacion para el arma
-	public void animacion(Graphics2D g) {
+	public void animacion() {
 		BufferedImage[] derecha = new BufferedImage[3];
 		BufferedImage[] izquierda = new BufferedImage[3];
 		//cargamos la correspondientes imagenes
@@ -279,43 +285,21 @@ public class Player extends Objeto  {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		if(animar) {
+			animar=false;
 		if(mDerecha) {
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[0], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[2], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
-			g.drawImage(derecha[1], (int)this.x-13, (int)this.y-23, 50,40,null);
+			Animacion.setAnimacionEspada(derecha);
+			Animacion.setDelayArma(400);
+			Animacion.espadaUpdate();
+			System.out.println("a");
+			
 		}else {
-			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[0], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[2], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
-			g.drawImage(izquierda[1], (int)this.x-35, (int)this.y-23, 50,40,null);
+			Animacion.setAnimacionEspada(izquierda);
+			Animacion.setDelayArma(400);
+			Animacion.espadaUpdate();
+			
 		}
-		animarEspada=false;
+		}
 	}
 	// metodo que permitira cambiar de arma a el jugador
 	public void cambiarEstado() {
