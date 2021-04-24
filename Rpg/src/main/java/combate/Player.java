@@ -213,16 +213,17 @@ public class Player extends Objeto  {
 			if(elapsed / 100 % 2 == 0) return;
 		}
 		//añadimos el pintado del arma y todas sus caracteristicas
-		if(!animarEspada) {
-		pintadoArma(g);
+		if(animarEspada && this.mana>=100) {//comprobamos que el mana sea 100 para poder animar el ataque
+		if(mDerecha) {
+			g.drawImage(derechaArma[cont], (int)this.x, (int)this.y-23, 50,40,null);	
+			}else {
+			g.drawImage(izquierdaArma[cont], (int)this.x-45, (int)this.y-23, 50,40,null);
+			}
+		cont ++;
+		if(cont==3) {animarEspada= false; cont=0;}
 		}else {
-			if(mDerecha) {
-				g.drawImage(derechaArma[cont], (int)this.x, (int)this.y-23, 50,40,null);	
-				}else {
-				g.drawImage(izquierdaArma[cont], (int)this.x-45, (int)this.y-23, 50,40,null);
-				}
-			cont ++;
-			if(cont==3) {animarEspada= false; cont=0;}
+			pintadoArma(g);
+			
 		}
 		//HP
 		g.drawRect ((int)x-10, (int)y-30, (((health*100/maxHealth)*30)/100), 5);
@@ -244,12 +245,14 @@ public class Player extends Objeto  {
 		
 		if(jugador.getHealth()<0) {Room.finalizar=true;}//Detección de si el jugador a terminado en la parte de mele
 		animarEspada=true;
+		
 		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)&& this.mana>=100) {
 			//para iniciar la animacion de la espada
 			System.out.println("el jugador ha atacado");
 			jugador.setHealth(jugador.getHealth()-50);
 			this.mana-=80;
 		}
+		
 	}
 	// metodo que cambiara constantemente la posicion del arma o mas bien el area de impacto del arma
 	private void updateArma() {
