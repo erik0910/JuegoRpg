@@ -3,10 +3,13 @@ package interfaces;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class InterfazTienda extends JFrame {
+public class InterfazTienda extends JFrame{
 	public InterfazTienda() {
 		getContentPane().setLayout(null);
 		
@@ -103,6 +106,128 @@ public class InterfazTienda extends JFrame {
 		JButton btnPropMalla2 = new JButton("PROPIEDADES");
 		btnPropMalla2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnPropMalla2.setBounds(974, 780, 115, 33);
-		getContentPane().add(btnPropMalla2);
-	}
+		getContentPane().add(btnPropMalla2);	
+		
+		JButton btnSalida = new JButton("SALIR");
+		btnSalida.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnSalida.setBounds(10, 10, 125, 52);
+		getContentPane().add(btnSalida);
+		
+		btnSalida.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		btnEspada.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				InterfazTienda v1 = new InterfazTienda();
+				v1.setVisible(true);
+				
+			}
+		});
+		
+		btnEspada2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda v2 = new InterfazTienda();
+				v2.setVisible(true);
+				
+			}
+		});
+		
+		btnLanza.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda v3 = new InterfazTienda();
+				v3.setVisible(true);
+				
+			}
+		});
+		btnLanza2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda v4 = new InterfazTienda();
+				v4.setVisible(true);
+				
+			}
+		});
+		btnMalla.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda v5 = new InterfazTienda();
+				v5.setVisible(true);
+				
+			}
+		});
+		btnMalla2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda v6 = new InterfazTienda();
+				v6.setVisible(true);
+				
+			}
+		});
+		
+		btnPropEspada.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i1 = new InterfazTienda();
+				i1.setVisible(true);
+			}
+		});
+		btnPropEspada2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i2 = new InterfazTienda();
+				i2.setVisible(true);
+			}
+		});
+		btnPropLanza.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i3 = new InterfazTienda();
+				i3.setVisible(true);
+			}
+		});
+		btnPropLanza2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i4 = new InterfazTienda();
+				i4.setVisible(true);
+			}
+		});
+		btnPropMalla.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i5 = new InterfazTienda();
+				i5.setVisible(true);
+			}
+		});
+		btnPropMalla2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				InterfazTienda i6 = new InterfazTienda();
+				i6.setVisible(true);
+			}
+		});
+		}
 }
