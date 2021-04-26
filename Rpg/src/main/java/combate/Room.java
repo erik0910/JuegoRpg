@@ -18,6 +18,7 @@ public class Room {
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
 	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
+	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	//cargar el fondo de la pantalla
 	public Room() {
 		fondo = new Fondo("combate/p.gif", 0.1);
@@ -28,6 +29,7 @@ public class Room {
 	}
 	//inteligencia del enemigo del juego
 	public static void bossIa() {
+		if(dificultad)player[2].setSalto(true);
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
