@@ -2580,7 +2580,18 @@ public class Array extends JFrame implements KeyListener {
 	}
 
 	public void dibujado() {
-if (mundo[x][y].getCode() == ("fight")) {
+		if (mundo[x][y].getCode() == ("fight")) {
+				
+			if((x ==2 && y == 25) || (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22)){
+				
+			//Aqui va las peleas de boses
+		
+			}else {
+			contentPane.setFocusable(false);
+			Ventana.cargarCombate();
+			mundo[x][y] = suelo;
+
+
 			contentPane.setFocusable(false);
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
