@@ -12,8 +12,9 @@ public class Room {
 	public static boolean finalizar = false;// este atributo representa que la partida haya termindo
 	public static boolean estado = false; // este atributo represe ta que elll jugador ha ganado la partida
 	private static Fondo fondo;
-	private static Player[] player = {null, new Player(1),new Player(2)};//, player2;
+	private static Player[] player = {null, new Player(1),new Player(2),new Player(3)};//, player2;
 	private static Disparo disparo;
+	private static boolean enemigos = false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -24,33 +25,39 @@ public class Room {
 		fondo = new Fondo("combate/p.gif", 0.1);
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
-			player[i].setPosition(100*i, 100*i);
+			player[i].setPosition(25*i, 100*i);
 		}
+		player[3]= new Player(3);
+		player[3].setPosition(100, 100);
 	}
 	//inteligencia del enemigo del juego
+	// esta es una inteligencia para el boss que juega con magia
 	public static void bossIa() {
+		
 		if(dificultad)player[2].setSalto(true);
+		System.out.println("entra");
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
-				
 			}else {derecha=false;}
 		}else {
 			if(playergetX(2)>2){//obtenemos la posicion x para saber donde se tiene que mover
-				
 				player[2].setIzquierda(true);
 				} else {
 					derecha=true;				} 	
 		}
 	}
+	//inteligencia para el personaje que va a mele
+	public static void bossIa1() {
+		
+	}
 	
-	public static void update() {for(int i = 1; i <= 2; i++) player[i].update();} //Llamar al update de los 2 jugadores
+	public static void update() {for(int i = 1; i <= 3; i++) player[i].update();} //Llamar al update de los 2 jugadores
 	
 	public static void draw(Graphics2D g) {
 		fondo.draw(g); //Pintar el fondo
 		borrar = -1; //Resetear el index de borrado de la arraylist de disparos.
-		for(int i = 1; i <= 2; i++) player[i].draw(g); //Pintar los 2 jugadores
-		
+		for(int i = 1; i <= 3; i++) player[i].draw(g); //Pintar los 2 jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
 			dispis.draw(g); //Pintar los disparos
 			if(dispis.getX() > 320 || dispis.getX() < 0) borrar = disparos.indexOf(dispis); else dispis.update(); //Si hay un disparo fuera del campo almacenar su index.
@@ -92,8 +99,8 @@ public class Room {
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
-//		if(!derecha) player[2].setIzquierda(true);
-//		if(derecha) player[2].setDerecha(true);
+		if(!derecha) player[2].setIzquierda(true);
+		if(derecha) player[2].setDerecha(true);
 		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
 		//if(true) player[2].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
@@ -103,6 +110,7 @@ public class Room {
 	public static double playergetY(int p) {return player[p].gety();}
 	public static int playergetAncho(int p) {return player[p].getancho();}
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
+	public static void variosEnemigos(boolean resultado) {enemigos=resultado;}// si es true el resultado habra varios enemigos
 	
 	public static void disparo(int p) {
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
