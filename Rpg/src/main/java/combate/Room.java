@@ -60,9 +60,10 @@ public class Room {
 			}else {salto=true; derecha1=false;}
 		}else {
 			if(playergetX(3)>2){//obtenemos la posicion x para saber donde se tiene que mover
+				if(playergetX(3)>200) {salto=true;}else {salto=false;}
 				player[3].setIzquierda(true);
 				} else {
-					salto=false;derecha1=true;				} 	
+					derecha1=true;				} 	
 		}
 	}
 	
@@ -93,7 +94,13 @@ public class Room {
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
 				if(player[obj].getHealth() < 0) { //Si el pj ha muerto
-					if(obj == 1) {estado=false;}else{estado =true;}//Fin almacena el personaje que ha ganado.
+					if(obj == 1) {estado=false;}else{
+						if(enemigos) {
+							if(player[3].getHealth()<0)estado =true;
+							}else {
+								estado =true;}
+						
+					}//Fin almacena el personaje que ha ganado.
 					finalizar=true;
 				}
 				borrar = disparos.indexOf(dispis); //almacenar el index del disparo.
@@ -118,6 +125,7 @@ public class Room {
 				disparo(1);
 				}else {
 					player[1].ataque(player[2]);
+					player[1].ataque(player[3]);
 				}
 			}else {
 			disp[1] = false;
@@ -133,7 +141,7 @@ public class Room {
 		if(!derecha1) player[3].setIzquierda(true);
 		if(derecha1) player[3].setDerecha(true);
 		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
-		if(salto)player[3].setSalto(true);
+		if(salto)player[3].setSalto(true); //demasiado dificil muy peligroso el personaje
 		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
 	}
 	
