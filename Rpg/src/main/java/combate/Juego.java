@@ -98,8 +98,9 @@ import mapa.Array;
 				update();
 				draw();
 				pintarPantalla();
-				//veamos a ver si funciona la ia
+				//Arranque de las dos ias
 				Room.bossIa();
+				Room.bossIa1();
 				if(Room.finalizar) {
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
 					if(Room.estado) {

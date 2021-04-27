@@ -18,8 +18,9 @@ public class Room {
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
-	private static boolean derecha = true;// esto va a permitir elegir el lado que se va a mover el boss
+	private static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
+	private static boolean salto =false;
 	//cargar el fondo de la pantalla
 	public Room() {
 		fondo = new Fondo("combate/p.gif", 0.1);
@@ -27,8 +28,11 @@ public class Room {
 			player[i] = new Player(i);
 			player[i].setPosition(25*i, 100*i);
 		}
+		if(enemigos) {
 		player[3]= new Player(3);
 		player[3].setPosition(100, 100);
+		player[3].cambiarEstado();// ya que el enemigo va a ser mele vamos a cambiarle el estado base
+		}
 	}
 	//inteligencia del enemigo del juego
 	// esta es una inteligencia para el boss que juega con magia
@@ -49,7 +53,16 @@ public class Room {
 	}
 	//inteligencia para el personaje que va a mele
 	public static void bossIa1() {
-		
+		if(dificultad)player[3].setSalto(true);
+		if(derecha1) {
+			if (playergetX(3)< 297) {//tamaño limite
+			}else {salto=true; derecha1=false;}
+		}else {
+			if(playergetX(3)>2){//obtenemos la posicion x para saber donde se tiene que mover
+				player[3].setIzquierda(true);
+				} else {
+					salto=false;derecha1=true;				} 	
+		}
 	}
 	
 	public static void update() {for(int i = 1; i <= 3; i++) player[i].update();} //Llamar al update de los 2 jugadores
@@ -57,7 +70,13 @@ public class Room {
 	public static void draw(Graphics2D g) {
 		fondo.draw(g); //Pintar el fondo
 		borrar = -1; //Resetear el index de borrado de la arraylist de disparos.
-		for(int i = 1; i <= 3; i++) player[i].draw(g); //Pintar los 2 jugadores
+		for(int i = 1; i <= 3; i++) {
+			if(i<3) {
+			player[i].draw(g);
+			}else{
+				if(enemigos)player[i].draw(g);// solo si esta el room en modo enemigos se dibujara el tcer enemigo
+			}
+		} //Pintar los 2 o 3jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
 			dispis.draw(g); //Pintar los disparos
 			if(dispis.getX() > 320 || dispis.getX() < 0) borrar = disparos.indexOf(dispis); else dispis.update(); //Si hay un disparo fuera del campo almacenar su index.
@@ -78,6 +97,7 @@ public class Room {
 	public static void teclas() {
 		player[1].setFalse();
 		player[2].setFalse();
+		player[3].setFalse();
 		
 		//Player1=====================================================
 		if(Juego.teclas.contains(KeyEvent.VK_LEFT)) player[1].setIzquierda(true);
@@ -99,11 +119,14 @@ public class Room {
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
+		//controles para la ia del juego
 		if(!derecha) player[2].setIzquierda(true);
 		if(derecha) player[2].setDerecha(true);
-		if(Juego.teclas.contains(KeyEvent.VK_S)) player[2].setAbajo(true);
-		//if(true) player[2].setSalto(true);
-		if(Juego.teclas.contains(KeyEvent.VK_C)) player[2].setPlaneo(true);
+		if(!derecha1) player[3].setIzquierda(true);
+		if(derecha1) player[3].setDerecha(true);
+		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
+		if(salto)player[3].setSalto(true);
+		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
 	}
 	
 	public static double playergetX(int p) {return player[p].getx();}
