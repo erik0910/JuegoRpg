@@ -39,7 +39,6 @@ public class Room {
 	public static void bossIa() {
 		if(player[2].getHealth()>0) {
 		if(dificultad)player[2].setSalto(true);
-		System.out.println("entra");
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite

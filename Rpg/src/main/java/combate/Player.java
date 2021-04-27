@@ -250,7 +250,6 @@ public class Player extends Objeto  {
 		
 		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)&& this.mana>=100) {
 			//para iniciar la animacion de la espada
-			System.out.println("el jugador ha atacado");
 			jugador.setHealth(jugador.getHealth()-50);
 			this.mana-=80;
 		}
