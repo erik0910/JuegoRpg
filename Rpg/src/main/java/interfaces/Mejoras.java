@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import combate.Player;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -13,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Mejoras extends JFrame {
-
+	static final ClassLoader loader = Mejoras.class.getClassLoader();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
@@ -59,8 +61,8 @@ public class Mejoras extends JFrame {
 			}
 		});
 		btnAtaque.setBackground(Color.RED);
-		ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/espada.png"));
-		btnAtaque.setIcon(imagenFondo);
+		ImageIcon imagenFondo1 = new ImageIcon(loader.getResource("mundo/espada.png"));
+		btnAtaque.setIcon(imagenFondo1);
 		btnAtaque.setBounds(194, 10, 100, 100);
 		contentPane.add(btnAtaque);
 
@@ -71,9 +73,10 @@ public class Mejoras extends JFrame {
 			}
 		});
 		btnEnergia.setBackground(Color.YELLOW);
-		ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/rayo.png"));
-		btnEnergia.setIcon(imagenFondo);
+		ImageIcon imagenFondo2  = new ImageIcon(loader.getResource("mundo/rayo.png"));
+		btnEnergia.setIcon(imagenFondo2);
 		btnEnergia.setBounds(375, 10, 100, 100);
 		contentPane.add(btnEnergia);
+		
 	}
 }
