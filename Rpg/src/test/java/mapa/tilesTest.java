@@ -2,16 +2,16 @@ package mapa;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.jupiter.api.BeforeClass;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import Clases.Tiles;
+import mapa.Tiles;
 
-class tilesTest {
+public class tilesTest {
 
 	Tiles prueba;
 
-	@BeforeClass
+	@Before
 	public void createTiles() {
 		prueba = new Tiles("prueba", true, true, true, true);
 	}
