@@ -14,7 +14,7 @@ public class Room {
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3)};//, player2;
 	private static Disparo disparo;
-	private static boolean enemigos = false;
+	private static boolean enemigos = true;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -37,7 +37,7 @@ public class Room {
 	//inteligencia del enemigo del juego
 	// esta es una inteligencia para el boss que juega con magia
 	public static void bossIa() {
-		
+		if(player[2].getHealth()>0) {
 		if(dificultad)player[2].setSalto(true);
 		System.out.println("entra");
 		disparo(2); //diparamos todo el rato
@@ -50,6 +50,7 @@ public class Room {
 				} else {
 					derecha=true;				} 	
 		}
+	}
 	}
 	//inteligencia para el personaje que va a mele
 	public static void bossIa1() {
@@ -70,13 +71,20 @@ public class Room {
 	public static void draw(Graphics2D g) {
 		fondo.draw(g); //Pintar el fondo
 		borrar = -1; //Resetear el index de borrado de la arraylist de disparos.
-		for(int i = 1; i <= 3; i++) {
-			if(i<3) {
-			player[i].draw(g);
-			}else{
-				if(enemigos)player[i].draw(g);// solo si esta el room en modo enemigos se dibujara el tcer enemigo
-			}
-		} //Pintar los 2 o 3jugadores
+//		for(int i = 1; i <= 3; i++) {
+//			if(i<3) {
+//			player[i].draw(g);
+//			}else{
+//				if(enemigos)player[i].draw(g);// solo si esta el room en modo enemigos se dibujara el tcer enemigo
+//			}
+//		}
+		player[1].draw(g);
+		//comprobamos que el enemigo no este muerto para poder pintarlo
+		if(player[2].getHealth()>0)player[2].draw(g);
+		 if(enemigos) {
+			 if(player[3].getHealth()>0)player[3].draw(g);}
+		
+		//Pintar los 2 o 3jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
 			dispis.draw(g); //Pintar los disparos
 			if(dispis.getX() > 320 || dispis.getX() < 0) borrar = disparos.indexOf(dispis); else dispis.update(); //Si hay un disparo fuera del campo almacenar su index.
