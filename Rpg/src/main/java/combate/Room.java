@@ -9,12 +9,13 @@ import javax.swing.JComponent;
 
 
 public class Room {
+	public static int cont =1;// contador de partidas 
 	public static boolean finalizar = false;// este atributo representa que la partida haya termindo
 	public static boolean estado = false; // este atributo represe ta que elll jugador ha ganado la partida
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3)};//, player2;
 	private static Disparo disparo;
-	private static boolean enemigos = true;
+	private static boolean enemigos = false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -137,19 +138,21 @@ public class Room {
 		//controles para la ia del juego
 		if(!derecha) player[2].setIzquierda(true);
 		if(derecha) player[2].setDerecha(true);
+		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
+		if(enemigos) {
 		if(!derecha1) player[3].setIzquierda(true);
 		if(derecha1) player[3].setDerecha(true);
-		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
 		if(salto)player[3].setSalto(true); //demasiado dificil muy peligroso el personaje
 		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
-	}
+		}
+		}
 	
 	public static double playergetX(int p) {return player[p].getx();}
 	public static double playergetY(int p) {return player[p].gety();}
 	public static int playergetAncho(int p) {return player[p].getancho();}
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
 	public static void variosEnemigos(boolean resultado) {enemigos=resultado;}// si es true el resultado habra varios enemigos
-	
+	public static boolean enemigo() {return enemigos;}
 	public static void disparo(int p) {
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
 			player[p].setAtaque(true); 

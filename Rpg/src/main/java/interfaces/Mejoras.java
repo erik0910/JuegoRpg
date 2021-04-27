@@ -19,7 +19,11 @@ public class Mejoras extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//		iniciar();
+//	}
+
+	public static void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
