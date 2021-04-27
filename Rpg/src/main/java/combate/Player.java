@@ -147,6 +147,8 @@ public class Player extends Objeto  {
 		}
 	}
 	
+	
+	
 	public void update() {
 		
 		// update position
