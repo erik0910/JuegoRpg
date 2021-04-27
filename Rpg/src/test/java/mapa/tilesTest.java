@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeClass;
 import org.junit.jupiter.api.Test;
 
-import Clases.Tiles;
+import mapa.Tiles;
 
 class tilesTest {
 
