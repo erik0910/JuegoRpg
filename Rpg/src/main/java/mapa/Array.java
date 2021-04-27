@@ -2591,11 +2591,6 @@ public class Array extends JFrame implements KeyListener {
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
 
-
-			contentPane.setFocusable(false);
-			Ventana.cargarCombate();
-			mundo[x][y] = suelo;
-
 		}
 		if (mundo[x][y].getCode() == ("NPC")) {
 			
