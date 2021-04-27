@@ -60,6 +60,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		<groupId>org.mockito</groupId>
+		<artifactId>mockito-core</artifactId>
+		<version>2.18.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -68,7 +73,7 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-		
+
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>
@@ -86,7 +91,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 				</plugin>
-				
+
 				<!-- Database plugins -->
 				<plugin>
 					<groupId>org.datanucleus</groupId>
@@ -108,7 +113,7 @@
 						</execution>
 					</executions>
 				</plugin>
-				
+
 				<!-- Main exec -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -125,7 +130,7 @@
 						<mainClass>rpg.App</mainClass>
 					</configuration>
 				</plugin>
-				
+
 				<!-- Jacoco plugin -->
 				<plugin>
 					<groupId>org.jacoco</groupId>
