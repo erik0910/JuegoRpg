@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import interfaces.FondoIntCargar;
+import mapa.Array;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,6 +18,7 @@ public class Player extends Objeto  {
 	private boolean parpadeo;
 	private long parpadeoT;
 	private boolean animar=true;
+	private int ataqueArma ;
 	int cont =0;
 	// gliding
 	private boolean planeo;
@@ -47,6 +49,7 @@ public class Player extends Objeto  {
 	static final ClassLoader loader = Player.class.getClassLoader();
 	public Player(int player) {
 		animacion();// cargamos la animación
+		ataqueArma =50;
 		ancho = 30;
 		alto = 30;
 		moveSpeed = 0.3;
@@ -250,7 +253,7 @@ public class Player extends Objeto  {
 		
 		if(espada.ataque(jugador.getx(),jugador.gety()-23 ,100 , 100)&& this.mana>=100) {
 			//para iniciar la animacion de la espada
-			jugador.setHealth(jugador.getHealth()-50);
+			jugador.setHealth(jugador.getHealth()-ataqueArma);
 			this.mana-=80;
 		}
 		
@@ -321,6 +324,15 @@ public class Player extends Objeto  {
 	public int getManad1() {
 		return manad1;
 	}
-
+	public void mejorarArma(int mejora) {
+		this.ataqueArma +=mejora;
+	}
+	public void mejorarMana(int manas) {
+		this.mana += manas;
+	}
+	public void mejorarvida(int vida) {
+		this.health +=vida;
+		this.maxHealth +=vida;
+	}
 }
 

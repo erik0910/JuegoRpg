@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import combate.Player;
+import mapa.Array;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,21 +20,14 @@ public class Mejoras extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-//	public static void main(String[] args) {
-//		iniciar();
-//	}
+	public static void main(String[] args) {
+		iniciar();
+	}
 
-	public static void iniciar() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void iniciar() {	
 					Mejoras frame = new Mejoras();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	
 	}
 
 	public Mejoras() {
@@ -49,6 +43,7 @@ public class Mejoras extends JFrame {
 		JButton btnDefensa = new JButton("");
 		btnDefensa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Array.mejoraVida();
 				Mejoras.this.dispose();
 			}
 		});
@@ -61,6 +56,7 @@ public class Mejoras extends JFrame {
 		JButton btnAtaque = new JButton("");
 		btnAtaque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Array.mejora();
 				Mejoras.this.dispose();
 			}
 		});
@@ -73,6 +69,7 @@ public class Mejoras extends JFrame {
 		JButton btnEnergia = new JButton("");
 		btnEnergia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Array.mejorarMana();
 				Mejoras.this.dispose();
 			}
 		});

@@ -6,6 +6,8 @@ import java.util.List; //Op
 
 import javax.swing.JComponent;
 
+import mapa.Array;
+
 
 
 public class Room {
@@ -15,7 +17,7 @@ public class Room {
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3)};//, player2;
 	private static Disparo disparo;
-	private static boolean enemigos = true;
+	private static boolean enemigos = false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -29,6 +31,9 @@ public class Room {
 			player[i] = new Player(i);
 			player[i].setPosition(25*i, 100*i);
 		}
+		player[1].mejorarArma(Array.danyoarma);// solo para el jugador se incrementa el ataque
+		player[1].mejorarMana(Array.energia);
+		player[1].mejorarvida(Array.health);
 		if(enemigos) {
 		player[3]= new Player(3);
 		player[3].setPosition(100, 100);
@@ -38,7 +43,7 @@ public class Room {
 	//inteligencia del enemigo del juego
 	// esta es una inteligencia para el boss que juega con magia
 	public static void bossIa() {
-		if(player[2].getHealth()>0) {
+		if(player[2].getHealth()>=0) {
 		if(dificultad)player[2].setSalto(true);
 		disparo(2); //diparamos todo el rato
 		if(derecha) {
@@ -54,7 +59,8 @@ public class Room {
 	}
 	//inteligencia para el personaje que va a mele
 	public static void bossIa1() {
-		if(dificultad)player[3].setSalto(true);
+		if(player[3].getHealth()>=0) {
+		//if(dificultad)player[3].setSalto(true);
 		if(derecha1) {
 			if (playergetX(3)< 297) {//tamaño limite
 			}else {salto=true; derecha1=false;}
@@ -65,6 +71,7 @@ public class Room {
 				} else {
 					derecha1=true;				} 	
 		}
+		}
 	}
 	
 	public static void update() {for(int i = 1; i <= 3; i++) player[i].update();} //Llamar al update de los 2 jugadores
@@ -72,19 +79,12 @@ public class Room {
 	public static void draw(Graphics2D g) {
 		fondo.draw(g); //Pintar el fondo
 		borrar = -1; //Resetear el index de borrado de la arraylist de disparos.
-//		for(int i = 1; i <= 3; i++) {
-//			if(i<3) {
-//			player[i].draw(g);
-//			}else{
-//				if(enemigos)player[i].draw(g);// solo si esta el room en modo enemigos se dibujara el tcer enemigo
-//			}
-//		}
 		player[1].draw(g);
 		//comprobamos que el enemigo no este muerto para poder pintarlo
-		if(player[2].getHealth()>0) {player[2].draw(g);}
+		if(player[2].getHealth()>=0) {player[2].draw(g);}
 		 if(enemigos) {
-			 if(player[3].getHealth()>0)player[3].draw(g);}
-		
+			 if(player[3].getHealth()>=0) {player[3].draw(g);}
+		 }
 		//Pintar los 2 o 3jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
 			dispis.draw(g); //Pintar los disparos
@@ -93,10 +93,10 @@ public class Room {
 				int obj = dispis.getPlayer()==1?2:1; //Almacenar el jugador al que est� dirigido el ataque.
 				player[obj].setHealth((player[obj].getHealth()-dispis.getDanyo())); //Restarle la vida al jugador
 			
-				if(player[obj].getHealth() < 0) { //Si el pj ha muerto
+				if(player[obj].getHealth() <=0) { //Si el pj ha muerto
 					if(obj == 1) {estado=false;}else{
 						if(enemigos) {
-							if(player[3].getHealth()<0)estado =true;
+							if(player[3].getHealth()<=0)estado =true;
 							}else {
 								estado =true;}
 						

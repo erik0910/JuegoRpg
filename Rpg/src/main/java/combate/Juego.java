@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.io.File;
 import javax.swing.JPanel;
 
+import interfaces.Mejoras;
 import mapa.Array;
 
 
@@ -105,13 +106,20 @@ import mapa.Array;
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
 					if(Room.estado) {
 					Array.cartera.ganar();
+					
 					}else {
 						Array.cartera.perder();
 					}
+					Array.cont ++;
 					Array.contentPane.setFocusable(true);
 					Room.finalizar=false;
 					running = false;
 					Ventana.window.dispose();
+					//fase de mejora de arma si conseguimos ganar 3 partidas
+					if(Array.cont==3) {
+						Array.cont=0;
+						Mejoras.iniciar();
+						}
 				}
 				elapsed = System.nanoTime() - start;
 				wait = tiempo - elapsed / 1000000;

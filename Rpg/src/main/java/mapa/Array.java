@@ -20,7 +20,8 @@ import interfaces.InterfazOpcionesJuego;
 import interfaces.Mejoras;
 
 public class Array extends JFrame implements KeyListener {
-
+	public static int cont=1;// contador de partidas
+	public static int danyoarma=0,health=0,energia=0;
 	static Tiles[][] mundo = new Tiles[50][50];
 	private Tiles[][] extra = new Tiles[50][50];
 	private Tiles[][] guardado = new Tiles[50][50];
@@ -49,7 +50,15 @@ public class Array extends JFrame implements KeyListener {
 	static String direccion = "RIGHT";
 	private static String skin = "";
 	boolean in = false;
-
+	public static void mejora() {
+		danyoarma +=10;
+	}
+	public static void mejoraVida() {
+		health +=10;
+	}
+	public static void mejorarMana() {
+		energia +=10;
+	}
 	// atributo moneda que contendra la mondeda que disponde el jugador en ese momento
 	public static Monedero cartera= new Monedero();
 	
@@ -2586,25 +2595,15 @@ public class Array extends JFrame implements KeyListener {
 			if((x ==2 && y == 25) || (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22)){
 				
 			//Aqui va las peleas de boses
-			Room.cont++;
 			Room.variosEnemigos(true);
 			contentPane.setFocusable(false);
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
-				if(Room.cont==3) {
-				Mejoras.iniciar();
-				Room.cont=1;
-				}
 			}else {
-			Room.cont++;
 			Room.variosEnemigos(false);
 			contentPane.setFocusable(false);
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
-			if(Room.cont==3) {
-				Mejoras.iniciar();
-				Room.cont=1;
-				}
 			}
 
 		}
