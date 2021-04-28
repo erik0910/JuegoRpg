@@ -316,7 +316,7 @@ public class Player extends Objeto  {
 		return mana;
 	}
 	public void setMana(double d) {
-		this.mana = d;
+		this.mana += d;
 	}
 	public int getManad1() {
 		return manad1;
@@ -324,5 +324,6 @@ public class Player extends Objeto  {
 	public void setManad1(int manad1) {
 		this.manad1 = manad1;
 	}
+	
 }
 

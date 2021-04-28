@@ -15,7 +15,7 @@ public class Room {
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3)};//, player2;
 	private static Disparo disparo;
-	private static boolean enemigos = false;
+	private static boolean enemigos = true;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -81,7 +81,7 @@ public class Room {
 //		}
 		player[1].draw(g);
 		//comprobamos que el enemigo no este muerto para poder pintarlo
-		if(player[2].getHealth()>0)player[2].draw(g);
+		if(player[2].getHealth()>0) {player[2].draw(g);}
 		 if(enemigos) {
 			 if(player[3].getHealth()>0)player[3].draw(g);}
 		
