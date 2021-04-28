@@ -202,7 +202,7 @@ public class InterfazTienda extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.danyoarma = Array.danyoarma + 5;
+		
 
 				JOptionPane.showMessageDialog(null, "Espada nivel 1 comprada!");
 				Array.cartera.compra(1200);
@@ -254,6 +254,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Daño: +5");
+				Array.danyoarma = Array.danyoarma + 5;
 			}
 		});
 		btnPropEspada2.addActionListener(new ActionListener() {
@@ -261,7 +262,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Daño: +12");
-
+				Array.danyoarma = Array.danyoarma + 12;
 			}
 		});
 		btnPropLanza.addActionListener(new ActionListener() {
@@ -269,7 +270,8 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Energia: +6");
-
+				Array.energia+=6;
+				
 			}
 		});
 		btnPropLanza2.addActionListener(new ActionListener() {
@@ -277,7 +279,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Energia: +11");
-
+				Array.energia+=11;
 			}
 		});
 		btnPropMalla.addActionListener(new ActionListener() {
@@ -285,6 +287,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Vida: +10");
+				Array.health+=10;
 			}
 		});
 		btnPropMalla2.addActionListener(new ActionListener() {
@@ -292,6 +295,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Vida: +17");
+				Array.health+=17;
 
 			}
 		});
