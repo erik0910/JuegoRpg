@@ -315,15 +315,12 @@ public class Player extends Objeto  {
 	public double getMana() {
 		return mana;
 	}
-	public void setMana(double d) {
-		this.mana += d;
+	public void setMana(double manas) {
+		this.mana=manas;
 	}
 	public int getManad1() {
 		return manad1;
 	}
-	public void setManad1(int manad1) {
-		this.manad1 = manad1;
-	}
-	
+
 }
 
