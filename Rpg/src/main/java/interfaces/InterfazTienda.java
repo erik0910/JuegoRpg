@@ -265,7 +265,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio: 1200$ /n Daño: +5");
+				JOptionPane.showMessageDialog(null, "Precio: 1200$  Daño: +5");
 		
 			}
 		});
@@ -273,7 +273,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio: 2500$ /n Daño: +12");
+				JOptionPane.showMessageDialog(null, "Precio: 2500$  Daño: +12");
 		
 			}
 		});
@@ -281,7 +281,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio : 1500$ /n Energia: +6");
+				JOptionPane.showMessageDialog(null, "Precio : 1500$  Energia: +6");
 				
 				
 			}
@@ -290,7 +290,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio: 2000$ /n Energia: +11");
+				JOptionPane.showMessageDialog(null, "Precio: 2000$  Energia: +11");
 				
 			}
 		});
@@ -298,7 +298,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio: 1400$ /n Vida: +10");
+				JOptionPane.showMessageDialog(null, "Precio: 1400$  Vida: +10");
 				
 			}
 		});
@@ -306,7 +306,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Precio: 2100$ /n Vida: +17");
+				JOptionPane.showMessageDialog(null, "Precio: 2100$  Vida: +17");
 				
 
 			}
