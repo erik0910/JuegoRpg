@@ -124,32 +124,32 @@ public class InterfazTienda extends JFrame {
 		btnSalida.setBounds(10, 12, 83, 33);
 		getContentPane().add(btnSalida);
 
-		JLabel lblNewLabel = new JLabel("Espada nivel 1: 1200$");
+		JLabel lblNewLabel = new JLabel("Espada nivel 1");
 		lblNewLabel.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel.setBounds(46, 73, 159, 29);
 		getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Lanza nivel 1: 1500$");
+		JLabel lblNewLabel_1 = new JLabel("Lanza nivel 1");
 		lblNewLabel_1.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(283, 73, 143, 29);
 		getContentPane().add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Malla nivel 1: 1400$");
+		JLabel lblNewLabel_2 = new JLabel("Malla nivel 1");
 		lblNewLabel_2.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(518, 73, 145, 29);
 		getContentPane().add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Espada nivel 2: 2500$");
+		JLabel lblNewLabel_3 = new JLabel("Espada nivel 2");
 		lblNewLabel_3.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel_3.setBounds(46, 372, 159, 29);
 		getContentPane().add(lblNewLabel_3);
 
-		JLabel lblNewLabel_3_1 = new JLabel("Lanza nivel 2: 2000$");
+		JLabel lblNewLabel_3_1 = new JLabel("Lanza nivel 2");
 		lblNewLabel_3_1.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel_3_1.setBounds(283, 372, 143, 29);
 		getContentPane().add(lblNewLabel_3_1);
 
-		JLabel lblNewLabel_3_1_1 = new JLabel("Malla nivel 2: 2100$");
+		JLabel lblNewLabel_3_1_1 = new JLabel("Malla nivel 2");
 		lblNewLabel_3_1_1.setFont(new Font("Algerian", Font.PLAIN, 15));
 		lblNewLabel_3_1_1.setBounds(518, 372, 145, 29);
 		getContentPane().add(lblNewLabel_3_1_1);
@@ -236,7 +236,7 @@ public class InterfazTienda extends JFrame {
 		btnLanza2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(	Array.cartera.compra(2000)) {
+				if(Array.cartera.compra(2000)) {
 				JOptionPane.showMessageDialog(null, "Lanza  nivel 2 comprada!");
 				Array.energia+=11;
 				}
@@ -246,7 +246,6 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Array.cartera.compra(1400)) {
-				
 				JOptionPane.showMessageDialog(null, "Malla nivel 1 comprada!");
 				Array.health+=10;
 				}
@@ -266,7 +265,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Daño: +5");
+				JOptionPane.showMessageDialog(null, "Precio: 1200$ /n Daño: +5");
 		
 			}
 		});
@@ -274,7 +273,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Daño: +12");
+				JOptionPane.showMessageDialog(null, "Precio: 2500$ /n Daño: +12");
 		
 			}
 		});
@@ -282,7 +281,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Energia: +6");
+				JOptionPane.showMessageDialog(null, "Precio : 1500$ /n Energia: +6");
 				
 				
 			}
@@ -291,7 +290,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Energia: +11");
+				JOptionPane.showMessageDialog(null, "Precio: 2000$ /n Energia: +11");
 				
 			}
 		});
@@ -299,7 +298,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Vida: +10");
+				JOptionPane.showMessageDialog(null, "Precio: 1400$ /n Vida: +10");
 				
 			}
 		});
@@ -307,7 +306,7 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Vida: +17");
+				JOptionPane.showMessageDialog(null, "Precio: 2100$ /n Vida: +17");
 				
 
 			}
