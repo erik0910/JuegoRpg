@@ -22,18 +22,10 @@ public class InterfazTienda extends JFrame {
 
 	static final ClassLoader loader = InterfazTienda.class.getClassLoader();
 	public static FondoTiendaCargar contentPane;
+	public static void iniciar() {
+		InterfazTienda frame = new InterfazTienda();
+		frame.setVisible(true);
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InterfazTienda frame = new InterfazTienda();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 	public InterfazTienda() {
@@ -213,7 +205,7 @@ public class InterfazTienda extends JFrame {
 				Array.danyoarma = Array.danyoarma + 5;
 
 				JOptionPane.showMessageDialog(null, "Espada nivel 1 comprada!");
-
+				Array.cartera.compra(1200);
 			}
 		});
 
@@ -221,9 +213,8 @@ public class InterfazTienda extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.danyoarma = Array.danyoarma + 12;
 				JOptionPane.showMessageDialog(null, "Espada nivel 2 comprada!");
-
+				Array.cartera.compra(2500);
 			}
 		});
 
@@ -233,30 +224,28 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Array.energia = Array.energia + 6;
 				JOptionPane.showMessageDialog(null, "Lanza nivel 1 comprada!");
-
+				Array.cartera.compra(1500);
 			}
 		});
 		btnLanza2.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.energia = Array.energia + 11;
-				JOptionPane.showMessageDialog(null, "Lanza nivel 2 comprada!");
+				JOptionPane.showMessageDialog(null, "Lanza  nivel 2 comprada!");
+				Array.cartera.compra(2000);
 			}
 		});
 		btnMalla.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.health = Array.health + 10;
 				JOptionPane.showMessageDialog(null, "Malla nivel 1 comprada!");
-
+				Array.cartera.compra(1400);
 			}
 		});
 		btnMalla2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.health = Array.health + 17;
 				JOptionPane.showMessageDialog(null, "Malla nivel 2 comprada!");
+				Array.cartera.compra(2100);
 			}
 		});
 

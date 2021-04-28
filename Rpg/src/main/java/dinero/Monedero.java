@@ -28,13 +28,14 @@ public class Monedero {
 	public void perder() {
 		this.dinero -= 100;
 	}
-
 	@Override
 	public String toString() {
 		return "Monedero [dinero=" + dinero + "]";
 	}
 
 	public void compra(int gasto) {
+		if(gasto <this.dinero) {
 		this.dinero -= gasto;
+		}
 	}
 }

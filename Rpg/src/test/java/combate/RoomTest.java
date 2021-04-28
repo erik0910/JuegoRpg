@@ -28,7 +28,7 @@ public class RoomTest {
 	
 	@Test
 	public void funcionaminetoJugador3() {
-	room.variosEnemigos(true);
+	room.variosEnemigos(true);// hay que establecer siempre varios enemigos
 	room = new Room();	
 	resultado=room.playergetX(3)==100?true:false;// el valor establecido por el player 1 es 25 en el x
 	assertTrue(resultado);

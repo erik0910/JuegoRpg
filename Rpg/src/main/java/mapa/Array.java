@@ -17,6 +17,7 @@ import combate.*;
 import dinero.Monedero;
 import interfaces.InterfazOpciones;
 import interfaces.InterfazOpcionesJuego;
+import interfaces.InterfazTienda;
 import interfaces.Mejoras;
 
 public class Array extends JFrame implements KeyListener {
@@ -2649,7 +2650,7 @@ public class Array extends JFrame implements KeyListener {
 		
 		if (mundo[x][y].getCode() == ("shops")) {
 
-			JOptionPane.showMessageDialog(null, "Tienda");
+			InterfazTienda.iniciar();
 
 		}
 
