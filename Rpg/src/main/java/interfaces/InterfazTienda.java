@@ -203,9 +203,10 @@ public class InterfazTienda extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 		
-
+				if(Array.cartera.compra(1200)) {
 				JOptionPane.showMessageDialog(null, "Espada nivel 1 comprada!");
-				Array.cartera.compra(1200);
+				Array.danyoarma = Array.danyoarma + 5;
+				}
 			}
 		});
 
@@ -213,8 +214,11 @@ public class InterfazTienda extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(Array.cartera.compra(2500)) {
 				JOptionPane.showMessageDialog(null, "Espada nivel 2 comprada!");
-				Array.cartera.compra(2500);
+				
+				Array.danyoarma = Array.danyoarma + 12;
+				}
 			}
 		});
 
@@ -222,30 +226,39 @@ public class InterfazTienda extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Array.energia = Array.energia + 6;
+				if(Array.cartera.compra(1500)) {
 				JOptionPane.showMessageDialog(null, "Lanza nivel 1 comprada!");
-				Array.cartera.compra(1500);
+				
+				Array.energia+=6;
+				}
 			}
 		});
 		btnLanza2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(	Array.cartera.compra(2000)) {
 				JOptionPane.showMessageDialog(null, "Lanza  nivel 2 comprada!");
-				Array.cartera.compra(2000);
+				Array.energia+=11;
+				}
 			}
 		});
 		btnMalla.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(Array.cartera.compra(1400)) {
+				
 				JOptionPane.showMessageDialog(null, "Malla nivel 1 comprada!");
-				Array.cartera.compra(1400);
+				Array.health+=10;
+				}
 			}
 		});
 		btnMalla2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(Array.cartera.compra(2100)) {
 				JOptionPane.showMessageDialog(null, "Malla nivel 2 comprada!");
-				Array.cartera.compra(2100);
+				Array.health+=17;
+				}
 			}
 		});
 
@@ -254,7 +267,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Daño: +5");
-				Array.danyoarma = Array.danyoarma + 5;
+		
 			}
 		});
 		btnPropEspada2.addActionListener(new ActionListener() {
@@ -262,7 +275,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Daño: +12");
-				Array.danyoarma = Array.danyoarma + 12;
+		
 			}
 		});
 		btnPropLanza.addActionListener(new ActionListener() {
@@ -270,7 +283,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Energia: +6");
-				Array.energia+=6;
+				
 				
 			}
 		});
@@ -279,7 +292,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Energia: +11");
-				Array.energia+=11;
+				
 			}
 		});
 		btnPropMalla.addActionListener(new ActionListener() {
@@ -287,7 +300,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Vida: +10");
-				Array.health+=10;
+				
 			}
 		});
 		btnPropMalla2.addActionListener(new ActionListener() {
@@ -295,7 +308,7 @@ public class InterfazTienda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Vida: +17");
-				Array.health+=17;
+				
 
 			}
 		});

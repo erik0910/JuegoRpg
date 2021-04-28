@@ -33,9 +33,11 @@ public class Monedero {
 		return "Monedero [dinero=" + dinero + "]";
 	}
 
-	public void compra(int gasto) {
+	public boolean compra(int gasto) {
 		if(gasto <this.dinero) {
 		this.dinero -= gasto;
+		return true;
 		}
+		return false;
 	}
 }
