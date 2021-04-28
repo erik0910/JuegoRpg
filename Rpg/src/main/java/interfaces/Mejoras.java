@@ -34,7 +34,7 @@ public class Mejoras extends JFrame {
 		this.setUndecorated(true);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 300, 500, 124);
+		setBounds(700, 450, 500, 124);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
