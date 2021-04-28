@@ -19,12 +19,11 @@
 mvn clean install 
 mvn datanucleus:enhance 
 mvn datanucleus:schema-create 
-mvn exec:java
 ```
 
 **7.** Si todo funciona bien, deberia de terminar la compilación sin mostrar ningun error.
 
-**8.** Una vez acabado este paso introduzca el siguiente comando ```mvn exec:java -Dexec.mainClass="rpg.App"```.
+**8.** Una vez acabado este paso introduzca el siguiente comando ```mvn exec:java```.
 
 **9.** Ahora cargara la ventana principal del juego y podra jugar sin problemas.
 
