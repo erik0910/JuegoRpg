@@ -33,7 +33,7 @@ public class InterfazOpcionesJuego extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private FondoIntOpciones contentPane;
-	private String[] infoJuego = new String[7];
+	private String[] infoJuego = new String[9];
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

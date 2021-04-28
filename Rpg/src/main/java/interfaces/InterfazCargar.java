@@ -114,7 +114,7 @@ public class InterfazCargar extends JFrame {
 				String[] info = DBManager.cargarPartida(listPartidas.getSelectedValue());
 				System.out.println("Skin = " + info[0] + "; X = " + info[1] + "; Y = " + info[2] + 
 						"; X_dib = " + info[3] + "; Y_dib = " + info[4] + "; Dinero = " + info[5] + 
-						"; Vida = " + info[6]);
+						"; Vida = " + info[6] + "; Energia = " + info[7] + "; Danyo arma = " + info[8]);
 				mapa.Array inter = new mapa.Array();
 				inter.setSkin(info[0]);
 				inter.setX(Integer.parseInt(info[1]));
@@ -125,7 +125,8 @@ public class InterfazCargar extends JFrame {
 				m.setDinero(Integer.parseInt(info[5]));
 				inter.setCartera(m);
 				inter.setVida(Integer.parseInt(info[6]));
-				
+				inter.setEnergia(Integer.parseInt(info[7]));
+				inter.setDanyoarma(Integer.parseInt(info[8]));
 				dispose();
 				inter.setVisible(true);
 				inter.setLocationRelativeTo(null);

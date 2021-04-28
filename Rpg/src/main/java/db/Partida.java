@@ -19,11 +19,13 @@ public class Partida {
 	private int x_dib;
 	private int y_dib;
 	private Monedero monedero = new Monedero();
+	private int danyoarma;
+	private int energia;
 	
 	public Partida() {
 	}
 
-	public Partida(String nombrePartida, int vida, String skin, int x, int y, int x_dib, int y_dib, Monedero monedero) {
+	public Partida(String nombrePartida, int vida, String skin, int x, int y, int x_dib, int y_dib, Monedero monedero, int danyoarma, int energia) {
 		this.nombrePartida = nombrePartida;
 		this.vida = vida;
 		this.skin = skin;
@@ -32,6 +34,8 @@ public class Partida {
 		this.x_dib = x_dib;
 		this.y_dib = y_dib;
 		this.monedero = monedero;
+		this.danyoarma = danyoarma;
+		this.energia = energia;
 		
 	}
 
@@ -99,13 +103,27 @@ public class Partida {
 		this.monedero = monedero;
 	}
 
+	public int getDanyoarma() {
+		return danyoarma;
+	}
+
+	public void setDanyoarma(int danyoarma) {
+		this.danyoarma = danyoarma;
+	}
+
+	public int getEnergia() {
+		return energia;
+	}
+
+	public void setEnergia(int energia) {
+		this.energia = energia;
+	}
+
 	@Override
 	public String toString() {
 		return "Partida [nombrePartida=" + nombrePartida + ", vida=" + vida + ", skin=" + skin + ", x=" + x + ", y=" + y
-				+ ", x_dib=" + x_dib + ", y_dib=" + y_dib + ", monedero=" + monedero.getDinero() + "]";
+				+ ", x_dib=" + x_dib + ", y_dib=" + y_dib + ", monedero=" + monedero + ", danyoarma=" + danyoarma
+				+ ", energia=" + energia + "]";
 	}
-	
-	
-	
 	
 }

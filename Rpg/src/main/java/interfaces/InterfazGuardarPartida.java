@@ -24,7 +24,7 @@ public class InterfazGuardarPartida extends JFrame {
 	private FondoIntOpciones contentPane;
 	private JTextField textField;
 	private MainDB DBManager = new MainDB();
-	private String[] info = new String[7];
+	private String[] info = new String[9];
 	
 	public String[] getInfo() {
 		return info;
@@ -98,6 +98,8 @@ public class InterfazGuardarPartida extends JFrame {
 				p.setY_dib(Integer.parseInt(info[4]));
 				p.setMonedero(m);
 				p.setVida(Integer.parseInt(info[6]));
+				p.setEnergia(Integer.parseInt(info[7]));
+				p.setDanyoarma(Integer.parseInt(info[8]));
 				System.out.println(p.toString());
 				DBManager.guardarPartida(p);
 			}

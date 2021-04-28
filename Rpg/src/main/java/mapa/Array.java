@@ -111,6 +111,18 @@ public class Array extends JFrame implements KeyListener {
 	public void setSkin(String skin) {
 		Array.skin = skin;
 	}
+	public static int getDanyoarma() {
+		return danyoarma;
+	}
+	public static void setDanyoarma(int danyoarma) {
+		Array.danyoarma = danyoarma;
+	}
+	public static int getEnergia() {
+		return energia;
+	}
+	public static void setEnergia(int energia) {
+		Array.energia = energia;
+	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -3226,7 +3238,7 @@ public class Array extends JFrame implements KeyListener {
 		} else if (key == KeyEvent.VK_ESCAPE) {
 			if(in==false) {
 				
-				String[] info = new String[7];
+				String[] info = new String[9];
 				info[0] = skin;
 				info[1] = Integer.toString(x);
 				info[2] = Integer.toString(y);
@@ -3234,8 +3246,10 @@ public class Array extends JFrame implements KeyListener {
 				info[4] = Integer.toString(y_dib);
 				info[5] = Integer.toString(cartera.getDinero());
 				info[6] = Integer.toString(vida);
-				System.out.println("Impresion de los datos de partida = "+ info[0] +" "+ info[1]+ " " + info[2]+ " "+info[3]
-						+" "+ info[4]+ " " + info[5]+ " "+info[6]);
+				info[7] = Integer.toString(energia);
+				info[8] = Integer.toString(danyoarma);
+				System.out.println("Impresion de los datos de partida = Skin "+ info[0] +"; X "+ info[1]+ "; Y " + info[2]+ "; X_dib "+info[3]
+						+"; Y_dib "+ info[4]+ "; Dinero " + info[5]+ "; Vida "+ info[6] + "; Energia " + info[7] + "; Danyo arma " + info[8]);
 				contentPane.setFocusable(false);
 				
 				InterfazOpcionesJuego inter = new InterfazOpcionesJuego();

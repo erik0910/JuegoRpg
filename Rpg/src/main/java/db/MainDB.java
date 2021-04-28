@@ -32,7 +32,7 @@ public class MainDB {
 		try {
 			tx.begin();
 			Monedero m = new Monedero();
-			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m);
+			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
 			System.out.println("Guardando partida " + partida.getNombrePartida());
 			pm.makePersistent(partida);
 			System.out.println("Devolviendo todas las partidas");
@@ -82,7 +82,7 @@ public class MainDB {
 	@SuppressWarnings("unchecked")
 	public String[] cargarPartida(String nombrePartida) {
 		Partida p = new Partida();
-		String[] info = new String[7];
+		String[] info = new String[9];
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
@@ -106,6 +106,8 @@ public class MainDB {
 			info[4] = Integer.toString(p.getY_dib());
 			info[5] = Integer.toString(p.getMonedero().getDinero());
 			info[6] = Integer.toString(p.getVida());
+			info[7] = Integer.toString(p.getEnergia());
+			info[8] = Integer.toString(p.getDanyoarma());
 			tx.commit();
 		} catch (Exception e) {
 			System.out.println("Excepcion cargando partida: " + e.getMessage());
