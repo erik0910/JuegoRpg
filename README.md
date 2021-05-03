@@ -4,13 +4,13 @@
 
 Se debe tener instalado para el correcto funcionamiento:
 
-Maven 3.6.3
+-Maven 3.6.3
 
-JUnit 4
+-JUnit 4
 
-OpenJDK 15
+-OpenJDK 15
 
-MySQL Workbench (o similares para iniciar la base de datos)
+-MySQL Workbench (o similares para iniciar la base de datos)
 
 **Configuración previa:**
 
