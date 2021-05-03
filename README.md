@@ -14,7 +14,7 @@ Se debe tener instalado para el correcto funcionamiento:
 
 **Configuración previa:**
 
-Para inicializar la base de datos debemos introducir las siguientes sentencias:
+Para inicializar el servidor SQL debemos introducir las siguientes sentencias:
 ```
 DROP SCHEMA IF EXISTS gamedb;
 DROP USER IF EXISTS 'rpg'@'localhost';
