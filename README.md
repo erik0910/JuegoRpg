@@ -8,6 +8,18 @@ JUnit 4
 OpenJDK 15
 MySQL Workbench (o similares para iniciar la base de datos)
 
+**Configuración previa:**
+
+Para inicializar la base de datos debemos introducir las siguientes sentencias:
+```
+DROP SCHEMA IF EXISTS gamedb;
+DROP USER IF EXISTS 'rpg'@'localhost';
+
+CREATE SCHEMA gamedb;
+CREATE USER IF NOT EXISTS 'rpg'@'localhost' IDENTIFIED BY 'rpg';
+
+GRANT ALL ON gamedb.* TO 'rpg'@'localhost';
+```
 **Configuración:**
 
  Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:
