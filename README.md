@@ -1,5 +1,13 @@
 # JuegoRpg
 
+**Requisitos: **
+
+Se debe tener instalado para el correcto funcionamiento:
+Maven 3.6.3
+JUnit 4
+OpenJDK 15
+MySQL Workbench (o similares para iniciar la base de datos)
+
 **Configuración: **
 
  Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:
