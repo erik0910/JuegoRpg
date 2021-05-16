@@ -11,9 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.experimental.categories.Category;
-import org.databene.contiperf.PerfTest;
-import org.databene.contiperf.junit.ContiPerfRule;
-import org.junit.Rule;
+
 
 import test.IntegrationTest;
 
