@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import servidor.Server;
+
 public class InterfazInicial extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -100,5 +102,23 @@ public class InterfazInicial extends JFrame {
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(196, 32, 220, 38);
 		contentPane.add(lblTitulo);
+		
+		JButton btnEstadisticas = new JButton("Estadisticas");
+		btnEstadisticas.setOpaque(false);
+		btnEstadisticas.setForeground(Color.WHITE);
+		btnEstadisticas.setFont(new Font("Dialog", Font.PLAIN, 18));
+		btnEstadisticas.setBorder(null);
+		btnEstadisticas.setBackground(Color.WHITE);
+		btnEstadisticas.setBounds(196, 388, 220, 27);
+		contentPane.add(btnEstadisticas);
+		btnEstadisticas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Server s = new Server();
+				
+			}
+		});
 	}
 }
