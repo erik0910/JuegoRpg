@@ -116,7 +116,7 @@ public class InterfazInicial extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Server s = new Server();
+				Server.startServer();
 				
 			}
 		});
