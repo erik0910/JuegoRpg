@@ -101,7 +101,7 @@ import mapa.Array;
 				pintarPantalla();
 				//Arranque de las dos ias
 				Room.bossIa();
-				if(Room.enemigo())Room.bossIa1();
+				if(Room.enemigo()) {Room.bossIa1();}
 				if(Room.finalizar) {
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
 					if(Room.estado) {
