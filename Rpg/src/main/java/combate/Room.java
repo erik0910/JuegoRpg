@@ -18,7 +18,7 @@ public class Room {
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3),new Player(4)};//, player2;
 	private static Disparo disparo;
 	private static boolean enemigos = false;
-	private static boolean jugadores =false;
+	public static boolean jugadores =false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
@@ -41,8 +41,8 @@ public class Room {
 		player[3].cambiarEstado();// ya que el enemigo va a ser mele vamos a cambiarle el estado base
 		}
 		if(jugadores) {
-				player[4]= new Player(3);
-				player[4].setPosition(100, 100);
+				player[4]= new Player(4);
+				player[4].setPosition(120, 100);
 				player[4].cambiarEstado();
 		
 		}
@@ -66,7 +66,7 @@ public class Room {
 	}
 	//inteligencia para el personaje que va a mele
 	public static void bossIa1() {
-		if(player[3].getHealth()>=0) {
+		if(player[4].getHealth()>=0) {
 		//if(dificultad)player[3].setSalto(true);
 		if(derecha1) {
 			if (playergetX(3)< 297) {//tamaño limite
@@ -90,10 +90,11 @@ public class Room {
 		//comprobamos que el enemigo no este muerto para poder pintarlo
 		if(player[2].getHealth()>=0) {player[2].draw(g);}
 		 if(enemigos) {
-			 if(player[3].getHealth()>=0) {player[3].draw(g);}
+			 if(player[3].getHealth()>=0) {player[4].draw(g);}
 		 }
 		 if(jugadores) {
-			 if(player[4].getHealth()>=0) {player[4].draw(g);}
+			 if(player[3].getHealth()>=0) {player[3].draw(g);
+			 System.out.println("entra");}
 		 }
 		//Pintar los 2 o 3jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
@@ -135,34 +136,33 @@ public class Room {
 		if(Juego.teclas.contains(KeyEvent.VK_UP)) player[1].setSalto(true);
 		if(Juego.teclas.contains(KeyEvent.VK_P)) player[1].setPlaneo(true);
 		if(Juego.teclas.contains(KeyEvent.VK_O))player[1].cambiarEstado();
-		if(Juego.teclas.contains(KeyEvent.VK_E)) {
+		if(Juego.teclas.contains(KeyEvent.VK_I)) {
 			if(player[1].estado==0) {
 				disparo(1);
 				}else {
 					player[1].ataque(player[2]);
-					player[1].ataque(player[3]);
+					player[1].ataque(player[4]);
 				}
 			}else {
 			disp[1] = false;
 		}
-		if(Juego.teclas.contains(KeyEvent.VK_A)) player[1].setIzquierda(true);
-		if(Juego.teclas.contains(KeyEvent.VK_D)) player[1].setDerecha(true);
-		if(Juego.teclas.contains(KeyEvent.VK_S)) player[1].setAbajo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_W)) player[1].setSalto(true);
-		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[1].setPlaneo(true);
-		if(Juego.teclas.contains(KeyEvent.VK_R))player[1].cambiarEstado();
+		if(Juego.teclas.contains(KeyEvent.VK_A)) player[3].setIzquierda(true);
+		if(Juego.teclas.contains(KeyEvent.VK_D)) player[3].setDerecha(true);
+		if(Juego.teclas.contains(KeyEvent.VK_S)) player[3].setAbajo(true);
+		if(Juego.teclas.contains(KeyEvent.VK_W)) player[3].setSalto(true);
+		if(Juego.teclas.contains(KeyEvent.VK_Q)) player[3].setPlaneo(true);
+		if(Juego.teclas.contains(KeyEvent.VK_R))player[3].cambiarEstado();
 		if(Juego.teclas.contains(KeyEvent.VK_E)) {
-			if(player[4].estado==0) {
+			if(player[3].estado==0) {
 				disparo(2);
 				}else {
-					player[4].ataque(player[2]);
-					player[4].ataque(player[3]);
+					player[3].ataque(player[2]);
+					player[3].ataque(player[4]);
 				}
 			}else {
 			disp[1] = false;
 		}
 		if(Juego.teclas.contains(KeyEvent.VK_K)) disparo(2); else disp[2] = false;
-	
 		//======================================================
 	// se podria hacer que juegen dos pero de momento sin imlementar
 		//============================================================
@@ -171,10 +171,11 @@ public class Room {
 		if(derecha) player[2].setDerecha(true);
 		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
 		if(enemigos) {
-		if(!derecha1) player[3].setIzquierda(true);
-		if(derecha1) player[3].setDerecha(true);
-		if(salto)player[3].setSalto(true); //demasiado dificil muy peligroso el personaje
-		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
+		if(!derecha1) player[4].setIzquierda(true);
+		if(derecha1) player[4].setDerecha(true);
+		if(salto)player[4].setSalto(true); //demasiado dificil muy peligroso el personaje
+		player[4].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
+		player[4].ataque(player[3]);
 		}
 		}
 	
