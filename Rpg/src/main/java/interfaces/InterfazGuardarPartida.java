@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.border.EmptyBorder;
 
+import db.Estadisticas;
 import db.MainDB;
 import db.Partida;
 import dinero.Monedero;
@@ -102,6 +103,14 @@ public class InterfazGuardarPartida extends JFrame {
 				p.setDanyoarma(Integer.parseInt(info[8]));
 				System.out.println(p.toString());
 				DBManager.guardarPartida(p);
+				
+				Estadisticas est = new Estadisticas();
+				est.setNombreJugador(textField.getText());
+				est.setDanyoarma(Integer.parseInt(info[8]));
+				est.setSkin(info[0]);
+				est.setEnergia(Integer.parseInt(info[7]));
+				est.setVida(Integer.parseInt(info[6]));
+				DBManager.guardarEstadisticas(est);
 			}
 		});
 		btnGuardar.setOpaque(false);
