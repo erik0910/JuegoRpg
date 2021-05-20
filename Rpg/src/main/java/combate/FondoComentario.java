@@ -7,11 +7,11 @@ import java.net.URL;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class FondoIntInicial extends javax.swing.JPanel{
+public class FondoComentario extends javax.swing.JPanel{
     
-	static final ClassLoader loader = FondoIntInicial.class.getClassLoader();
+	static final ClassLoader loader = FondoComentario.class.getClassLoader();
 	
-    public FondoIntInicial() {
+    public FondoComentario() {
     	this.setSize(619, 539);       
     }
      

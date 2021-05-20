@@ -17,16 +17,16 @@ import interfaces.InterfazCargar;
 import interfaces.InterfazOpciones;
 import interfaces.InterfazPersonalizacion;
 
-public class InterfazInicial extends JFrame {
+public class Comentario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private FondoIntInicial contentPane;
+	private FondoComentario contentPane;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfazInicial frame = new InterfazInicial();
+					Comentario frame = new Comentario();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -36,17 +36,17 @@ public class InterfazInicial extends JFrame {
 		});
 	}
 
-	public InterfazInicial() {
+	public Comentario() {
 		setTitle("rpg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 619, 520);
-		contentPane = new FondoIntInicial();
+		contentPane = new FondoComentario();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 	
 		JButton btnNewButton = new JButton("Continuar");
-		btnNewButton.setBounds(512, 411, 106, 23);
+		btnNewButton.setBounds(512, 0, 106, 23);
 		btnNewButton.setForeground(SystemColor.text);
 		btnNewButton.setBackground(Color.BLACK);
 		btnNewButton.setBorder(null);
