@@ -25,37 +25,38 @@ public class MainDB {
 
 	// Usar el void main para pruebas con la base de datos
 	public static void main(String[] args) {
-		System.out.println("DBManager inicializado");
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			Monedero m = new Monedero();
-			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
-			System.out.println("Guardando partida " + partida.getNombrePartida());
-			pm.makePersistent(partida);
-			System.out.println("Devolviendo todas las partidas");
-			Extent<Partida> e = pm.getExtent(Partida.class, true);
-			Iterator<Partida> iter = e.iterator();
-
-			while (iter.hasNext()) {
-				Object obj = iter.next();
-				System.out.println("> " + obj);
-			}
-			tx.commit();
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-		System.out.println("DBManager finalizado");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("DBManager inicializado");
+//		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+//		PersistenceManager pm = pmf.getPersistenceManager();
+//		Transaction tx = pm.currentTransaction();
+//		try {
+//			tx.begin();
+//			Monedero m = new Monedero();
+//			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
+//			System.out.println("Guardando partida " + partida.getNombrePartida());
+//			pm.makePersistent(partida);
+//			System.out.println("Devolviendo todas las partidas");
+//			Extent<Partida> e = pm.getExtent(Partida.class, true);
+//			Iterator<Partida> iter = e.iterator();
+//
+//			while (iter.hasNext()) {
+//				Object obj = iter.next();
+//				System.out.println("> " + obj);
+//			}
+//			tx.commit();
+//		} finally {
+//			if (tx.isActive()) {
+//				tx.rollback();
+//			}
+//			pm.close();
+//		}
+//		System.out.println("DBManager finalizado");
+//		System.out.println("-----------------------------------------------------------------------");
 	}
 
 	// Metodo para guardar partida e insertar en la base de datos
-	public void guardarPartida(Partida partida) {
+	public boolean guardarPartida(Partida partida) {
+		boolean res = false;
 		System.out.println("Guardando Partida");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -64,9 +65,11 @@ public class MainDB {
 			System.out.println("Guardando partida " + partida.getNombrePartida());
 			pm.makePersistent(partida);
 			tx.commit();
-		} catch (Exception e){
+			res = true;
+		} catch (Exception e) {
 			System.out.println("Excepcion guardando partida: " + e.getMessage());
 			JOptionPane.showMessageDialog(null, "Nombre repetido, elija otro nombre para el guardado");
+			res = false;
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
@@ -75,6 +78,7 @@ public class MainDB {
 		}
 		System.out.println("Guardado de partida completado");
 		System.out.println("-----------------------------------------------------------------------");
+		return res;
 	}
 
 	// Metodo donde se da el nombre de la partida, se busca y se devuelve el objeto
@@ -93,8 +97,8 @@ public class MainDB {
 //			q.setUnique(true);
 //			p = (Partida)q.execute();
 			Extent<Partida> e = pm.getExtent(Partida.class);
-			for (Partida partida: e) {
-				if(partida.getNombrePartida().equals(nombrePartida)) {
+			for (Partida partida : e) {
+				if (partida.getNombrePartida().equals(nombrePartida)) {
 					p = partida;
 					System.out.println(p.toString());
 				}
@@ -164,7 +168,7 @@ public class MainDB {
 			long numPartidasBorradas = q.deletePersistentAll();
 			System.out.println("Borradas " + numPartidasBorradas + " partidas en total");
 			tx.commit();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Excepcion con el borrado de partidas: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
@@ -173,6 +177,86 @@ public class MainDB {
 			pm.close();
 		}
 		System.out.println("Borrado de partidas finalizado");
+		System.out.println("-----------------------------------------------------------------------");
+	}
+
+	// Parte para las estadisticas
+
+	public List<Estadisticas> mostrarEstadisticas() {
+		List<Estadisticas> listEstadisticas = new ArrayList<Estadisticas>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			System.out.println("Devolviendo todas las estadisticas de los jugadores");
+			Extent<Estadisticas> e = pm.getExtent(Estadisticas.class);
+			Iterator<Estadisticas> iter = e.iterator();
+
+			while (iter.hasNext()) {
+				Estadisticas est = iter.next();
+				listEstadisticas.add(est);
+				System.out.println("> " + est);
+			}
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("Excepcion con el muestreo de estadisticas: " + e.getMessage());
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		System.out.println("Finalizado metodo mostrarEstadisticas");
+		System.out.println("-----------------------------------------------------------------------");
+		return listEstadisticas;
+	}
+
+	public boolean guardarEstadisticas(Estadisticas estadisticas) {
+		boolean res = false;
+		System.out.println("Guardando estadisticas...");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			System.out.println("Guardando estadisticas del jugador " + estadisticas.getNombreJugador());
+			pm.makePersistent(estadisticas);
+			tx.commit();
+			res = true;
+		} catch (Exception e) {
+			System.out.println("Excepcion guardando estadisticas: " + e.getMessage());
+			JOptionPane.showMessageDialog(null, "Nombre repetido, elija otro nombre para el guardado");
+			res = false;
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		System.out.println("Guardado de estadisticas completado");
+		System.out.println("-----------------------------------------------------------------------");
+		return res;
+	}
+
+	public void borrarEstadisticas() {
+
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			System.out.println("Borrado de estadisticas");
+			Query<Estadisticas> q = pm.newQuery(Estadisticas.class);
+			long numEstadisticasBorradas = q.deletePersistentAll();
+			System.out.println("Borradas " + numEstadisticasBorradas + " estadisticas en total");
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("Excepcion con el borrado de estadisticas: " + e.getMessage());
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		System.out.println("Borrado de estadisticas finalizado");
 		System.out.println("-----------------------------------------------------------------------");
 	}
 }
