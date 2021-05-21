@@ -136,4 +136,10 @@ public class MainDBTest {
 		res = db.guardarEstadisticas(e2);
 		assertTrue(res);
 	}
+	
+	@After
+	public void limpiezaTest() {
+		db.borrarEstadisticas();
+		db.borrarPartidas();
+	}
 }
