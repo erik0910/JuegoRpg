@@ -13,9 +13,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.experimental.categories.Category;
 
 
-import test.IntegrationTest;
 
-@Category(IntegrationTest.class)
 public class MyResourceTest {
 	 
     private HttpServer server;
