@@ -20,15 +20,15 @@ import org.slf4j.LoggerFactory;
 public class MonederoTest {
 //funcionamineto de la clase monedero
 	Monedero moneda;
-	static int iteration = 0;
-
-//@Rule public ContiPerfRule rule = new ContiPerfRule();
+	Monedero money;
 	
 	
+	@Rule
+	public ContiPerfRule rule = new ContiPerfRule();
 	
 	@Before
 	public void cargar() {
-		iteration++;
+		
 		moneda = new Monedero();
 
 	}
@@ -36,8 +36,9 @@ public class MonederoTest {
 	// probaremos el rendiemiento de la aplicacion
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)
-	@Required(max = 120, average = 30)
+	@Required(max = 200, average = 120)
 	public void test() {
+		
 		moneda = new Monedero();// este array deberia de poner en 1000 el mondero actual
 		assertTrue(moneda.getDinero() == 1000);// deberia de dar true para que funcione
 		moneda.ganar();
@@ -46,20 +47,7 @@ public class MonederoTest {
 		assertTrue(moneda.getDinero() == 1000);
 		moneda.compra(500);
 		assertTrue(moneda.getDinero() == 500);// una vez comprado se le restara esa compra
-		try {
-			Thread.sleep(121);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
 	
-	//@Test
-	//@PerfTest(invocations = 1000, threads = 20)
-	//@Required(max = 120, average = 30)
-	//public void rendiTest() {
-		
-	//}
-	
-
 }
