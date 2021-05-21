@@ -8,9 +8,11 @@ import org.junit.Test;
 public class EstadisiticasTest {
 
 	private Estadisticas estadisticas;
+	private Estadisticas est1;
 	
 	@Before
 	public void setUp() throws Exception {
+		est1 = new Estadisticas("Jugador 1", 200, "skin 1", 100, 100);
 		estadisticas = new Estadisticas();
 		estadisticas.setDanyoarma(100);
 		estadisticas.setEnergia(100);
@@ -26,6 +28,7 @@ public class EstadisiticasTest {
 		assertEquals(estadisticas.getSkin(), "skin 1");
 		assertEquals(estadisticas.getVida(), 200);
 		assertEquals(estadisticas.getEnergia(), 100);
+		assertEquals(estadisticas.toString(), est1.toString());
 	}
 
 }
