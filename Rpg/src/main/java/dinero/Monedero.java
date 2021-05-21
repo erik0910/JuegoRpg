@@ -37,7 +37,9 @@ public class Monedero {
 		if(gasto <this.dinero) {
 		this.dinero -= gasto;
 		return true;
-		}
+		} else {
 		return false;
+		}
+		
 	}
 }
