@@ -189,14 +189,25 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.7</version>
 				<configuration>
+<!-- 				Hemos excluido estas clases la ser interfaces o que no se pueden aplicar test unitarios -->
+					<excludes>
+						<exclude>**/interfaces/*</exclude>
+						<exclude>**/mapa/Array*</exclude>
+						<exclude>**/combate/Boss*</exclude>
+					</excludes>
 					<rules>
 						<rule>
-							<element>CLASS</element>
+							<element>BUNDLE</element>
 							<limits>
 								<limit>
-									<counter>LINE</counter>
+									<counter>INSTRUCTION</counter>
 									<value>COVEREDRATIO</value>
-									<minimum>50%</minimum>
+									<minimum>0.40</minimum>
+								</limit>
+								<limit>
+									<counter>BRANCH</counter>
+									<value>COVEREDRATIO</value>
+									<minimum>0.40</minimum>
 								</limit>
 							</limits>
 						</rule>

@@ -10,10 +10,12 @@ import dinero.Monedero;
 public class PartidaTest {
 	
 	private Partida prueba = new Partida();
+	private Partida prueba2;
 	private Monedero m = new Monedero();
 	
 	@Before
 	public void setUp() {
+		prueba2 = new Partida("PARTIDA", 100, "caballero", 2, 2, 3, 3, m, 50, 100);
 		prueba.setMonedero(m);
 		prueba.setNombrePartida("PARTIDA");
 		prueba.setSkin("caballero");
@@ -22,6 +24,8 @@ public class PartidaTest {
 		prueba.setY(2);
 		prueba.setX_dib(3);
 		prueba.setY_dib(3);
+		prueba.setDanyoarma(50);
+		prueba.setEnergia(100);
 	}
 	@Test
 	public void testGetters() {
@@ -33,6 +37,12 @@ public class PartidaTest {
 		assertEquals(prueba.getY(), 2);
 		assertEquals(prueba.getX_dib(), 3);
 		assertEquals(prueba.getY_dib(), 3);
+		assertEquals(prueba.getDanyoarma(), 50);
+		assertEquals(prueba.getEnergia(), 100);
+	}
+	@Test 
+	public void testConstructor() {
+		assertEquals(prueba2.toString(), prueba.toString());
 	}
 
 }
