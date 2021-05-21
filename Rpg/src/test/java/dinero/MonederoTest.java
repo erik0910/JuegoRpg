@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import dinero.Monedero;
 import junit.framework.JUnit4TestAdapter;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.databene.contiperf.Required;
@@ -23,8 +22,10 @@ public class MonederoTest {
 	Monedero moneda;
 	static int iteration = 0;
 
-//@Rule 
-//public ContiPerfRule rule = new ContiPerfRule();
+@Rule public ContiPerfRule rule = new ContiPerfRule();
+	
+	
+	
 	@Before
 	public void cargar() {
 		iteration++;
@@ -52,5 +53,13 @@ public class MonederoTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	@PerfTest(invocations = 1000, threads = 20)
+	@Required(max = 120, average = 30)
+	public void rendiTest() {
+		
+	}
+	
 
 }
