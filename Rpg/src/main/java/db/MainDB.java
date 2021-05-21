@@ -25,33 +25,33 @@ public class MainDB {
 
 	// Usar el void main para pruebas con la base de datos
 	public static void main(String[] args) {
-//		System.out.println("DBManager inicializado");
-//		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-//		PersistenceManager pm = pmf.getPersistenceManager();
-//		Transaction tx = pm.currentTransaction();
-//		try {
-//			tx.begin();
-//			Monedero m = new Monedero();
-//			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
-//			System.out.println("Guardando partida " + partida.getNombrePartida());
-//			pm.makePersistent(partida);
-//			System.out.println("Devolviendo todas las partidas");
-//			Extent<Partida> e = pm.getExtent(Partida.class, true);
-//			Iterator<Partida> iter = e.iterator();
-//
-//			while (iter.hasNext()) {
-//				Object obj = iter.next();
-//				System.out.println("> " + obj);
-//			}
-//			tx.commit();
-//		} finally {
-//			if (tx.isActive()) {
-//				tx.rollback();
-//			}
-//			pm.close();
-//		}
-//		System.out.println("DBManager finalizado");
-//		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("DBManager inicializado");
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Monedero m = new Monedero();
+			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
+			System.out.println("Guardando partida " + partida.getNombrePartida());
+			pm.makePersistent(partida);
+			System.out.println("Devolviendo todas las partidas");
+			Extent<Partida> e = pm.getExtent(Partida.class, true);
+			Iterator<Partida> iter = e.iterator();
+
+			while (iter.hasNext()) {
+				Object obj = iter.next();
+				System.out.println("> " + obj);
+			}
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		System.out.println("DBManager finalizado");
+		System.out.println("-----------------------------------------------------------------------");
 	}
 
 	// Metodo para guardar partida e insertar en la base de datos

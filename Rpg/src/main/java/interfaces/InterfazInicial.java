@@ -92,7 +92,7 @@ public class InterfazInicial extends JFrame {
 		btnOptions.setBackground(Color.WHITE);
 		btnOptions.setBorder(null);
 		btnOptions.setOpaque(false);
-		btnOptions.setBounds(196, 326, 220, 27);
+		btnOptions.setBounds(196, 318, 220, 27);
 		btnOptions.setFont(new Font("Algerian", Font.PLAIN, 18));
 		contentPane.add(btnOptions);
 		
@@ -106,10 +106,10 @@ public class InterfazInicial extends JFrame {
 		JButton btnEstadisticas = new JButton("Estadisticas");
 		btnEstadisticas.setOpaque(false);
 		btnEstadisticas.setForeground(Color.WHITE);
-		btnEstadisticas.setFont(new Font("Dialog", Font.PLAIN, 18));
+		btnEstadisticas.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnEstadisticas.setBorder(null);
 		btnEstadisticas.setBackground(Color.WHITE);
-		btnEstadisticas.setBounds(196, 388, 220, 27);
+		btnEstadisticas.setBounds(196, 391, 220, 27);
 		contentPane.add(btnEstadisticas);
 		btnEstadisticas.addActionListener(new ActionListener() {
 			
