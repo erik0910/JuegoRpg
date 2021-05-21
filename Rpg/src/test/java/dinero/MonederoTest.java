@@ -22,7 +22,7 @@ public class MonederoTest {
 	Monedero moneda;
 	static int iteration = 0;
 
-@Rule public ContiPerfRule rule = new ContiPerfRule();
+//@Rule public ContiPerfRule rule = new ContiPerfRule();
 	
 	
 	
@@ -54,12 +54,12 @@ public class MonederoTest {
 		}
 	}
 	
-	@Test
-	@PerfTest(invocations = 1000, threads = 20)
-	@Required(max = 120, average = 30)
-	public void rendiTest() {
+	//@Test
+	//@PerfTest(invocations = 1000, threads = 20)
+	//@Required(max = 120, average = 30)
+	//public void rendiTest() {
 		
-	}
+	//}
 	
 
 }
