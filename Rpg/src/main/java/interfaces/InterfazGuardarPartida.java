@@ -106,10 +106,10 @@ public class InterfazGuardarPartida extends JFrame {
 				
 				Estadisticas est = new Estadisticas();
 				est.setNombreJugador(textField.getText());
-				est.setDanyoarma(Integer.parseInt(info[8]));
+				est.setDanyoarma(Integer.parseInt(info[8])+100);
 				est.setSkin(info[0]);
-				est.setEnergia(Integer.parseInt(info[7]));
-				est.setVida(Integer.parseInt(info[6]));
+				est.setEnergia(Integer.parseInt(info[7])+100);
+				est.setVida(Integer.parseInt(info[6])+200);
 				DBManager.guardarEstadisticas(est);
 			}
 		});
