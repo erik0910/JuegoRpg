@@ -3072,6 +3072,12 @@ public class Array extends JFrame implements KeyListener {
 
 					path.setIcon(imagenFondos);
 					
+				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("chest")) {
+					
+					ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/chest.png"));
+
+					mapa.setIcon(imagenFondo);
+					
 				} else if (mundo[i + x_dib][u + y_dib].getCode().equals("NPC")) {
 					
 					if(u + y_dib <= 26 && i + x_dib <= 23) {
