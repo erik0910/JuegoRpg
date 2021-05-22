@@ -106,7 +106,8 @@ import mapa.Array;
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
 					if(Room.estado) {
 					Array.cartera.ganar();
-					
+					if(Room.jugadores) {Array.cartera.setDinero(2000);}// cuando se gana a un boss se obtiene una recompensa grande por parte del jugador
+					if(Room.enemigos) {Array.cartera.setDinero(500);}// un incremento de dinero por enfrentarse a diversos jugadores
 					}else {
 						Array.cartera.perder();
 					}

@@ -11,7 +11,7 @@ public class Monedero {
 	}
 
 	public void setDinero(int dinero) {
-		this.dinero = dinero;
+		this.dinero += dinero;
 	}
 
 	public Monedero() {

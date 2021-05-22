@@ -17,7 +17,7 @@ public class Room {
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3),new Player(4)};//, player2;
 	private static Disparo disparo;
-	private static boolean enemigos = false;
+	public static boolean enemigos = false;
 	public static boolean jugadores =false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
