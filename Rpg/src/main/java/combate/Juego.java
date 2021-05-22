@@ -106,9 +106,10 @@ import mapa.Array;
 					//metodo que comprobara que el jugador haya ganado o no y de recompensa o quite en base a ello
 					if(Room.estado) {
 					Array.cartera.ganar();
-					
-					}else {
-						Array.cartera.perder();
+					Array.sonido.stop();
+					} else {
+					Array.cartera.perder();
+					Array.sonido.stop();
 					}
 					Array.cont ++;
 					Array.contentPane.setFocusable(true);
