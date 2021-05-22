@@ -194,6 +194,8 @@
 						<exclude>**/interfaces/*</exclude>
 						<exclude>**/mapa/Array*</exclude>
 						<exclude>**/combate/Boss*</exclude>
+						<exclude>**/combate/Ventana*</exclude>
+						<exclude>**/combate/Fondo*</exclude>
 					</excludes>
 					<rules>
 						<rule>
