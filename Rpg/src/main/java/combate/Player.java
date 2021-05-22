@@ -66,13 +66,20 @@ public class Player extends Objeto  {
 		//carga de las imagenes de las diferentes armas
 		try {
 			espada.cargaImagen(ImageIO.read(loader.getResource("combate/espada.png")));
-//			arco.cargaImagen(ImageIO.read(loader.getResource("combate/disparo2.png")));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		/*Imagenes===================================================*/
 		try {
-			BufferedImage hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
+			BufferedImage hoja;
+			if(player==1) {
+			hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
+			}else if(player==3 && Room.jugadores) {
+			hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
+			}else {
+				hoja =ImageIO.read(loader.getResource("combate/enemigo.png")) ;
+				
+			}
 			/*======================================================*/
 			sprites = new ArrayList<BufferedImage[]>();
 			/*Array de im�genes====================================*/

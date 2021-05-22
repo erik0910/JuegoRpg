@@ -11,7 +11,7 @@ public class Ventana {
 		cargarCombate();
 	}
 	public static void cargarCombate() {
-		Room.jugadores=true;
+		
 		window = new JFrame("Batalla contra Boss");
 		window.setContentPane(new Juego());
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
