@@ -1,4 +1,4 @@
-package test;
+package categories;
 
 public interface IntegrationTest {
 

@@ -3,10 +3,12 @@ package dinero;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import dinero.Monedero;
 
 import junit.framework.JUnit4TestAdapter;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.databene.contiperf.Required;
@@ -16,11 +18,12 @@ import org.databene.contiperf.report.EmptyReportModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MonederoTest {
+import categories.IntegrationTest;
+
+
+public class MonederoPerformanceTest {
 
 	Monedero moneda;
-
-	
 
 	@Rule
 	public ContiPerfRule rule = new ContiPerfRule();
