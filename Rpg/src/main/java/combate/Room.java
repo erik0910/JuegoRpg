@@ -98,7 +98,7 @@ public class Room {
 		 }
 		 if(jugadores) {
 			 if(player[3].getHealth()>=0) {player[3].draw(g);
-			 System.out.println("entra");}
+			 }
 		 }
 		//Pintar los 2 o 3jugadores
 		for(Disparo dispis: disparos) { //Recorrer disparos
@@ -173,12 +173,11 @@ public class Room {
 		if(!derecha) player[2].setIzquierda(true);
 		if(derecha) player[2].setDerecha(true);
 		if(dificultad)player[2].setSalto(true);// esto cuando este en modo dificil el enemigo 2 saltara de forma endemoniada
-		System.out.println(enemigos);
 		if(enemigos) {
 		if(!derecha1) player[3].setIzquierda(true);
 		if(derecha1) player[3].setDerecha(true);
 		if(salto)player[3].setSalto(true); //demasiado dificil muy peligroso el personaje
-		player[4].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
+		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
 		}
 		}
 	

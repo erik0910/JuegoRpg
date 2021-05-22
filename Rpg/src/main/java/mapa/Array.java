@@ -809,7 +809,9 @@ public class Array extends JFrame implements KeyListener {
 		extra[15][22] =pared;
 		extra[15][23] =pared;
 		extra[15][24] =pared;
-		extra[15][29] =pelea;
+		
+		extra[15][29] =pelea;//boss final
+		
 		extra[15][34] =pared;
 		extra[15][35] =pared;
 		extra[15][38] =pared;
@@ -2735,20 +2737,30 @@ public class Array extends JFrame implements KeyListener {
 		
 		if (mundo[x][y].getCode() == ("chest")) {
 			
-			System.err.println("mejora o dinero");
+		cartera.setDinero(500);// ganamos dinero por encontrar el cofre
+		mundo[x][y] = suelo;
 
 		}
 		
 		if (mundo[x][y].getCode() == ("fight")) {
 				
-			if((x ==2 && y == 25) || (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22)){
-				
-			//Aqui va las peleas de boses
-			Room.variosEnemigos(true);
-			contentPane.setFocusable(false);
-			Ventana.cargarCombate();
-			mundo[x][y] = suelo;
-			}else {
+			if(((x ==2 && y == 25)|| (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22))&& in == true){
+				if((x ==15 && y ==29)) {
+					Room.jugadores=true;
+					Room.enemigos=false;
+					Room.variosEnemigos(true);
+					contentPane.setFocusable(false);
+					Ventana.cargarCombate();
+				}else {
+					//Aqui va las peleas de boses
+					Room.jugadores=false;
+					Room.enemigos=true;
+					contentPane.setFocusable(false);
+					Ventana.cargarCombate();
+			}
+				mundo[x][y] = suelo;
+			
+			}else{
 			Room.variosEnemigos(false);
 			contentPane.setFocusable(false);
 			fight = true;
