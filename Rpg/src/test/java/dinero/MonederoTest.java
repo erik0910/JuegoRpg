@@ -16,8 +16,8 @@ import org.databene.contiperf.report.EmptyReportModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@PerfTest(invocations = 5)
-@Required(max = 1200, average = 100)
+@PerfTest(invocations = 100)
+@Required(max = 100, average = 1)
 public class MonederoTest {
 
 	Monedero moneda;
@@ -25,11 +25,28 @@ public class MonederoTest {
 	@Rule
 	public ContiPerfRule rule = new ContiPerfRule();
 	
+
 	@Test
-	public void test() {
+	public void RendiTestMoneda() {
 		
 		moneda = new Monedero();
 		assertTrue(moneda.getDinero() == 1000);
+	
+	}
+	
+	@Test
+	public void RendiTestGanar() {
+		moneda = new Monedero();
+		moneda.ganar();
+		assertTrue(moneda.getDinero() == 1100);
+	
+	}
+	
+	@Test
+	public void RendiTestPerder() {
+		moneda = new Monedero();
+		moneda.perder();
+		assertTrue(moneda.getDinero() == 900);
 	
 	}
 	
