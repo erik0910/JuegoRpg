@@ -47,9 +47,11 @@ public class Array extends JFrame implements KeyListener {
 	
 	public int vida;
 	
-	public Clip sonido;
+	public static Clip sonido;
 	
 	public String zona;
+	
+	private boolean fight = false;
 	
 	private static int x = 5;
 	private static int y = 5;
@@ -149,12 +151,16 @@ public class Array extends JFrame implements KeyListener {
 	
 	public void musica() {
 		
-	try {
+		try {
 		
 		 // Se obtiene un Clip de sonido
         sonido = AudioSystem.getClip();
+        
+        if(fight == true){
+     				
+		sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/peleas.wav")));
 		
-		if(y < 22 && x <= 22  && in == false) {
+        }else if(y < 22 && x <= 22  && in == false) {
 			         
          // Se carga con un fichero wav
          sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Grass.wav")));     
@@ -163,8 +169,8 @@ public class Array extends JFrame implements KeyListener {
 		}else if(y > 26 && x <= 22  && in == false) {
 				
 	         // Se carga con un fichero wav
-	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Sand.wav")));
-	         zona = "sand";	
+	        sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Sand.wav")));
+	        zona = "sand";	
 	         
 		}else if(y > 26 && x > 27  && in == false) {
 				
@@ -2745,8 +2751,12 @@ public class Array extends JFrame implements KeyListener {
 			}else {
 			Room.variosEnemigos(false);
 			contentPane.setFocusable(false);
+			fight = true;
+			sonido.stop();
+			musica();
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
+			fight = false;
 			}
 
 		}
