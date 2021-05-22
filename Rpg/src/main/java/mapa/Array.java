@@ -20,6 +20,10 @@ import interfaces.InterfazOpcionesJuego;
 import interfaces.InterfazTienda;
 import interfaces.Mejoras;
 
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 public class Array extends JFrame implements KeyListener {
 	public static int cont=1;// contador de partidas
 	public static int danyoarma=0,health=0,energia=0;
@@ -39,8 +43,15 @@ public class Array extends JFrame implements KeyListener {
 	private Tiles tallgrass = new Tiles("talls", true, true, true, true);
 	private Tiles camino = new Tiles("paths", true, true, true, true);
 	private Tiles NPC = new Tiles("NPC", true, true, true, true);
+	private Tiles chest = new Tiles("chest", true, true, true, true);
 	
 	public int vida;
+	
+	public static Clip sonido;
+	
+	public String zona;
+	
+	private boolean fight = false;
 	
 	private static int x = 5;
 	private static int y = 5;
@@ -138,7 +149,120 @@ public class Array extends JFrame implements KeyListener {
 		});
 	}
 	
+	public void musica() {
+		
+		try {
+		
+		 // Se obtiene un Clip de sonido
+        sonido = AudioSystem.getClip();
+        
+        if(fight == true){
+     				
+		sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/peleas.wav")));
+		
+        }else if(y < 22 && x <= 22  && in == false) {
+			         
+         // Se carga con un fichero wav
+         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Grass.wav")));     
+         zona = "grass";
+			
+		}else if(y > 26 && x <= 22  && in == false) {
+				
+	         // Se carga con un fichero wav
+	        sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Sand.wav")));
+	        zona = "sand";	
+	         
+		}else if(y > 26 && x > 27  && in == false) {
+				
+			// Se carga con un fichero wav
+	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Ice.wav")));
+	         zona = "ice";
+	         
+		}else if(y < 22 && x > 27  && in == false) {
+
+	         // Se carga con un fichero wav
+	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Fire.wav")));
+	         zona = "fire";
+	         
+		}else if( in == true ){
+		
+	         // Se carga con un fichero wav
+	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Dungeon.wav")));
+	         zona = "dungeon";
+	         
+		}else if( x == 1 && y == 24 || x == 25 && y == 1 || x == 25 && y == 48 || x == 48 && y == 24){
+			
+	         // Se carga con un fichero wav
+	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Secret.wav")));
+	         zona = "secret";
+	         
+		}else {
+
+	         // Se carga con un fichero wav
+	         sonido.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/mundo/Secret.wav")));
+	         zona = "secret";
+		}
+		 
+        sonido.start();	
+            
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+
+	}
+	
 	public Array() {
+		
+		musica();
+		
+		
+		javax.swing.Timer timer = new javax.swing.Timer(1, new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent ae) {
+				
+				if(sonido.isRunning()) {	
+					
+					if(y < 22 && x <= 22 && zona != "grass"  && in == false) {
+						  
+					sonido.stop();
+			        musica();
+			        zona = "grass";
+						
+					}else if(y > 26 && x <= 22 && zona != "sand"  && in == false) {
+						
+					sonido.stop();
+					musica();
+				    zona = "sand";	
+				         
+					}else if(y > 26 && x > 27 && zona != "ice"  && in == false) {
+						
+					sonido.stop();	
+					musica();
+				    zona = "ice";
+				         
+					}else if(y < 22 && x > 27 && zona != "fire"  && in == false) {
+					
+					sonido.stop();
+					musica();  
+				    zona = "fire";
+				         
+					}else if(in == true && zona != "dungeon") {
+						
+					sonido.stop();
+					musica();  
+					zona = "dungeon";
+					
+					}
+					
+				}else{
+					
+					musica();
+				
+				}
+
+			}
+		});
+		timer.start();
+		
 		addKeyListener(this);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -2589,6 +2713,11 @@ public class Array extends JFrame implements KeyListener {
 		mundo[49][48] =pared;
 		mundo[49][49] =pared;
 		
+		mundo[44][8] = chest;
+		mundo[28][29] = chest;
+		mundo[22][20] = chest;
+		mundo[1][48] = chest;
+		
 		
 		for (int i = 0; i < 50; i++) {
 			for (int u = 0; u < 50; u++) {
@@ -2603,6 +2732,13 @@ public class Array extends JFrame implements KeyListener {
 	}
 
 	public void dibujado() {
+		
+		if (mundo[x][y].getCode() == ("chest")) {
+			
+			System.err.println("mejora o dinero");
+
+		}
+		
 		if (mundo[x][y].getCode() == ("fight")) {
 				
 			if((x ==2 && y == 25) || (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22)){
@@ -2615,8 +2751,12 @@ public class Array extends JFrame implements KeyListener {
 			}else {
 			Room.variosEnemigos(false);
 			contentPane.setFocusable(false);
+			fight = true;
+			sonido.stop();
+			musica();
 			Ventana.cargarCombate();
 			mundo[x][y] = suelo;
+			fight = false;
 			}
 
 		}
