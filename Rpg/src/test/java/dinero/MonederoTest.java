@@ -27,7 +27,7 @@ public class MonederoTest {
 
 	@Test
 	@PerfTest(invocations = 150)
-	@Required(max = 5, average = 1)
+	@Required(max = 20, average = 1)
 	public void RendiTestMoneda() {
 
 		moneda = new Monedero();
@@ -37,7 +37,7 @@ public class MonederoTest {
 
 	@Test
 	@PerfTest(invocations = 125)
-	@Required(max = 5, average = 1)
+	@Required(max = 20, average = 1)
 	public void RendiTestGanar() {
 		moneda = new Monedero();
 		moneda.ganar();
@@ -47,7 +47,7 @@ public class MonederoTest {
 
 	@Test
 	@PerfTest(invocations = 115)
-	@Required(max = 5, average = 1)
+	@Required(max = 20, average = 1)
 	public void RendiTestPerder() {
 		moneda = new Monedero();
 		moneda.perder();
@@ -57,7 +57,7 @@ public class MonederoTest {
 	
 	@Test
 	@PerfTest(invocations = 200)
-	@Required(max = 5, average = 1)
+	@Required(max = 20, average = 1)
 	public void compra() {
 		moneda = new Monedero();
 		moneda.compra(100);
