@@ -14,7 +14,7 @@ public class FondoComentario extends javax.swing.JPanel{
     public FondoComentario() {
     	this.setSize(619, 539);       
     }
-     
+	/**metodo de pintado de la clase fondo comentario */
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
     	URL imgUrl = loader.getResource("combate/boss1.gif");
