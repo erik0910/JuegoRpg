@@ -1,4 +1,4 @@
-Limpieza de base de datos
+Borrado de datanucleus
 mvn datanucleus:schema-delete
 
 Test y reports (Jacoco y ConfPerf)

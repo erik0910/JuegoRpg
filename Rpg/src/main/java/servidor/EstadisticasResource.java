@@ -23,10 +23,16 @@ public class EstadisticasResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Estadisticas> getEstadisticas() {
+    	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		
+		Query<Estadisticas> q = pm.newQuery(Estadisticas.class);
+		
+		List<Estadisticas> lista = q.executeList();
 
-		List<Estadisticas> est = db.mostrarEstadisticas();
-
-		return est;
+		pm.close();
+		
+		return lista;
     }
 }
 
