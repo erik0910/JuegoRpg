@@ -2781,7 +2781,7 @@ public class Array extends JFrame implements KeyListener {
 		if(zona.equals("grass")) {Room.zona=1;}
 		if(zona.equals("sand")) {Room.zona=2;}
 		if(zona.equals("ice")) {Room.zona=3;}
-		if(zona.equals("fire")||zona.equals("dungeon")) {Room.zona=4;}
+		if(zona.equals("fire")||zona.equals("dungeon")||zona.equals("secret")) {Room.zona=4;}
 		
 	}
 	/** Dibuja el mapa del mundo*/
