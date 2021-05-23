@@ -21,10 +21,13 @@ import org.slf4j.LoggerFactory;
 import categories.IntegrationTest;
 
 
-public class MonederoPerformanceTest {
+public class MonederoTest {
 
 	Monedero moneda;
 
+	
+	
+	
 	@Rule
 	public ContiPerfRule rule = new ContiPerfRule();
 
