@@ -10,11 +10,20 @@ Se debe tener instalado para el correcto funcionamiento:
 
 -OpenJDK 15
 
--MySQL Workbench (o similares para iniciar la base de datos)
+-XAMPP (Para iniciar la parte servidora)
+
+**Ejecución de test:**
+
+Para ejecutar los test unitarios se debe usar el comando: ```mvn clean test```
+
+Con ello dentro del directorio "target/site/jacoco" esta "index.html" que te muestra el coverage del proyecto.
+Además, dentro de "target/contiperf-report" existe otro "index.html" para mostrar los test de rendimiento y sus resultados.
+
+Para la ejecucion de la parte de integración se debe usar el comando: ```mvn verify -Pintegracion```
 
 **Configuración previa:**
 
-Para inicializar el servidor SQL debemos introducir las siguientes sentencias:
+Para inicializar el servidor MySQL debemos introducir las siguientes sentencias dentro del administrador de XAMPP en la parte de SQL:
 ```
 DROP SCHEMA IF EXISTS gamedb;
 DROP USER IF EXISTS 'rpg'@'localhost';
@@ -24,6 +33,9 @@ CREATE USER IF NOT EXISTS 'rpg'@'localhost' IDENTIFIED BY 'rpg';
 
 GRANT ALL ON gamedb.* TO 'rpg'@'localhost';
 ```
+
+Tambien se debe arrancar la parte de Apache pulsando el boton "Start" al igual que en MySQL.
+
 **Configuración:**
 
  Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:

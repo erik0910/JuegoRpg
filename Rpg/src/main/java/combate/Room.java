@@ -19,12 +19,12 @@ public class Room {
 	private static Fondo fondo;
 	private static Player[] player = {null, new Player(1),new Player(2),new Player(3),new Player(4)};//, player2;
 	private static Disparo disparo;
-	public static boolean enemigos = false;
-	public static boolean jugadores =true;
+	public static boolean enemigos = true;
+	public static boolean jugadores =false;
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
-	private static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
+	public static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	private static boolean salto =false;
 	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,5->mazmorra
@@ -192,7 +192,6 @@ public class Room {
 	public static double playergetY(int p) {return player[p].gety();}
 	public static int playergetAncho(int p) {return player[p].getancho();}
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
-	public static void variosEnemigos(boolean resultado) {enemigos=resultado;}// si es true el resultado habra varios enemigos
 	public static boolean enemigo() {return enemigos;}
 	public static void disparo(int p) {
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
