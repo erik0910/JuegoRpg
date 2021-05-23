@@ -2800,7 +2800,9 @@ public class Array extends JFrame implements KeyListener {
 					Room.jugadores=true;
 					Room.enemigos=false;
 					contentPane.setFocusable(false);
-					Ventana.cargarCombate();
+					Comentario com= new Comentario();
+					com.setVisible(true);
+					com.setLocationRelativeTo(null);
 				}else {
 					//Aqui va las peleas de boses
 					Room.jugadores=false;

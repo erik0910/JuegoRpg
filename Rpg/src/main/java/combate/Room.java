@@ -56,7 +56,6 @@ public class Room {
 				player[3].cambiarEstado();
 		
 		}
-		player[2].cambiarEstado();
 	}
 	//inteligencia del enemigo del juego
 	// esta es una inteligencia para el boss que juega con magia
