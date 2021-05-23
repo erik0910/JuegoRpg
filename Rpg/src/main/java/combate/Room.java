@@ -27,7 +27,7 @@ public class Room {
 	public static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	private static boolean salto =false;
-	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,5->mazmorra
+	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,mazmorra,secret
 	public void selectorMapa() {
 	if(zona==1)	{fondo = new Fondo("combate/hierva.gif", 0.1);}
 	if(zona==2)	{fondo = new Fondo("combate/arena.gif", 0.1);}
