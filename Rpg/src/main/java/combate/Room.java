@@ -45,6 +45,7 @@ public class Room {
 		player[1].mejorarArma(Array.danyoarma);// solo para el jugador se incrementa el ataque
 		player[1].mejorarMana(Array.energia);
 		player[1].mejorarvida(Array.health);
+		player[1].cambiarEstado();// empiezas con el arma siempre
 		if(enemigos) {
 		player[3]= new Player(3);
 		player[3].setPosition(100, 100);
