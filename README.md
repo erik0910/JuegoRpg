@@ -23,7 +23,7 @@ Para la ejecucion de la parte de integración se debe usar el comando: ```mvn ve
 
 **Configuración previa:**
 
-Para inicializar el servidor SQL debemos introducir las siguientes sentencias:
+Para inicializar el servidor MySQL debemos introducir las siguientes sentencias dentro del administrador de XAMPP en la parte de SQL:
 ```
 DROP SCHEMA IF EXISTS gamedb;
 DROP USER IF EXISTS 'rpg'@'localhost';
@@ -33,6 +33,9 @@ CREATE USER IF NOT EXISTS 'rpg'@'localhost' IDENTIFIED BY 'rpg';
 
 GRANT ALL ON gamedb.* TO 'rpg'@'localhost';
 ```
+
+Tambien se debe arrancar la parte de Apache pulsando el boton "Start" al igual que en MySQL.
+
 **Configuración:**
 
  Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:
