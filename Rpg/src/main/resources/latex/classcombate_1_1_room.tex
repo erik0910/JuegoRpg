@@ -1,0 +1,284 @@
+\hypertarget{classcombate_1_1_room}{}\doxysection{combate.\+Room Class Reference}
+\label{classcombate_1_1_room}\index{combate.Room@{combate.Room}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcombate_1_1_room_aef9257e7925454e1a5e839c0ab5a2663}{selector\+Mapa}} ()
+\item 
+\mbox{\hyperlink{classcombate_1_1_room_ad5a1c8de1300cdb811095a3654cdb644}{Room}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_a739779666e0e5082e212c5d50c5e3006}{boss\+Ia}} ()
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_aa9e12a9d82ad9d83c89ca725594f950f}{boss\+Ia1}} ()
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_a843eebde956911bedb2c8cf57bdeab11}{update}} ()
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_a751c4c20a108b46ce14e2dfe40f086e4}{draw}} (Graphics2D g)
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_ad81b378f01a61bece251e14455d4fef5}{teclas}} ()
+\item 
+static double \mbox{\hyperlink{classcombate_1_1_room_acd55114f192dd6d7666339e6c06849f4}{playergetX}} (int p)
+\item 
+static double \mbox{\hyperlink{classcombate_1_1_room_a55a5dec2db8f74079addfb1c248183bf}{playergetY}} (int p)
+\item 
+static int \mbox{\hyperlink{classcombate_1_1_room_aa74bdf47654e81d4b666495b05e43661}{playerget\+Ancho}} (int p)
+\item 
+static int \mbox{\hyperlink{classcombate_1_1_room_a664e7add5a9aa81a333db1834674b3ea}{playerget\+Alto}} (int p)
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_a43396277d55720db1855aae4da05f07e}{enemigo}} ()
+\item 
+static void \mbox{\hyperlink{classcombate_1_1_room_a500d5449944757fb2b394a51643a849f}{disparo}} (int p)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classcombate_1_1_room_addf54930f028dc1bb200a4e79b5024cb}{cont}} =1
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_a5ae762d401e2b70f4cecb994191c5138}{finalizar}} = false
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_a12fd11a87d5fa283020b0946880594b0}{estado}} = false
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_a77df1e739e50303dea2d5d95894c69b6}{enemigos}} = true
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_a2fae89f384b4c7318537f4134a94ae93}{jugadores}} =false
+\item 
+static List$<$ \mbox{\hyperlink{classcombate_1_1_disparo}{Disparo}} $>$ \mbox{\hyperlink{classcombate_1_1_room_a0098922c3900026144dc9010ee74a529}{disparos}} = new Array\+List$<$\mbox{\hyperlink{classcombate_1_1_disparo}{Disparo}}$>$()
+\item 
+static boolean \mbox{\hyperlink{classcombate_1_1_room_aa4d16b4530c4ca83ec234f23eeae6e81}{derecha}} = true
+\item 
+static int \mbox{\hyperlink{classcombate_1_1_room_a47b036bfaed6bb1269cf2cbf713796ab}{zona}} =2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Room.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcombate_1_1_room_ad5a1c8de1300cdb811095a3654cdb644}\label{classcombate_1_1_room_ad5a1c8de1300cdb811095a3654cdb644}} 
+\index{combate.Room@{combate.Room}!Room@{Room}}
+\index{Room@{Room}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}}
+{\footnotesize\ttfamily combate.\+Room.\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Costructor de la clase room 
+
+Definition at line 39 of file Room.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcombate_1_1_room_a739779666e0e5082e212c5d50c5e3006}\label{classcombate_1_1_room_a739779666e0e5082e212c5d50c5e3006}} 
+\index{combate.Room@{combate.Room}!bossIa@{bossIa}}
+\index{bossIa@{bossIa}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{bossIa()}{bossIa()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+boss\+Ia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+ia para el primer enemigo 
+
+Definition at line 64 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_aa9e12a9d82ad9d83c89ca725594f950f}\label{classcombate_1_1_room_aa9e12a9d82ad9d83c89ca725594f950f}} 
+\index{combate.Room@{combate.Room}!bossIa1@{bossIa1}}
+\index{bossIa1@{bossIa1}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{bossIa1()}{bossIa1()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+boss\+Ia1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo para la ia del segundo enemigo 
+
+Definition at line 81 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a500d5449944757fb2b394a51643a849f}\label{classcombate_1_1_room_a500d5449944757fb2b394a51643a849f}} 
+\index{combate.Room@{combate.Room}!disparo@{disparo}}
+\index{disparo@{disparo}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{disparo()}{disparo()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+disparo (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo para detección de impacto por el disparo 
+
+Definition at line 204 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a751c4c20a108b46ce14e2dfe40f086e4}\label{classcombate_1_1_room_a751c4c20a108b46ce14e2dfe40f086e4}} 
+\index{combate.Room@{combate.Room}!draw@{draw}}
+\index{draw@{draw}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo de pintado 
+
+Definition at line 99 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a43396277d55720db1855aae4da05f07e}\label{classcombate_1_1_room_a43396277d55720db1855aae4da05f07e}} 
+\index{combate.Room@{combate.Room}!enemigo@{enemigo}}
+\index{enemigo@{enemigo}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{enemigo()}{enemigo()}}
+{\footnotesize\ttfamily static boolean combate.\+Room.\+enemigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo para definir enemigo 
+
+Definition at line 202 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a664e7add5a9aa81a333db1834674b3ea}\label{classcombate_1_1_room_a664e7add5a9aa81a333db1834674b3ea}} 
+\index{combate.Room@{combate.Room}!playergetAlto@{playergetAlto}}
+\index{playergetAlto@{playergetAlto}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{playergetAlto()}{playergetAlto()}}
+{\footnotesize\ttfamily static int combate.\+Room.\+playerget\+Alto (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Obtener el alto 
+
+Definition at line 200 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_aa74bdf47654e81d4b666495b05e43661}\label{classcombate_1_1_room_aa74bdf47654e81d4b666495b05e43661}} 
+\index{combate.Room@{combate.Room}!playergetAncho@{playergetAncho}}
+\index{playergetAncho@{playergetAncho}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{playergetAncho()}{playergetAncho()}}
+{\footnotesize\ttfamily static int combate.\+Room.\+playerget\+Ancho (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Obtener el ancho 
+
+Definition at line 198 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_acd55114f192dd6d7666339e6c06849f4}\label{classcombate_1_1_room_acd55114f192dd6d7666339e6c06849f4}} 
+\index{combate.Room@{combate.Room}!playergetX@{playergetX}}
+\index{playergetX@{playergetX}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{playergetX()}{playergetX()}}
+{\footnotesize\ttfamily static double combate.\+Room.\+playergetX (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Obtener la x del jugador 
+
+Definition at line 194 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a55a5dec2db8f74079addfb1c248183bf}\label{classcombate_1_1_room_a55a5dec2db8f74079addfb1c248183bf}} 
+\index{combate.Room@{combate.Room}!playergetY@{playergetY}}
+\index{playergetY@{playergetY}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{playergetY()}{playergetY()}}
+{\footnotesize\ttfamily static double combate.\+Room.\+playergetY (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Obtener la posicion y del jugador 
+
+Definition at line 196 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_aef9257e7925454e1a5e839c0ab5a2663}\label{classcombate_1_1_room_aef9257e7925454e1a5e839c0ab5a2663}} 
+\index{combate.Room@{combate.Room}!selectorMapa@{selectorMapa}}
+\index{selectorMapa@{selectorMapa}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{selectorMapa()}{selectorMapa()}}
+{\footnotesize\ttfamily void combate.\+Room.\+selector\+Mapa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_ad81b378f01a61bece251e14455d4fef5}\label{classcombate_1_1_room_ad81b378f01a61bece251e14455d4fef5}} 
+\index{combate.Room@{combate.Room}!teclas@{teclas}}
+\index{teclas@{teclas}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{teclas()}{teclas()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+teclas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo de gestion de teclas 
+
+Definition at line 139 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a843eebde956911bedb2c8cf57bdeab11}\label{classcombate_1_1_room_a843eebde956911bedb2c8cf57bdeab11}} 
+\index{combate.Room@{combate.Room}!update@{update}}
+\index{update@{update}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily static void combate.\+Room.\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+metodo para actualizar 
+
+Definition at line 97 of file Room.\+java.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcombate_1_1_room_addf54930f028dc1bb200a4e79b5024cb}\label{classcombate_1_1_room_addf54930f028dc1bb200a4e79b5024cb}} 
+\index{combate.Room@{combate.Room}!cont@{cont}}
+\index{cont@{cont}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{cont}{cont}}
+{\footnotesize\ttfamily int combate.\+Room.\+cont =1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 16 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_aa4d16b4530c4ca83ec234f23eeae6e81}\label{classcombate_1_1_room_aa4d16b4530c4ca83ec234f23eeae6e81}} 
+\index{combate.Room@{combate.Room}!derecha@{derecha}}
+\index{derecha@{derecha}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{derecha}{derecha}}
+{\footnotesize\ttfamily boolean combate.\+Room.\+derecha = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 27 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a0098922c3900026144dc9010ee74a529}\label{classcombate_1_1_room_a0098922c3900026144dc9010ee74a529}} 
+\index{combate.Room@{combate.Room}!disparos@{disparos}}
+\index{disparos@{disparos}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{disparos}{disparos}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classcombate_1_1_disparo}{Disparo}}$>$ combate.\+Room.\+disparos = new Array\+List$<$\mbox{\hyperlink{classcombate_1_1_disparo}{Disparo}}$>$()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 24 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a77df1e739e50303dea2d5d95894c69b6}\label{classcombate_1_1_room_a77df1e739e50303dea2d5d95894c69b6}} 
+\index{combate.Room@{combate.Room}!enemigos@{enemigos}}
+\index{enemigos@{enemigos}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{enemigos}{enemigos}}
+{\footnotesize\ttfamily boolean combate.\+Room.\+enemigos = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 22 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a12fd11a87d5fa283020b0946880594b0}\label{classcombate_1_1_room_a12fd11a87d5fa283020b0946880594b0}} 
+\index{combate.Room@{combate.Room}!estado@{estado}}
+\index{estado@{estado}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{estado}{estado}}
+{\footnotesize\ttfamily boolean combate.\+Room.\+estado = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 18 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a5ae762d401e2b70f4cecb994191c5138}\label{classcombate_1_1_room_a5ae762d401e2b70f4cecb994191c5138}} 
+\index{combate.Room@{combate.Room}!finalizar@{finalizar}}
+\index{finalizar@{finalizar}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{finalizar}{finalizar}}
+{\footnotesize\ttfamily boolean combate.\+Room.\+finalizar = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a2fae89f384b4c7318537f4134a94ae93}\label{classcombate_1_1_room_a2fae89f384b4c7318537f4134a94ae93}} 
+\index{combate.Room@{combate.Room}!jugadores@{jugadores}}
+\index{jugadores@{jugadores}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{jugadores}{jugadores}}
+{\footnotesize\ttfamily boolean combate.\+Room.\+jugadores =false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 23 of file Room.\+java.
+
+\mbox{\Hypertarget{classcombate_1_1_room_a47b036bfaed6bb1269cf2cbf713796ab}\label{classcombate_1_1_room_a47b036bfaed6bb1269cf2cbf713796ab}} 
+\index{combate.Room@{combate.Room}!zona@{zona}}
+\index{zona@{zona}!combate.Room@{combate.Room}}
+\doxysubsubsection{\texorpdfstring{zona}{zona}}
+{\footnotesize\ttfamily int combate.\+Room.\+zona =2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 30 of file Room.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rpg/src/main/java/combate/\mbox{\hyperlink{_room_8java}{Room.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+{\bfseries{Requisitos\+:}}
+
+Se debe tener instalado para el correcto funcionamiento\+:
+
+-\/Maven 3.\+6.\+3
+
+-\/JUnit 4
+
+-\/Open\+JDK 15
+
+-\/XAMPP (Para iniciar la parte servidora)
+
+{\bfseries{Ejecución de test\+:}}
+
+Para ejecutar los test unitarios se debe usar el comando\+: {\ttfamily mvn clean test}
+
+Con ello dentro del directorio \char`\"{}target/site/jacoco\char`\"{} esta \char`\"{}index.\+html\char`\"{} que te muestra el coverage del proyecto. Además, dentro de \char`\"{}target/contiperf-\/report\char`\"{} existe otro \char`\"{}index.\+html\char`\"{} para mostrar los test de rendimiento y sus resultados.
+
+Para la ejecucion de la parte de integración se debe usar el comando\+: {\ttfamily mvn verify -\/Pintegracion}
+
+{\bfseries{Configuración previa\+:}}
+
+Para inicializar el servidor My\+SQL debemos introducir las siguientes sentencias dentro del administrador de XAMPP en la parte de SQL\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DROP SCHEMA IF EXISTS gamedb;}
+\DoxyCodeLine{DROP USER IF EXISTS 'rpg'@'localhost';}
+\DoxyCodeLine{}
+\DoxyCodeLine{CREATE SCHEMA gamedb;}
+\DoxyCodeLine{CREATE USER IF NOT EXISTS 'rpg'@'localhost' IDENTIFIED BY 'rpg';}
+\DoxyCodeLine{}
+\DoxyCodeLine{GRANT ALL ON gamedb.* TO 'rpg'@'localhost';}
+
+\end{DoxyCode}
+
+
+Tambien se debe arrancar la parte de Apache pulsando el boton \char`\"{}\+Start\char`\"{} al igual que en My\+SQL.
+
+{\bfseries{Configuración\+:}}
+
+Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno\+:
+
+{\bfseries{1.}} Descargar el zip del proyecto.
+
+{\bfseries{2.}} Descomprimir el .zip en la carpeta que se desee.
+
+{\bfseries{3.}} Abrir la carpeta descomprimida (Juego\+Rpg-\/main).
+
+{\bfseries{4.}} Seleccionar la carpeta RPG.
+
+{\bfseries{5.}} Estando en la carpeta RPG, escribir en la barra del buscador de archivos {\ttfamily cmd}.
+
+{\bfseries{6.}} A continuación se abrira la consola de comandos, escriba en orden estos comandos\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn clean install }
+\DoxyCodeLine{mvn datanucleus:enhance }
+\DoxyCodeLine{mvn datanucleus:schema-\/create }
+
+\end{DoxyCode}
+
+
+{\bfseries{7.}} Si todo funciona bien, deberia de terminar la compilación sin mostrar ningun error.
+
+{\bfseries{8.}} Una vez acabado este paso introduzca el siguiente comando {\ttfamily mvn exec\+:java}.
+
+{\bfseries{9.}} Ahora cargara la ventana principal del juego y podra jugar sin problemas.
+
+{\bfseries{10.}} Si quiere limpiar la base de datos use este comando {\ttfamily mvn datanucleus\+:schema-\/delete}. 

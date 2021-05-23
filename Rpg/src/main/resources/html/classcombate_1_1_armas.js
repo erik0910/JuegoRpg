@@ -1,0 +1,25 @@
+var classcombate_1_1_armas =
+[
+    [ "Armas", "classcombate_1_1_armas.html#a02051277bc49aa830a597eee1f29c6ad", null ],
+    [ "ataque", "classcombate_1_1_armas.html#aa1335fe9dfb0f8dd4d0a2f3f3277eee2", null ],
+    [ "cargaImagen", "classcombate_1_1_armas.html#a5f0053da19e23acf5ac7f9bee737489c", null ],
+    [ "getAlto", "classcombate_1_1_armas.html#a77b6b6e100066edb05853cbd3258ceda", null ],
+    [ "getAncho", "classcombate_1_1_armas.html#a488f7b30059eb2082acdc487143ed956", null ],
+    [ "getDanyo", "classcombate_1_1_armas.html#ae6facc6063d0adfb714310880d974bbf", null ],
+    [ "getFrames", "classcombate_1_1_armas.html#ac2d813f0ff36941d0c312e986c94737a", null ],
+    [ "getKnockback", "classcombate_1_1_armas.html#aba14e58d2d003637f0a5f78712ae6ea3", null ],
+    [ "getNombre", "classcombate_1_1_armas.html#a507fa96c6025a70c6bc343e1e03c84fb", null ],
+    [ "getSpeed", "classcombate_1_1_armas.html#a44b234298314d7112405578cd8ee289d", null ],
+    [ "getX", "classcombate_1_1_armas.html#ae1377f46bf137e85dc21fb98dba85779", null ],
+    [ "getY", "classcombate_1_1_armas.html#adb2473ea84a1156a64911d4eda4ac7bb", null ],
+    [ "setAlto", "classcombate_1_1_armas.html#af4d29839f5405ee8959feaeb7a703036", null ],
+    [ "setAncho", "classcombate_1_1_armas.html#abf928ab89ca0d486b3217bb22ed019d0", null ],
+    [ "setDanyo", "classcombate_1_1_armas.html#a629a4cd77a1115a0082d81bbbdacffaf", null ],
+    [ "setFrames", "classcombate_1_1_armas.html#aba0da118e6c3a0ea099714db86409122", null ],
+    [ "setKnockback", "classcombate_1_1_armas.html#a5a1be21f7c555fb4a9036e375a1fcf49", null ],
+    [ "setNombre", "classcombate_1_1_armas.html#a5ba3c86f4041de2e6b7cfd350799488a", null ],
+    [ "setSpeed", "classcombate_1_1_armas.html#a82ab480423fbff97e64839ca5c2656cf", null ],
+    [ "setX", "classcombate_1_1_armas.html#aded7e058ba2dd2514f31e73a6ef972f7", null ],
+    [ "setY", "classcombate_1_1_armas.html#a00301dfd7f757c69dccf75cc0f9e7643", null ],
+    [ "derecha", "classcombate_1_1_armas.html#a27240017a17434da9e1ce82664595c6b", null ]
+];

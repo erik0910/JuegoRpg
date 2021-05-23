@@ -1,0 +1,27 @@
+var classcombate_1_1_player =
+[
+    [ "Player", "classcombate_1_1_player.html#a62661d19b4fc79469e60aaeb5950c990", null ],
+    [ "animacion", "classcombate_1_1_player.html#a5e50de1c64ddee7ffacec6eacffbea3b", null ],
+    [ "ataque", "classcombate_1_1_player.html#ab205403f8a77288bff81900372094d45", null ],
+    [ "cambiarEstado", "classcombate_1_1_player.html#a26d3b60c64769a119b96d4ab4886da44", null ],
+    [ "draw", "classcombate_1_1_player.html#a5010dc4c8809b87667be647b86a96826", null ],
+    [ "getAlto", "classcombate_1_1_player.html#a716cfdc4a6b071bd21c8998dd4d555a8", null ],
+    [ "getAtaque", "classcombate_1_1_player.html#a549457e04bbcf7185355554fc1133089", null ],
+    [ "getHealth", "classcombate_1_1_player.html#ad65df3c9d48d750611dc564e5ce2621a", null ],
+    [ "getMana", "classcombate_1_1_player.html#a453a5b9edafd7bafb16a0d43397b9363", null ],
+    [ "getManad1", "classcombate_1_1_player.html#ad2b3723df2cff290b14c3ead4d0c04cd", null ],
+    [ "getMaxHealth", "classcombate_1_1_player.html#ae0c527719c2cf2784bb31f98c43cff81", null ],
+    [ "getmDerecha", "classcombate_1_1_player.html#a3dbb62fb1ebabc4b99307afbdf351710", null ],
+    [ "hit", "classcombate_1_1_player.html#a33bfec3a41aed5668f35e28dc3d32ba2", null ],
+    [ "mejorarArma", "classcombate_1_1_player.html#a3b54826580b2e12d3afe9a09c685e722", null ],
+    [ "mejorarMana", "classcombate_1_1_player.html#aa080998e6afd19fddc8bdb194ef86ec7", null ],
+    [ "mejorarvida", "classcombate_1_1_player.html#aa15d48825afe5a5bb26ccc12b1d4e956", null ],
+    [ "setAtaque", "classcombate_1_1_player.html#a5a0c0ff0e8a5dd5694ab7055bbe11439", null ],
+    [ "setFalse", "classcombate_1_1_player.html#a5541b58bab4d7d92f5735d2518a49746", null ],
+    [ "setHealth", "classcombate_1_1_player.html#aa038eeb713d38cd1128abe0fc22be796", null ],
+    [ "setMana", "classcombate_1_1_player.html#af943f38394d41a56a8d724e296bd5943", null ],
+    [ "setPlaneo", "classcombate_1_1_player.html#a3f8341503ce512422db38e528d5c226d", null ],
+    [ "update", "classcombate_1_1_player.html#a4c77ea5691f4840793b9352713214b33", null ],
+    [ "animarEspada", "classcombate_1_1_player.html#a85f175139ba58a700b8976f5a25dabc9", null ],
+    [ "estado", "classcombate_1_1_player.html#aaf893a0885c131aed757d5d95302f426", null ]
+];
