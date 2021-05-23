@@ -47,6 +47,7 @@ public class Player extends Objeto  {
 	//tendriamos una tercera arma que seria el arma que seria la magia
 	//carga de imagenes de la clase resources
 	static final ClassLoader loader = Player.class.getClassLoader();
+	/**metodo constructor de la clase player*/
 	public Player(int player) {
 		animacion();// cargamos la animación
 		ataqueArma =50;
@@ -106,17 +107,20 @@ public class Player extends Objeto  {
 		ancho = 30;
 		
 	}
+	/**añadir la vida */
 	public void setHealth(int health) {
 		this.health = health;
 	}
 	/*===============================================================*/
+	/**obtener la vida */
 	public int getHealth() { return health; }
+	/**Obtener la vida maxima*/
 	public int getMaxHealth() { return maxHealth; }
-	
+	/**añadir el planeo*/
 	public void setPlaneo(boolean b) { 
 		planeo = b;
 	}
-	
+	/**metodo para restar vida tras el daño*/
 	public void hit(int damage) {
 		if(parpadeo) return;
 		health -= damage;
@@ -124,7 +128,7 @@ public class Player extends Objeto  {
 		parpadeo = true;
 		parpadeoT = System.nanoTime();
 	}
-	
+	/**Actualizacion temporal del personaje */
 	private void pTemporal() {
 		if(izquierda) {
 			dx -= moveSpeed;
@@ -162,7 +166,7 @@ public class Player extends Objeto  {
 	}
 	
 	
-	
+	/**metodo para actualizar constantemente los cambios del jugador*/
 	public void update() {
 		
 		// update position
@@ -222,7 +226,7 @@ public class Player extends Objeto  {
 		arco.setX((int)this.x+5);
 		arco.setY((int)this.y-10);
 	}
-	
+	/**Metodo de pintado */
 	public void draw(Graphics2D g) {
 		if(parpadeo) {
 			long elapsed = (System.nanoTime() - parpadeoT) / 1000000;
@@ -257,6 +261,7 @@ public class Player extends Objeto  {
 	//metodo para representar el ataque del jugador si esta usando la espada
 	// recibimos por parametro el jugador para obtener sus coordenadas y tambien poder alterar su vida 
 	// su el ataque se ha producido
+	/**metodo para el ataque*/
 	public void ataque(Player jugador) {
 		
 		if(jugador.getHealth()<0) {Room.finalizar=true;}//Detección de si el jugador a terminado en la parte de mele
@@ -270,10 +275,12 @@ public class Player extends Objeto  {
 		
 	}
 	// metodo que cambiara constantemente la posicion del arma o mas bien el area de impacto del arma
+	/**metodo de actualizacion del arma */
 	private void updateArma() {
 		espada.setSpeed((int)this.x);
 		espada.setY((int)this.y -23);
 	}
+	/**Metodo para pintar el arma*/
 	private void pintadoArma(Graphics2D g) {
 		BufferedImage imagen = null;
 		//pintado del arma
@@ -292,6 +299,7 @@ public class Player extends Objeto  {
 
 	}
 	//animacion para el arma
+	/**metodo para animar*/
 	public void animacion() {
 		BufferedImage[] derecha = new BufferedImage[3];
 		BufferedImage[] izquierda = new BufferedImage[3];
@@ -310,9 +318,11 @@ public class Player extends Objeto  {
 		}
 	}
 	// metodo que permitira cambiar de arma a el jugador
+	/**cambia el arma*/
 	public void cambiarEstado() {
 		if(estado==0) {estado = 2;}else {estado=0;}
 	}
+	/**convierte todo a false */
 	public void setFalse() {
 		this.abajo = false;
 		this.izquierda = false;
@@ -321,26 +331,35 @@ public class Player extends Objeto  {
 		this.derecha = false;
 		this.ataque = false;
 	}
-	
+	/**metodo para añadir el ataque */
 	public void setAtaque(boolean b) {this.ataque = true;}
+	/**Obtener el ataque */
 	public boolean getAtaque() {return this.ataque;}
+	/**Obtener la posicion izquierda */
 	public boolean getmDerecha() {return this.mDerecha;}
+	/**Obtener el altp */
 	public double getAlto() {return this.alto;}
+	/**Obtener la mana*/
 	public double getMana() {
 		return mana;
 	}
+	/**metodo para añadir el mana*/
 	public void setMana(double manas) {
 		this.mana=manas;
 	}
+	/**Obtener el mana extra */
 	public int getManad1() {
 		return manad1;
 	}
+	/**metodo para mejorar el daño  del arma */
 	public void mejorarArma(int mejora) {
 		this.ataqueArma +=mejora;
 	}
+	/**Metodo para mejorar arma*/
 	public void mejorarMana(int manas) {
 		this.mana += manas;
 	}
+	/**metodo para mejorar vida */
 	public void mejorarvida(int vida) {
 		this.health +=vida;
 		this.maxHealth +=vida;
