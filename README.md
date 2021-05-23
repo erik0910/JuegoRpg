@@ -10,7 +10,16 @@ Se debe tener instalado para el correcto funcionamiento:
 
 -OpenJDK 15
 
--MySQL Workbench (o similares para iniciar la base de datos)
+-XAMPP (Para iniciar la parte servidora)
+
+**Ejecución de test:**
+
+Para ejecutar los test unitarios se debe usar el comando: ```mvn clean test```
+
+Con ello dentro del directorio "target/site/jacoco" esta "index.html" que te muestra el coverage del proyecto.
+Además, dentro de "target/contiperf-report" existe otro "index.html" para mostrar los test de rendimiento y sus resultados.
+
+Para la ejecucion de la parte de integración se debe usar el comando: ```mvn verify -Pintegracion```
 
 **Configuración previa:**
 
