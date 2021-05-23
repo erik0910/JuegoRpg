@@ -2,12 +2,20 @@ package combate;
 
 import static org.junit.Assert.*;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
+import org.databene.contiperf.junit.ContiPerfRule;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class PlayerBossTest {
 	public Player jugador;
 	public Boolean resultado;
-
+	@Rule
+	public ContiPerfRule rule = new ContiPerfRule();
 	@SuppressWarnings("deprecation")
 	// funcionamineto de los metodos de vida del jugador
 	@Test
@@ -55,5 +63,17 @@ public class PlayerBossTest {
 		jugador = new Player(1);
 		jugador.setAtaque(true);
 		assertTrue(jugador.ataque);
+	}
+	//funcionamiento del rendimiento de la clase usando los métodos prinxipales
+	@Test
+	@PerfTest(invocations = 100)// instanciamos 100 veces las clase para ver como funcionnaria al instanciar a muchos  jugadores en el juego
+	@Required(max = 600, average = 100)
+	public void Rendimientoclase() {
+		jugador=new Player(2);
+		jugador.animacion();
+		jugador.cambiarEstado();
+		jugador.checkSuelo();
+		jugador.update();
+		assertTrue(true);
 	}
 }

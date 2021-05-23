@@ -192,7 +192,6 @@ public class Room {
 	public static double playergetY(int p) {return player[p].gety();}
 	public static int playergetAncho(int p) {return player[p].getancho();}
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
-	public static void variosEnemigos(boolean resultado) {enemigos=resultado;}// si es true el resultado habra varios enemigos
 	public static boolean enemigo() {return enemigos;}
 	public static void disparo(int p) {
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {

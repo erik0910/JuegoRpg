@@ -2757,7 +2757,6 @@ public class Array extends JFrame implements KeyListener {
 				if((x ==15 && y ==29)) {// evento especial donde se podra jugar a dos jugadores
 					Room.jugadores=true;
 					Room.enemigos=false;
-					Room.variosEnemigos(true);
 					contentPane.setFocusable(false);
 					Ventana.cargarCombate();
 				}else {
@@ -2771,7 +2770,8 @@ public class Array extends JFrame implements KeyListener {
 			
 			}else{
 			cambioZona();// seleccion del mapa
-			Room.variosEnemigos(false);
+			Room.enemigos=false;
+			Room.jugadores=false;
 			contentPane.setFocusable(false);
 			fight = true;
 			sonido.stop();
