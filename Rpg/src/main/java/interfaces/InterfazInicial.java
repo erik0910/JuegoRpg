@@ -115,9 +115,10 @@ public class InterfazInicial extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				Server.startServer();
-				
+				dispose();
+				InterfazEstadisticas inter = new InterfazEstadisticas();
+				inter.setVisible(true);
+				inter.setLocationRelativeTo(null);
 			}
 		});
 	}
