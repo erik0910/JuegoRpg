@@ -2095,6 +2095,8 @@ public class Array extends JFrame implements KeyListener {
 		mundo[23][0] =pared;
 		mundo[23][1] =pared;
 		mundo[23][2] =pared;
+		mundo[23][3] =pared;
+		mundo[23][4] =pared;
 		mundo[23][5] =pared;
 		mundo[23][6] =pared;
 		mundo[23][7] =pared;
