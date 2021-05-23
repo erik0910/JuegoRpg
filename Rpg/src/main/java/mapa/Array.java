@@ -2754,7 +2754,7 @@ public class Array extends JFrame implements KeyListener {
 				
 			if(((x ==2 && y == 25)|| (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22))&& in == true){
 				cambioZona();
-				if((x ==15 && y ==29)) {
+				if((x ==15 && y ==29)) {// evento especial donde se podra jugar a dos jugadores
 					Room.jugadores=true;
 					Room.enemigos=false;
 					Room.variosEnemigos(true);

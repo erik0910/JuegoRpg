@@ -74,8 +74,12 @@ public class Player extends Objeto  {
 			BufferedImage hoja;
 			if(player==1) {
 			hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
-			}else if(player==3 && Room.jugadores) {
-			hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
+			}else if(Room.jugadores) {
+				if(player==2) {
+					hoja =ImageIO.read(loader.getResource("combate/enemigo.png")) ;
+					}else {hoja =ImageIO.read(loader.getResource("combate/player.png")) ;
+				}
+			
 			}else {
 				hoja =ImageIO.read(loader.getResource("combate/enemigo.png")) ;
 				
