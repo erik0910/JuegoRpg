@@ -63,8 +63,7 @@ public class Room {
 	public static void bossIa() {
 		if(player[2].getHealth()>=0) {
 		if(dificultad)player[2].setSalto(true);
-		player[2].ataque(player[1]); 
-		player[2].ataque(player[3]);
+		disparo(2);
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
 			}else {derecha=false;}
