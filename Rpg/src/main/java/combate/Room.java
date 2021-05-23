@@ -27,7 +27,7 @@ public class Room {
 	public static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	private static boolean salto =false;
-	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,5->mazmorra
+	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,mazmorra,secret
 	public void selectorMapa() {
 	if(zona==1)	{fondo = new Fondo("combate/hierva.gif", 0.1);}
 	if(zona==2)	{fondo = new Fondo("combate/arena.gif", 0.1);}
@@ -35,6 +35,7 @@ public class Room {
 	if(zona==4 || zona==5)	{fondo = new Fondo("combate/fuego.gif", 0.1);}
 	}
 	//cargar el fondo de la pantalla
+	/**Costructor de la clase  room*/
 	public Room() {
 		selectorMapa();
 		for(int i = 1; i <= 2; i++) {
@@ -44,6 +45,7 @@ public class Room {
 		player[1].mejorarArma(Array.danyoarma);// solo para el jugador se incrementa el ataque
 		player[1].mejorarMana(Array.energia);
 		player[1].mejorarvida(Array.health);
+		player[1].cambiarEstado();// empiezas con el arma siempre
 		if(enemigos) {
 		player[3]= new Player(3);
 		player[3].setPosition(100, 100);
@@ -55,15 +57,14 @@ public class Room {
 				player[3].cambiarEstado();
 		
 		}
-		player[2].cambiarEstado();
 	}
 	//inteligencia del enemigo del juego
 	// esta es una inteligencia para el boss que juega con magia
+	/**ia para el primer enemigo */
 	public static void bossIa() {
 		if(player[2].getHealth()>=0) {
 		if(dificultad)player[2].setSalto(true);
-		player[2].ataque(player[1]); 
-		player[2].ataque(player[3]);
+		disparo(2);
 		if(derecha) {
 			if (playergetX(2)< 297) {//tamaño limite
 			}else {derecha=false;}
@@ -76,6 +77,7 @@ public class Room {
 	}
 	}
 	//inteligencia para el personaje que va a mele
+	/**metodo para la ia del segundo enemigo */
 	public static void bossIa1() {
 		if(player[3].getHealth()>=0) {
 		//if(dificultad)player[3].setSalto(true);
@@ -91,9 +93,9 @@ public class Room {
 		}
 		}
 	}
-	
+	/**metodo para actualizar */
 	public static void update() {for(int i = 1; i <= 3; i++) player[i].update();} //Llamar al update de los 2 jugadores
-	
+	/**metodo de pintado*/
 	public static void draw(Graphics2D g) {
 		fondo.draw(g); //Pintar el fondo
 		borrar = -1; //Resetear el index de borrado de la arraylist de disparos.
@@ -121,6 +123,7 @@ public class Room {
 		}
 		if(borrar != -1) disparos.remove(borrar); //Borrar el disparo
 	}
+	/**obtener los resultado */
 	private static void resultado(int obj) {
 		if(player[obj].getHealth() <=0) { //Si el pj ha muerto
 			if(obj == 1) {estado=false;}else{
@@ -132,7 +135,7 @@ public class Room {
 			finalizar=true;
 		}
 	}
-	
+	/**metodo de gestion de teclas */
 	public static void teclas() {
 		player[1].setFalse();
 		player[2].setFalse();
@@ -187,12 +190,17 @@ public class Room {
 		player[3].ataque(player[1]);//ataca todo el rato a el personaje 1 y si le encuentra entonces le hace daño
 		}
 		}
-	
+	/**Obtener la x del jugador */
 	public static double playergetX(int p) {return player[p].getx();}
+	/**Obtener la posicion y del jugador*/
 	public static double playergetY(int p) {return player[p].gety();}
+	/**Obtener el ancho*/
 	public static int playergetAncho(int p) {return player[p].getancho();}
+	/**Obtener el alto */
 	public static int playergetAlto(int p) {return (int) player[p].getAlto();}
+	/**metodo para definir enemigo*/
 	public static boolean enemigo() {return enemigos;}
+	/**metodo para detección de impacto por el disparo*/
 	public static void disparo(int p) {
 		if(!disp[p] && player[p].getMana() >= player[p].getManad1() && fin == 0) {
 			player[p].setAtaque(true); 

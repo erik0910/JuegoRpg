@@ -13,7 +13,7 @@ public class Disparo extends Objeto {
 	private BufferedImage[] bi = new BufferedImage[2];
 	private BufferedImage hoja = null;
 	static final ClassLoader loader = Disparo.class.getClassLoader();
-	
+	/**constructor de la clase disparo */
 	Disparo(double x, double y, boolean dir, int pl) {
 		this.x = x;
 		this.y = y;
@@ -34,10 +34,10 @@ public class Disparo extends Objeto {
 		animacion = new Animacion();
 		animacion.setAnimacion(bi);
 	}
-
+	/**método de pintado del mapa*/
 	public void draw(Graphics2D g) {super.draw(g);}
 	
-	
+	/**metodo para actualizar el estado de disparo */
 	public void update() {
 		col = false;
 		if(mDerecha) this.x += 2;
@@ -51,10 +51,15 @@ public class Disparo extends Objeto {
 	}
 	
 	//Setter & Getters===================================
+	/**Obtener la x*/
 	public double getX() {return this.x;}
+	/**Obtener la variable f*/
 	public boolean getF() {return f;}
+	/**Obtener el jugador*/
 	public int getPlayer() {return player;}
+	/**Obtener el daño*/
 	public int getDanyo() {return danyo;}
+	/**Añadir daño*/
 	public void setDanyo(int danyo) {this.danyo = danyo;}
 	//==================================================
 	

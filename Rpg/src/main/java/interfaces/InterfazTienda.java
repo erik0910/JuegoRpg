@@ -22,12 +22,13 @@ public class InterfazTienda extends JFrame {
 
 	static final ClassLoader loader = InterfazTienda.class.getClassLoader();
 	public static FondoTiendaCargar contentPane;
+	/**Inicia la clase*/
 	public static void iniciar() {
 		InterfazTienda frame = new InterfazTienda();
 		frame.setVisible(true);
 
 	}
-
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazTienda() {
 		contentPane = new FondoTiendaCargar();
 		contentPane.setBackground(Color.WHITE);

@@ -6,7 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import java.io.IOException;
 import java.net.URI;
 /**
- * Server class.
+ * Clase server
  *
  */
 
@@ -17,7 +17,7 @@ public class Server {
     public static final String BASE_URI = "http://localhost:8080/rpg/";
 
     /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
+     * Inicia Grizzly HTTP server exponiendo los recursos JAX-RS  definidos en esta aplicacion.
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
@@ -31,7 +31,7 @@ public class Server {
     }
 
     /**
-     * Main method.
+     * Metodo principal.
      * @param args
      * @throws IOException
      */

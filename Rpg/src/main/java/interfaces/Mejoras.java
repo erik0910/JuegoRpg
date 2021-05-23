@@ -23,13 +23,13 @@ public class Mejoras extends JFrame {
 	public static void main(String[] args) {
 		iniciar();
 	}
-
+	/** Inicia la ventana*/
 	public static void iniciar() {	
 					Mejoras frame = new Mejoras();
 					frame.setVisible(true);
 	
 	}
-
+	/** Carga la ventana de mejoras*/
 	public Mejoras() {
 		this.setUndecorated(true);
 		setResizable(false);

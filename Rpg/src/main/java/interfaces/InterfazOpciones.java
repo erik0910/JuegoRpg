@@ -48,7 +48,7 @@ public class InterfazOpciones extends JFrame {
 	}
 
 	
-	
+	/**Describe la interfaz, sus componentes y su funcionalidad, ademas hace lectura del archivo txt de opciones*/
 	public InterfazOpciones() {
 		
 		int i = 0;
@@ -144,6 +144,7 @@ public class InterfazOpciones extends JFrame {
 		btnSalir.setBorder(null);
 		btnSalir.setOpaque(false);
 		btnSalir.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la ventana inicial*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazInicial inter = new InterfazInicial();
@@ -323,6 +324,7 @@ public class InterfazOpciones extends JFrame {
 		
 		
 		btnGuardarYSalir.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la ventana inicial, guardando la configuracion de la ventana*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazInicial inter = new InterfazInicial();

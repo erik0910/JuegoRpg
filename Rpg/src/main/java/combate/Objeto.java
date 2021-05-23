@@ -41,7 +41,7 @@ public abstract class Objeto {
 	protected double pSalto;
 	//==============================
 	MascaraColisiones bloque = new MascaraColisiones();
-	
+	/**Obtener la detección de suelo */
 	public void checkSuelo() {
 		xdest = x + dx;
 		ydest = y + dy;
@@ -67,30 +67,37 @@ public abstract class Objeto {
 		} 
 		this.setPosition(xdest, ydest); //Aplicar
 	}
-	
+	/**obtener la variable x */
 	public int getx() { return (int)x; }
+	/**obtener la variable y*/
 	public int gety() { return (int)y; }
+	/**obtener el ancho*/
 	public int getancho() { return ancho; }
+	/**obtener la altura */
 	public int getHeight() { return alto; }
-	
+	/**Obtener la posicion*/
 	public void setPosition(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
-	
+	/**Obtener la posicion izquierda */
 	public void setIzquierda(boolean b) { izquierda = b; }
+	/**Obtener la posicion derecha*/
 	public void setDerecha(boolean b) { derecha = b; }
+	/**Obtener la posicion arriba */
 	public void setArriba(boolean b) { arriba = b; }
+	/**Obtener la posicion abajo*/
 	public void setAbajo(boolean b) { abajo = b; }
+	/**Obtener la posicion salto */
 	public void setSalto(boolean b) { salto = b; }
-	
+	/**merodo para calculo de posicion */
 	public boolean notOnScreen() {
 		return x + ancho < 0 ||
 			x - ancho > Juego.ANCHO ||
 			y + alto < 0 ||
 			y - alto > Juego.ALTO;
 	}
-	
+	/**metodo para pintado  */
 	public void draw(java.awt.Graphics2D g) {
 		/*Plataformas========================================*/
 		for(int i=0; i < 2; i++) g.drawRect (xb[i], yb[i], anchob[i], altob[i]);

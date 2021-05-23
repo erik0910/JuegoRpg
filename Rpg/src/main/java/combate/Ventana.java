@@ -10,6 +10,7 @@ public class Ventana {
 	public static void main(String[] args) {
 		cargarCombate();
 	}
+	/**metodo lanzador de la ventana */
 	public static void cargarCombate() {
 		window = new JFrame("Batalla contra Boss");
 		window.setContentPane(new Juego());

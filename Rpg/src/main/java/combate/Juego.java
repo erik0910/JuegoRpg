@@ -39,6 +39,7 @@ import mapa.Array;
 		/*===================================*/
 		
 		/*Constructor========================*/
+		/**constructor de la clase juego*/
 		public Juego() {
 			super();
 			
@@ -48,7 +49,7 @@ import mapa.Array;
 			requestFocus();	
 		}
 		/*====================================*/
-		
+		/**Inicializa el thread para el juego */
 		public void addNotify() {
 			super.addNotify();
 			if(thread == null) {
@@ -57,14 +58,14 @@ import mapa.Array;
 				thread.start();
 			}
 		}
-		
+		/**Iniciador de la clase para cargar las variables */
 		private void init() {
 			img = new BufferedImage(ANCHO, ALTO,BufferedImage.TYPE_INT_RGB);
 			g = (Graphics2D) img.getGraphics();
 			running = true;
 			new Room();
 		}
-		
+		/**El hilo principal del programa */
 		public void run() {
 		
 			int i = 0;
@@ -137,23 +138,26 @@ import mapa.Array;
 		
 		
 		/*Room===========================================*/
+		/**actualización del estado*/
 		private void update() {Room.update();}
+		/**metodo de pintado */
 		private void draw() {Room.draw(g);}
 		/*==============================================*/
+		/**metodo para pintar el mapa */
 		private void pintarPantalla() {
 			Graphics g2 = getGraphics();
 			g2.drawImage(img, 0, 0,ANCHO * SCALE, ALTO * SCALE,null);
 			g2.dispose();
 		}
-		
+		/**metodo para teclas */
 		public void keyTyped(KeyEvent key) {}
-
+		/**metodo para teclas*/
 		public void keyPressed(KeyEvent k){
 		    if(!teclas.contains(k.getKeyCode())){
 		        teclas.add(k.getKeyCode());
 		    }
 		}
-
+		/**metodo para teclas */
 		public void keyReleased(KeyEvent k){
 		    if(teclas.contains(k.getKeyCode())){
 		        teclas.remove(teclas.indexOf(k.getKeyCode()));

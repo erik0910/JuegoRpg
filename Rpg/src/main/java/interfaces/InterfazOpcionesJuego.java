@@ -56,7 +56,7 @@ public class InterfazOpcionesJuego extends JFrame {
 	public void setInfoJuego(String[] infoJuego) {
 		this.infoJuego = infoJuego;
 	}
-
+	/**Describe la interfaz, sus componentes y su funcionalidad, ademas hace lectura del archivo txt de opciones*/
 	public InterfazOpcionesJuego() {
 		
 		int i = 0;
@@ -152,6 +152,7 @@ public class InterfazOpcionesJuego extends JFrame {
 		btnVolver.setBorder(null);
 		btnVolver.setOpaque(false);
 		btnVolver.addActionListener(new ActionListener() {
+			/**Cierra la ventana*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
@@ -273,6 +274,7 @@ public class InterfazOpcionesJuego extends JFrame {
 		
 		
 		btnGuardar.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la interfaz para guardar la partida*/
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setFocusable(false);
 				InterfazGuardarPartida inter = new InterfazGuardarPartida();
@@ -284,6 +286,7 @@ public class InterfazOpcionesJuego extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JButton btnSalir = new JButton("Salir");
+		/**Cierra toda la aplicacion*/
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -298,7 +301,7 @@ public class InterfazOpcionesJuego extends JFrame {
 		contentPane.add(btnSalir);
 		
 	}
-	
+	/**Cierra la ventana pulsando el boton "ESC"*/
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_ESCAPE) {

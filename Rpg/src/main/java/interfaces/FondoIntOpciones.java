@@ -11,10 +11,11 @@ public class FondoIntOpciones extends javax.swing.JPanel{
     
 	static final ClassLoader loader = FondoIntOpciones.class.getClassLoader();
 	
+	/**Declara el tamaño*/
     public FondoIntOpciones() {
     	this.setSize(619, 539);       
     }
-     
+    /**Selecciona la imagen y la dibuja en un JPanel*/
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
     	URL imgUrl = loader.getResource("menus/fondoOpciones.jpg");

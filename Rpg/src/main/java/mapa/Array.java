@@ -62,12 +62,18 @@ public class Array extends JFrame implements KeyListener {
 	static String direccion = "RIGHT";
 	private static String skin = "";
 	boolean in = false;
+	
+	/** Aumenta el daño del arma*/
 	public static void mejora() {
 		danyoarma +=10;
 	}
+	
+	/**Aumenta la vida*/
 	public static void mejoraVida() {
 		health +=10;
 	}
+	
+	/** Aumenta el mana*/
 	public static void mejorarMana() {
 		energia +=10;
 	}
@@ -80,58 +86,92 @@ public class Array extends JFrame implements KeyListener {
 
 	public static JPanel contentPane;
 
-	
+	/** Obtiene la vida*/
 	public int getVida() {
 		return vida;
 	}
+	
+	/** Pone la vida a un número exacto*/
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
+	
+	/** Obtiene la X*/
 	public int getX() {
 		return x;
 	}
+	
+	/** Cambia la X*/
 	public static void setX(int x) {
 		Array.x = x;
 	}
+	
+	/** Obtiene la Y*/
 	public int getY() {
 		return y;
 	}
+	
+	/** Cambia la Y*/
 	public static void setY(int y) {
 		Array.y = y;
 	}
+	
+	/** Obtiene la X del dibujado del mapa*/
 	public static int getX_dib() {
 		return x_dib;
 	}
+	
+	/** Cambia la X del dibujado del mapa*/
 	public static void setX_dib(int x_dib) {
 		Array.x_dib = x_dib;
 	}
+	
+	/** Obtiene la Y del diujado del mapa*/
 	public static int getY_dib() {
 		return y_dib;
 	}
+	
+	/** Cambia la Y del dibujado del mapa*/
 	public static void setY_dib(int y_dib) {
 		Array.y_dib = y_dib;
 	}
+	
+	/** Obtiene el oro de la cartera*/
 	public static Monedero getCartera() {
 		return cartera;
 	}
+	
+	/** Cambia la el dinero de la cartera*/
 	public static void setCartera(Monedero cartera) {
 		Array.cartera = cartera;
 	}
+	
+	/** Obtiene la skin del personaje*/
 	public static String getSkin() {
 		return skin;
 	}
+	
+	/** Cambia la skin del personaje*/
 	public void setSkin(String skin) {
 		Array.skin = skin;
 	}
+	
+	/** Obtiene el daño del arma*/
 	public static int getDanyoarma() {
 		return danyoarma;
 	}
+	
+	/** Cambia el daño del arma*/
 	public static void setDanyoarma(int danyoarma) {
 		Array.danyoarma = danyoarma;
 	}
+	
+	/** Obtiene la energia*/
 	public static int getEnergia() {
 		return energia;
 	}
+	
+	/** Cambia la energia*/
 	public static void setEnergia(int energia) {
 		Array.energia = energia;
 	}
@@ -149,6 +189,7 @@ public class Array extends JFrame implements KeyListener {
 		});
 	}
 	
+	/** Se usa para seleccionar la musica*/
 	public void musica() {
 		
 		try {
@@ -211,6 +252,7 @@ public class Array extends JFrame implements KeyListener {
 
 	}
 	
+	/** Inicia el juego principal*/
 	public Array() {
 		
 		musica();
@@ -2053,6 +2095,8 @@ public class Array extends JFrame implements KeyListener {
 		mundo[23][0] =pared;
 		mundo[23][1] =pared;
 		mundo[23][2] =pared;
+		mundo[23][3] =pared;
+		mundo[23][4] =pared;
 		mundo[23][5] =pared;
 		mundo[23][6] =pared;
 		mundo[23][7] =pared;
@@ -2732,15 +2776,15 @@ public class Array extends JFrame implements KeyListener {
 		dibujado();
 
 	}
-	// este metodo sirve para cambiar el mapa del combate en base a la zona en la que estes en el mapa principal
+	/**Este metodo sirve para cambiar el mapa del combate en base a la zona en la que estes en el mapa principal*/
 	public void cambioZona() {
 		if(zona.equals("grass")) {Room.zona=1;}
 		if(zona.equals("sand")) {Room.zona=2;}
 		if(zona.equals("ice")) {Room.zona=3;}
-		if(zona.equals("fire")||zona.equals("dungeon")) {Room.zona=4;}
+		if(zona.equals("fire")||zona.equals("dungeon")||zona.equals("secret")) {Room.zona=4;}
 		
 	}
-
+	/** Dibuja el mapa del mundo*/
 	public void dibujado() {
 		
 		if (mundo[x][y].getCode() == ("chest")) {
@@ -2758,7 +2802,9 @@ public class Array extends JFrame implements KeyListener {
 					Room.jugadores=true;
 					Room.enemigos=false;
 					contentPane.setFocusable(false);
-					Ventana.cargarCombate();
+					Comentario com= new Comentario();
+					com.setVisible(true);
+					com.setLocationRelativeTo(null);
 				}else {
 					//Aqui va las peleas de boses
 					Room.jugadores=false;
@@ -3268,7 +3314,7 @@ public class Array extends JFrame implements KeyListener {
 
 	}
 
-	
+	/** Se usa para la carga de la mazmorra*/
 	public void cargar() {
 
 		try {
@@ -3328,6 +3374,8 @@ public class Array extends JFrame implements KeyListener {
 		repaint();
 
 	}
+	
+	/** Lector de teclas*/
 	public void keyPressed(KeyEvent e) {
 
 		int key = e.getKeyCode();
@@ -3435,11 +3483,12 @@ public class Array extends JFrame implements KeyListener {
 		}
 
 	}
-
+	/** Cuando se suelta la tecla*/
 	public void keyReleased(KeyEvent arg0) {
 
 	}
-
+	
+	/** Cuando se pulsa la tecla*/
 	public void keyTyped(KeyEvent arg0) {
 
 	}

@@ -35,7 +35,7 @@ public class Comentario extends JFrame {
 			}
 		});
 	}
-
+	/**Constructor de comentario*/
 	public Comentario() {
 		setTitle("rpg");
 		setResizable(false);

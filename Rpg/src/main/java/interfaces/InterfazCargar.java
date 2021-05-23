@@ -45,7 +45,8 @@ public class InterfazCargar extends JFrame {
 			}
 		});
 	}
-
+	
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazCargar() {
 		setTitle("rpg");
 		setResizable(false);
@@ -96,6 +97,7 @@ public class InterfazCargar extends JFrame {
 		btnSalir.setBorder(null);
 		btnSalir.setOpaque(false);
 		btnSalir.addActionListener(new ActionListener() {
+			/**Cierra esta ventana e inicia la ventana inicial*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazInicial inter = new InterfazInicial();
@@ -109,8 +111,9 @@ public class InterfazCargar extends JFrame {
 		
 		JButton btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
+			/**Cargar partida e introducir datos en la ventana*/
 			public void actionPerformed(ActionEvent e) {
-				//Cargar partida e introducir datos en la ventana
+				
 				String[] info = DBManager.cargarPartida(listPartidas.getSelectedValue());
 				System.out.println("Skin = " + info[0] + "; X = " + info[1] + "; Y = " + info[2] + 
 						"; X_dib = " + info[3] + "; Y_dib = " + info[4] + "; Dinero = " + info[5] + 

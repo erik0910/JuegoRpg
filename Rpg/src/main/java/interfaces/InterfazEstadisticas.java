@@ -58,9 +58,8 @@ public class InterfazEstadisticas extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazEstadisticas() {
 		
 		//Pruebas para las estadisticas
@@ -91,6 +90,7 @@ public class InterfazEstadisticas extends JFrame {
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
+			/**Cierra esta ventana y abre la inicial*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazInicial inter = new InterfazInicial();
