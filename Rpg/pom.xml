@@ -189,13 +189,18 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.7</version>
 				<configuration>
-<!-- 				Hemos excluido estas clases la ser interfaces o que no se pueden aplicar test unitarios -->
+<!-- 				Hemos excluido estas clases al ser interfaces o que no se pueden aplicar test unitarios -->
 					<excludes>
 						<exclude>**/interfaces/*</exclude>
+						<exclude>**/servidor/*</exclude>
 						<exclude>**/mapa/Array*</exclude>
 						<exclude>**/combate/Boss*</exclude>
 						<exclude>**/combate/Ventana*</exclude>
 						<exclude>**/combate/Fondo*</exclude>
+						<exclude>**/combate/Juego*</exclude>
+						<exclude>**/combate/Objeto*</exclude>
+						<exclude>**/combate/Comentario*</exclude>
+						<exclude>**/combate/Room*</exclude>
 					</excludes>
 					<rules>
 						<rule>
