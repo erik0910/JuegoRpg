@@ -23,13 +23,13 @@ public class Mejoras extends JFrame {
 	public static void main(String[] args) {
 		iniciar();
 	}
-
-	public static void iniciar() {
-		Mejoras frame = new Mejoras();
-		frame.setVisible(true);
-
+	/** Inicia la ventana*/
+	public static void iniciar() {	
+					Mejoras frame = new Mejoras();
+					frame.setVisible(true);
+	
 	}
-
+	/** Carga la ventana de mejoras*/
 	public Mejoras() {
 		this.setUndecorated(true);
 		setResizable(false);
@@ -48,7 +48,7 @@ public class Mejoras extends JFrame {
 			}
 		});
 		btnDefensa.setBackground(new Color(0, 102, 255));
-		ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/escudo.png"));
+    ImageIcon imagenFondo = new ImageIcon(loader.getResource("mundo/escudo.png"));
 		btnDefensa.setIcon(imagenFondo);
 		btnDefensa.setBounds(10, 10, 100, 100);
 		contentPane.add(btnDefensa);
@@ -74,10 +74,10 @@ public class Mejoras extends JFrame {
 			}
 		});
 		btnEnergia.setBackground(Color.YELLOW);
-		ImageIcon imagenFondo2 = new ImageIcon(loader.getResource("mundo/rayo.png"));
+		ImageIcon imagenFondo2  = new ImageIcon(loader.getResource("mundo/rayo.png"));
 		btnEnergia.setIcon(imagenFondo2);
 		btnEnergia.setBounds(375, 10, 100, 100);
 		contentPane.add(btnEnergia);
-
+		
 	}
 }
