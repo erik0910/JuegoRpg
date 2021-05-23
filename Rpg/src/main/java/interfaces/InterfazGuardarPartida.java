@@ -27,10 +27,11 @@ public class InterfazGuardarPartida extends JFrame {
 	private MainDB DBManager = new MainDB();
 	private String[] info = new String[9];
 	
+	/**Getter para la informacion sobre la partida*/
 	public String[] getInfo() {
 		return info;
 	}
-
+	/**Setter para la informacion sobre la partida*/
 	public void setInfo(String[] info) {
 		this.info = info;
 	}
@@ -47,7 +48,7 @@ public class InterfazGuardarPartida extends JFrame {
 			}
 		});
 	}
-
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazGuardarPartida() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -70,6 +71,7 @@ public class InterfazGuardarPartida extends JFrame {
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
+			/**Cierra la ventana*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
@@ -84,6 +86,7 @@ public class InterfazGuardarPartida extends JFrame {
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
+			/**Recoge la informacion y la guardada en la BD para las tablas "partida" y "estadisticas"*/
 			public void actionPerformed(ActionEvent e) {
 				
 				Monedero m = new Monedero();
@@ -121,7 +124,7 @@ public class InterfazGuardarPartida extends JFrame {
 		btnGuardar.setBounds(335, 227, 89, 23);
 		contentPane.add(btnGuardar);
 	}
-	
+	/**Cierra la ventana mediante el boton "ESC"*/
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_ESCAPE) {

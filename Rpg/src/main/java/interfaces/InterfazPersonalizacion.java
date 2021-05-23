@@ -41,7 +41,7 @@ public class InterfazPersonalizacion extends JFrame {
 			}
 		});
 	}
-
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazPersonalizacion() {
 		
 		rutasSprite[0] = "spritesSkins/Caballero.png";
@@ -80,6 +80,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnFlechaIzq.setBorder(null);
 		btnFlechaIzq.setBackground(new Color(0,0,0,0));
 		btnFlechaIzq.addActionListener(new ActionListener() {
+			/**Cambia la skin en pantalla hacia la anterior*/
 			public void actionPerformed(ActionEvent e) {
 				if(contador>0) {
 				contador--;
@@ -104,6 +105,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnFlechaDrch.setBorder(null);
 		btnFlechaDrch.setBackground(new Color(0, 0, 0, 0));
 		btnFlechaDrch.addActionListener(new ActionListener() {
+			/**Cambia la skin en pantalla hacia la siguiente*/
 			public void actionPerformed(ActionEvent e) {
 				if(contador<2) {
 				contador++;
@@ -122,6 +124,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnSalir.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnSalir.setBounds(12, 815, 97, 23);
 		btnSalir.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la ventana inicial*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazInicial inter = new InterfazInicial();
@@ -139,6 +142,7 @@ public class InterfazPersonalizacion extends JFrame {
 		btnContinuar.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnContinuar.setBounds(566, 815, 97, 23);
 		btnContinuar.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre el juego*/
 			public void actionPerformed(ActionEvent e) {
 				mapa.Array inter = new mapa.Array();
 				inter.setSkin(lblNombrePersonaje.getText());

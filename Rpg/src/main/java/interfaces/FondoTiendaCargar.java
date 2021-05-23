@@ -11,10 +11,12 @@ public class FondoTiendaCargar extends javax.swing.JPanel{
     
 	static final ClassLoader loader = FondoIntCargar.class.getClassLoader();
 	
+	/**Declara el tamaño*/
     public FondoTiendaCargar() {
     	this.setSize(700, 700);       
     }
      
+    /**Selecciona la imagen y la dibuja en un JPanel*/
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
     	URL imgUrl = loader.getResource("tienda/fondoTienda.png");

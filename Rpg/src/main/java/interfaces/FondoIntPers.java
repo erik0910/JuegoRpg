@@ -10,10 +10,12 @@ public class FondoIntPers extends javax.swing.JPanel{
     
 	static final ClassLoader loader = FondoIntOpciones.class.getClassLoader();
 	
+	/**Declara el tamaño*/
     public FondoIntPers() {
     	this.setSize(1024, 1536);       
     }
-     
+    
+    /**Selecciona la imagen y la dibuja en un JPanel*/
     public void paintComponent(Graphics g) {
     	super.paintComponent(g);  
     	URL imgUrl = loader.getResource("menus/fondoPersonalizacion.png");

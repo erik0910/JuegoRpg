@@ -33,7 +33,7 @@ public class InterfazInicial extends JFrame {
 			}
 		});
 	}
-
+	/**Describe la interfaz, sus componentes y su funcionalidad*/
 	public InterfazInicial() {
 		setTitle("rpg");
 		setResizable(false);
@@ -51,6 +51,7 @@ public class InterfazInicial extends JFrame {
 		btnNewGame.setOpaque(false);
 		btnNewGame.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnNewGame.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la interfaz de nueva partida*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazPersonalizacion interfaz = new InterfazPersonalizacion();
@@ -70,6 +71,7 @@ public class InterfazInicial extends JFrame {
 		btnLoadGame.setBorder(null);
 		btnLoadGame.setOpaque(false);
 		btnLoadGame.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la interfaz de cargar partida*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazCargar interfaz = new InterfazCargar();
@@ -81,6 +83,7 @@ public class InterfazInicial extends JFrame {
 		
 		JButton btnOptions = new JButton("Opciones");
 		btnOptions.addActionListener(new ActionListener() {
+			/**Cierra la ventana y abre la interfaz de opciones*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazOpciones inter = new InterfazOpciones();
@@ -112,8 +115,7 @@ public class InterfazInicial extends JFrame {
 		btnEstadisticas.setBounds(196, 391, 220, 27);
 		contentPane.add(btnEstadisticas);
 		btnEstadisticas.addActionListener(new ActionListener() {
-			
-			@Override
+			/**Cierra la ventana y abre la interfaz para mostrar estadisticas*/
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				InterfazEstadisticas inter = new InterfazEstadisticas();
