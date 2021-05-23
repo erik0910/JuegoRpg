@@ -24,7 +24,7 @@ public class Room {
 	public static List<Disparo> disparos = new ArrayList<Disparo>();
 	private static boolean[] disp = {true, false, false};
 	private static int tempdisp = -1, borrar = -1, fin = 0;	
-	private static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
+	public static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	private static boolean salto =false;
 	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,5->mazmorra
