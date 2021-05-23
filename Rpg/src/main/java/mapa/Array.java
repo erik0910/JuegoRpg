@@ -2732,6 +2732,14 @@ public class Array extends JFrame implements KeyListener {
 		dibujado();
 
 	}
+	// este metodo sirve para cambiar el mapa del combate en base a la zona en la que estes en el mapa principal
+	public void cambioZona() {
+		if(zona.equals("grass")) {Room.zona=1;}
+		if(zona.equals("sand")) {Room.zona=2;}
+		if(zona.equals("ice")) {Room.zona=3;}
+		if(zona.equals("fire")||zona.equals("dungeon")) {Room.zona=4;}
+		
+	}
 
 	public void dibujado() {
 		
@@ -2745,6 +2753,7 @@ public class Array extends JFrame implements KeyListener {
 		if (mundo[x][y].getCode() == ("fight")) {
 				
 			if(((x ==2 && y == 25)|| (x ==15 && y ==29) || (x ==23 && y ==8) || (x == 27 && y == 43) || (x == 43 && y ==22))&& in == true){
+				cambioZona();
 				if((x ==15 && y ==29)) {
 					Room.jugadores=true;
 					Room.enemigos=false;
@@ -2761,6 +2770,7 @@ public class Array extends JFrame implements KeyListener {
 				mundo[x][y] = suelo;
 			
 			}else{
+			cambioZona();// seleccion del mapa
 			Room.variosEnemigos(false);
 			contentPane.setFocusable(false);
 			fight = true;

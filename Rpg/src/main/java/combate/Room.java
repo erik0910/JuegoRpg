@@ -27,9 +27,16 @@ public class Room {
 	private static boolean derecha = true,derecha1 = true;// esto va a permitir elegir el lado que se va a mover el boss
 	private static boolean dificultad =false; // si es true entonces la dificultad va a ser dificil
 	private static boolean salto =false;
+	public static int zona=2;// zona =1 campo,2->arena,3->hielo,4->fuego,5->mazmorra
+	public void selectorMapa() {
+	if(zona==1)	{fondo = new Fondo("combate/hierva.gif", 0.1);}
+	if(zona==2)	{fondo = new Fondo("combate/arena.gif", 0.1);}
+	if(zona==3)	{fondo = new Fondo("combate/hielo.gif", 0.1);}
+	if(zona==4 || zona==5)	{fondo = new Fondo("combate/fuego.gif", 0.1);}
+	}
 	//cargar el fondo de la pantalla
 	public Room() {
-		fondo = new Fondo("combate/p.gif", 0.1);
+		selectorMapa();
 		for(int i = 1; i <= 2; i++) {
 			player[i] = new Player(i);
 			player[i].setPosition(25*i, 100*i);
