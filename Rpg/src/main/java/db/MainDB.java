@@ -30,17 +30,17 @@ public class MainDB {
 	/** Metodo para guardar partida e insertar en la base de datos*/
 	public boolean guardarPartida(Partida partida) {
 		boolean res = false;
-		System.out.println("Guardando Partida");
+//		System.out.println("Guardando Partida");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Guardando partida " + partida.getNombrePartida());
+//			System.out.println("Guardando partida " + partida.getNombrePartida());
 			pm.makePersistent(partida);
 			tx.commit();
 			res = true;
 		} catch (Exception e) {
-			System.out.println("Excepcion guardando partida: " + e.getMessage());
+//			System.out.println("Excepcion guardando partida: " + e.getMessage());
 			JOptionPane.showMessageDialog(null, "Nombre repetido, elija otro nombre para el guardado");
 			res = false;
 		} finally {
@@ -49,8 +49,8 @@ public class MainDB {
 			}
 			pm.close();
 		}
-		System.out.println("Guardado de partida completado");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Guardado de partida completado");
+//		System.out.println("-----------------------------------------------------------------------");
 		return res;
 	}
 
@@ -63,7 +63,7 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Cargando partida con nombre " + nombrePartida);
+//			System.out.println("Cargando partida con nombre " + nombrePartida);
 //			Query<Partida> q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM partida WHERE nombrePartida == " + nombrePartida);
 //			q.setClass(Partida.class);
 //			q.setUnique(true);
@@ -72,7 +72,7 @@ public class MainDB {
 			for (Partida partida : e) {
 				if (partida.getNombrePartida().equals(nombrePartida)) {
 					p = partida;
-					System.out.println(p.toString());
+//					System.out.println(p.toString());
 				}
 			}
 			info[0] = p.getSkin();
@@ -86,15 +86,15 @@ public class MainDB {
 			info[8] = Integer.toString(p.getDanyoarma());
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("Excepcion cargando partida: " + e.getMessage());
+//			System.out.println("Excepcion cargando partida: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		System.out.println("Finalizada la carga de partida");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Finalizada la carga de partida");
+//		System.out.println("-----------------------------------------------------------------------");
 		return info;
 	}
 
@@ -105,26 +105,26 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Devolviendo todas las partidas");
+//			System.out.println("Devolviendo todas las partidas");
 			Extent<Partida> e = pm.getExtent(Partida.class);
 			Iterator<Partida> iter = e.iterator();
 
 			while (iter.hasNext()) {
 				Partida p = iter.next();
 				listPartidas.add(p);
-				System.out.println("> " + p);
+//				System.out.println("> " + p);
 			}
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("Excepcion con el muestreo de partidas: " + e.getMessage());
+//			System.out.println("Excepcion con el muestreo de partidas: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		System.out.println("Finalizado metodo mostrarPartidas");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Finalizado metodo mostrarPartidas");
+//		System.out.println("-----------------------------------------------------------------------");
 		return listPartidas;
 	}
 
@@ -135,21 +135,21 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Borrado de partidas");
+//			System.out.println("Borrado de partidas");
 			Query<Partida> q = pm.newQuery(Partida.class);
 			long numPartidasBorradas = q.deletePersistentAll();
-			System.out.println("Borradas " + numPartidasBorradas + " partidas en total");
+//			System.out.println("Borradas " + numPartidasBorradas + " partidas en total");
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("Excepcion con el borrado de partidas: " + e.getMessage());
+//			System.out.println("Excepcion con el borrado de partidas: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		System.out.println("Borrado de partidas finalizado");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Borrado de partidas finalizado");
+//		System.out.println("-----------------------------------------------------------------------");
 	}
 
 	// Parte para las estadisticas
@@ -161,42 +161,42 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Devolviendo todas las estadisticas de los jugadores");
+//			System.out.println("Devolviendo todas las estadisticas de los jugadores");
 			Extent<Estadisticas> e = pm.getExtent(Estadisticas.class);
 			Iterator<Estadisticas> iter = e.iterator();
 
 			while (iter.hasNext()) {
 				Estadisticas est = iter.next();
 				listEstadisticas.add(est);
-				System.out.println("> " + est);
+//				System.out.println("> " + est);
 			}
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("Excepcion con el muestreo de estadisticas: " + e.getMessage());
+//			System.out.println("Excepcion con el muestreo de estadisticas: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		System.out.println("Finalizado metodo mostrarEstadisticas");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Finalizado metodo mostrarEstadisticas");
+//		System.out.println("-----------------------------------------------------------------------");
 		return listEstadisticas;
 	}
 	/** Metodo para guardar estadisticas e insertar en la base de datos*/
 	public boolean guardarEstadisticas(Estadisticas estadisticas) {
 		boolean res = false;
-		System.out.println("Guardando estadisticas...");
+//		System.out.println("Guardando estadisticas...");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Guardando estadisticas del jugador " + estadisticas.getNombreJugador());
+//			System.out.println("Guardando estadisticas del jugador " + estadisticas.getNombreJugador());
 			pm.makePersistent(estadisticas);
 			tx.commit();
 			res = true;
 		} catch (Exception e) {
-			System.out.println("Excepcion guardando estadisticas: " + e.getMessage());
+//			System.out.println("Excepcion guardando estadisticas: " + e.getMessage());
 			JOptionPane.showMessageDialog(null, "Nombre repetido, elija otro nombre para el guardado");
 			res = false;
 		} finally {
@@ -205,8 +205,8 @@ public class MainDB {
 			}
 			pm.close();
 		}
-		System.out.println("Guardado de estadisticas completado");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Guardado de estadisticas completado");
+//		System.out.println("-----------------------------------------------------------------------");
 		return res;
 	}
 	/** Limpieza de la base de datos y de todas las estadisticas*/
@@ -216,20 +216,20 @@ public class MainDB {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			System.out.println("Borrado de estadisticas");
+//			System.out.println("Borrado de estadisticas");
 			Query<Estadisticas> q = pm.newQuery(Estadisticas.class);
 			long numEstadisticasBorradas = q.deletePersistentAll();
-			System.out.println("Borradas " + numEstadisticasBorradas + " estadisticas en total");
+//			System.out.println("Borradas " + numEstadisticasBorradas + " estadisticas en total");
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("Excepcion con el borrado de estadisticas: " + e.getMessage());
+//			System.out.println("Excepcion con el borrado de estadisticas: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		System.out.println("Borrado de estadisticas finalizado");
-		System.out.println("-----------------------------------------------------------------------");
+//		System.out.println("Borrado de estadisticas finalizado");
+//		System.out.println("-----------------------------------------------------------------------");
 	}
 }

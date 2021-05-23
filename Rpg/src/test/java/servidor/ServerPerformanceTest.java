@@ -57,7 +57,7 @@ public class ServerPerformanceTest {
     }
     
     @Test
-    @PerfTest(invocations = 10, threads = 40)
+    @PerfTest(invocations = 100, threads = 40)
     public void testEstadisticasResource() {
     	GenericType<List<Estadisticas>> genericType = new GenericType<List<Estadisticas>>() {};
         List<Estadisticas> real = target.path("estadisticas").request(MediaType.APPLICATION_JSON).get(genericType);
