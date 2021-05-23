@@ -1,31 +1,39 @@
 package dinero;
 
-public class Monedero {
+public class Monedero implements CalculatorService  {
 	/*
 	 * Clase moneda encragada de hacer toda la gestión de
 	 */
+	
+	
 	private int dinero;
+	private Monedas monedasCalcu;
 
-	public int getDinero() {
+	public Monedero(int dinero) {/** Constructor */
+
+		this.dinero = dinero;
+	}
+	public Monedero() { /** Constructor vacio */
+		super();
+		this.dinero = 1000;
+	}
+	public int getDinero() { /** Obtiene las monedas del monedero*/
+
 		return dinero;
 	}
 
-	public void setDinero(int dinero) {
+	public void setDinero(int dinero) { /** Setter de getDinero() */
 		this.dinero += dinero;
 	}
 
-	public Monedero() {
-		super();
-		this.dinero = 1000;// ponemos por default la monedas que va a tener
-	}
+	
 
-	// metodo que se activara cuando el personaje ha ganado
-	public void ganar() {
+	public void ganar() { /** Funcion que incrementa el dinero post ganar partida */
 		this.dinero += 100;
 	}
 
-	// metodo que se activa si el personaje a perdido
-	public void perder() {
+	
+	public void perder() { /** Funcion que decrementa el dinero post perder partida */
 		this.dinero -= 100;
 	}
 	@Override
@@ -33,7 +41,7 @@ public class Monedero {
 		return "Monedero [dinero=" + dinero + "]";
 	}
 
-	public boolean compra(int gasto) {
+	public boolean compra(int gasto) { /** Funcion que compara el dinero con el gasto antes de comprar */
 		if(gasto <this.dinero) {
 		this.dinero -= gasto;
 		return true;
@@ -42,4 +50,10 @@ public class Monedero {
 		}
 		
 	}
+
+	@Override
+	public Monedas getDiner() { /** Metodo de mockito */
+		return monedasCalcu;
+	}
+	
 }
