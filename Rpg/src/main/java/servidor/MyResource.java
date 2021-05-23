@@ -12,10 +12,9 @@ import jakarta.ws.rs.core.MediaType;
 public class MyResource {
 
     /**
-     * Method handling HTTP GET requests. The returned object will be sent
-     * to the client as "text/plain" media type.
+     * Metodo encargado de HTTP GET requests. El objeto devuelto se envia al cliente como "text/plain" media type.
      *
-     * @return String that will be returned as a text/plain response.
+     * @return String que se devolvera como texto respuesta en formato texto/plain.
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
