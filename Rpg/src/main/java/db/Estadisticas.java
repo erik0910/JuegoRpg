@@ -16,10 +16,11 @@ public class Estadisticas {
 	private int danyoarma;
 	private int energia;
 	
+	/**Constructor vacio*/
 	public Estadisticas() {
 		super();
 	}
-
+	/**Constructor con propiedades*/
 	public Estadisticas(String nombreJugador, int vida, String skin, int danyoarma, int energia) {
 		super();
 		this.nombreJugador = nombreJugador;
@@ -28,48 +29,48 @@ public class Estadisticas {
 		this.danyoarma = danyoarma;
 		this.energia = energia;
 	}
-
+	/**Getter para el nombre jugador*/
 	public String getNombreJugador() {
 		return nombreJugador;
 	}
-
+	/**Setter para el nombre jugador*/
 	public void setNombreJugador(String nombreJugador) {
 		this.nombreJugador = nombreJugador;
 	}
-
+	/**Getter para la vida*/
 	public int getVida() {
 		return vida;
 	}
-
+	/**Setter para la vida*/
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-
+	/**Getter para el nombre de la skin*/
 	public String getSkin() {
 		return skin;
 	}
-
+	/**Setter para el nombre de la skin*/
 	public void setSkin(String skin) {
 		this.skin = skin;
 	}
-
+	/**Getter para el danyo del arma*/
 	public int getDanyoarma() {
 		return danyoarma;
 	}
-
+	/**Setter para el danyo del arma*/
 	public void setDanyoarma(int danyoarma) {
 		this.danyoarma = danyoarma;
 	}
-
+	/**Getter para la energia*/
 	public int getEnergia() {
 		return energia;
 	}
-
+	/**Setter para la energia*/
 	public void setEnergia(int energia) {
 		this.energia = energia;
 	}
 
-	@Override
+	/**Metodo para el toString*/
 	public String toString() {
 		return "Estadisticas [nombre del jugador=" + nombreJugador + ", vida=" + vida + ", skin=" + skin + ", danyo del arma="
 				+ danyoarma + ", energia=" + energia + "]";

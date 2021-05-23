@@ -25,36 +25,9 @@ public class MainDB {
 
 	// Usar el void main para pruebas con la base de datos
 	public static void main(String[] args) {
-//		System.out.println("DBManager inicializado");
-//		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-//		PersistenceManager pm = pmf.getPersistenceManager();
-//		Transaction tx = pm.currentTransaction();
-//		try {
-//			tx.begin();
-//			Monedero m = new Monedero();
-//			Partida partida = new Partida("PartidaEjemplo", 100, "caballero", 2, 2, 3, 3, m, 100, 100);
-//			System.out.println("Guardando partida " + partida.getNombrePartida());
-//			pm.makePersistent(partida);
-//			System.out.println("Devolviendo todas las partidas");
-//			Extent<Partida> e = pm.getExtent(Partida.class, true);
-//			Iterator<Partida> iter = e.iterator();
-//
-//			while (iter.hasNext()) {
-//				Object obj = iter.next();
-//				System.out.println("> " + obj);
-//			}
-//			tx.commit();
-//		} finally {
-//			if (tx.isActive()) {
-//				tx.rollback();
-//			}
-//			pm.close();
-//		}
-//		System.out.println("DBManager finalizado");
-//		System.out.println("-----------------------------------------------------------------------");
 	}
 
-	// Metodo para guardar partida e insertar en la base de datos
+	/** Metodo para guardar partida e insertar en la base de datos*/
 	public boolean guardarPartida(Partida partida) {
 		boolean res = false;
 		System.out.println("Guardando Partida");
@@ -81,8 +54,7 @@ public class MainDB {
 		return res;
 	}
 
-	// Metodo donde se da el nombre de la partida, se busca y se devuelve el objeto
-	// Partida correspondiente
+	/**Metodo donde se da el nombre de la partida, se busca y se devuelve el objeto "Partida" correspondiente*/
 	@SuppressWarnings("unchecked")
 	public String[] cargarPartida(String nombrePartida) {
 		Partida p = new Partida();
@@ -126,7 +98,7 @@ public class MainDB {
 		return info;
 	}
 
-	// Metodo para obtener la lista de partidas para luego mostrar en InterfazCargar
+	/** Metodo para obtener la lista de partidas para luego mostrar en InterfazCargar*/
 	public List<Partida> mostrarPartidas() {
 		List<Partida> listPartidas = new ArrayList<Partida>();
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -156,7 +128,7 @@ public class MainDB {
 		return listPartidas;
 	}
 
-	// Limpieza de la base de datos y de todas las partidas
+	/** Limpieza de la base de datos y de todas las partidas*/
 	public void borrarPartidas() {
 
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -181,7 +153,8 @@ public class MainDB {
 	}
 
 	// Parte para las estadisticas
-
+	
+	/** Metodo para obtener la lista de estadisticas para luego mostrar en InterfazEstadisticas*/
 	public List<Estadisticas> mostrarEstadisticas() {
 		List<Estadisticas> listEstadisticas = new ArrayList<Estadisticas>();
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -210,7 +183,7 @@ public class MainDB {
 		System.out.println("-----------------------------------------------------------------------");
 		return listEstadisticas;
 	}
-
+	/** Metodo para guardar estadisticas e insertar en la base de datos*/
 	public boolean guardarEstadisticas(Estadisticas estadisticas) {
 		boolean res = false;
 		System.out.println("Guardando estadisticas...");
@@ -236,7 +209,7 @@ public class MainDB {
 		System.out.println("-----------------------------------------------------------------------");
 		return res;
 	}
-
+	/** Limpieza de la base de datos y de todas las estadisticas*/
 	public void borrarEstadisticas() {
 
 		PersistenceManager pm = pmf.getPersistenceManager();
