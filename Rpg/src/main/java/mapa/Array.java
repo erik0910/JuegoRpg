@@ -23,6 +23,7 @@ import interfaces.Mejoras;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 public class Array extends JFrame implements KeyListener {
 	public static int cont=1;// contador de partidas
