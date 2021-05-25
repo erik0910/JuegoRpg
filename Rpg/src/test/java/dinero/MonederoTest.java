@@ -1,9 +1,12 @@
 package dinero;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import dinero.Monedero;
 
@@ -23,19 +26,23 @@ import categories.IntegrationTest;
 
 public class MonederoTest {
 
+	
 	Monedero moneda;
-
+	
 	
 	
 	
 	@Rule
 	public ContiPerfRule rule = new ContiPerfRule();
 
+	
+	
+	
 	@Test
 	@PerfTest(invocations = 150)
 	@Required(max = 20, average = 1)
 	public void RendiTestMoneda() {
-
+		
 		moneda = new Monedero();
 		assertTrue(moneda.getDinero() == 1000);
 
@@ -67,7 +74,9 @@ public class MonederoTest {
 	public void compra() {
 		moneda = new Monedero();
 		moneda.compra(100);
-		assertTrue(moneda.getDinero() == 900);		
+		assertTrue(moneda.getDinero() == 900);	
+		
+		
 	}
 
 }

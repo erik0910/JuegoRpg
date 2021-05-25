@@ -1,17 +1,17 @@
 package dinero;
 
-public class Monedero implements CalculatorService  {
+public class Monedero  {
 	/*
 	 * Clase moneda encragada de hacer toda la gestión de
 	 */
 	
 	
 	private int dinero;
-	private Monedas monedasCalcu;
+
 
 	public Monedero(int dinero) {/** Constructor */
 
-		this.dinero = dinero;
+		this.dinero = 1000;
 	}
 	public Monedero() { /** Constructor vacio */
 		super();
@@ -51,9 +51,5 @@ public class Monedero implements CalculatorService  {
 		
 	}
 
-	@Override
-	public Monedas getDiner() { /** Metodo de mockito */
-		return monedasCalcu;
-	}
 	
 }
