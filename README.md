@@ -1,6 +1,8 @@
 # JuegoRpg
 
-**Requisitos:**
+[![Build Status](https://travis-ci.com/erik0910/JuegoRpg.svg?branch=main)](https://travis-ci.com/erik0910/JuegoRpg)
+
+## Requisitos:
 
 Se debe tener instalado para el correcto funcionamiento:
 
