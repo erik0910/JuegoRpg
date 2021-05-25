@@ -23,7 +23,7 @@ Además, dentro de "target/contiperf-report" existe otro "index.html" para mostr
 
 Para la ejecucion de la parte de integración se debe usar el comando: ```mvn verify -Pintegracion```
 
-**Configuración previa:**
+## Configuración previa:
 
 Para inicializar el servidor MySQL debemos introducir las siguientes sentencias dentro del administrador de XAMPP en la parte de SQL:
 ```
