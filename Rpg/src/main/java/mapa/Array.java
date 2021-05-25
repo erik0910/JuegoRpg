@@ -3480,7 +3480,41 @@ public class Array extends JFrame implements KeyListener {
 				JOptionPane.showMessageDialog(null, "Salga de la tienda para guardar");
 			}
 			
+		}else if (key == KeyEvent.VK_MINUS){
+			
+		FloatControl gainControl = (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
+			
+			float valor =  gainControl.getValue();
+			 
+			if(gainControl.getValue() <= -79) {
+					
+				 valor =  gainControl.getValue();
+					 
+			}else {
+					
+				 valor =  gainControl.getValue() - 1.0f;
+				
+			}
+				gainControl.setValue(valor); 
+		
+		
+		}else if (key == KeyEvent.VK_PLUS){
+		
+		FloatControl gainControl = (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
+		
+		 float valor =  gainControl.getValue();
+		 
+		if(gainControl.getValue() >= 5) {
+			
+			  valor =  gainControl.getValue();
+			 
+		}else {
+			
+			 valor =  gainControl.getValue() + 1.0f;
+			
 		}
+			gainControl.setValue(valor); 
+	}
 
 	}
 	/** Cuando se suelta la tecla*/
