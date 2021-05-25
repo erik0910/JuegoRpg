@@ -40,7 +40,7 @@ Tambien se debe arrancar la parte de Apache pulsando el boton "Start" al igual q
 
 **Configuración:**
 
- Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y un por uno:
+ Para la correcta inicialización del juego se deben seguir los siguientes pasos en orden y uno por uno:
 
 **1.** Descargar el zip del proyecto.
 
