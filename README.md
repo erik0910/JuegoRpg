@@ -1,6 +1,6 @@
 # JuegoRpg
 
-[![Build Status](https://travis-ci.com/github/erik0910/JuegoRpg.svg?branch=master)](https://travis-ci.com/github/erik0910/JuegoRpg)
+[![Build Status](https://travis-ci.com/github/erik0910/JuegoRpg.svg?branch=main)](https://travis-ci.com/github/erik0910/JuegoRpg)
 
 ## Requisitos:
 
