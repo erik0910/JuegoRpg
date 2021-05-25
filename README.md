@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/github/erik0910/JuegoRpg.svg?branch=master)](https://travis-ci.com/github/erik0910/JuegoRpg)
 
-**Requisitos:**
+## Requisitos:
 
 Se debe tener instalado para el correcto funcionamiento:
 
