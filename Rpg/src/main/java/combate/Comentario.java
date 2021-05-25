@@ -54,6 +54,9 @@ public class Comentario extends JFrame {
 		btnNewButton.setFont(new Font("Algerian", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Room.jugadores=true;
+				Room.enemigos=false;
+				Room.zona=3;
 				Ventana.cargarCombate();
 				dispose();
 			}
