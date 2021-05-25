@@ -27,10 +27,8 @@ public class MainDBTest {
 	MainDB databaseMock;
 	
 	private static Partida partida = new Partida();
-	@Mock
 	private static Partida partida2 = new Partida();
 	private static Estadisticas e1 = new Estadisticas();
-	@Mock
 	private static Estadisticas e2 = new Estadisticas();
 
 	public static junit.framework.Test suite() {
@@ -133,9 +131,6 @@ public class MainDBTest {
 		String[] p = new String[9];
 		p[0] = "Ezio, el Arquero Centenario"; p[1] = "8"; p[2] = "8"; p[3] = "3"; p[4] = "3"; p[5] = "1000"; p[6] = "100"; p[7] = "100"; p[8] = "50";
 		when(databaseMock.cargarPartida("Example")).thenReturn(p);
-		p = databaseMock.cargarPartida("Example");
-		
-
 	}
 
 	@Test
