@@ -2,4 +2,4 @@ language: java
  
 services:
   - xvfb
-
+before_install: cd Rpg
