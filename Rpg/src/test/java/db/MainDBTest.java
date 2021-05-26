@@ -17,6 +17,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class MainDBTest {
 
@@ -31,13 +34,16 @@ public class MainDBTest {
 	private static Estadisticas e1 = new Estadisticas();
 	private static Estadisticas e2 = new Estadisticas();
 
+	final static Logger logger = LoggerFactory.getLogger(MainDBTest.class);
+	static int iteration = 0;
+	
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(MainDBTest.class);
 	}
 	
 	@Before
 	public void setUp2() {
-		
+		logger.info("Entering setUp: ");
 		Monedero m = new Monedero();
 		partida.setNombrePartida("Example");
 		partida.setSkin("Ezio, el Arquero Centenario");
@@ -75,10 +81,12 @@ public class MainDBTest {
 		e2.setSkin("Ezio, el Arquero Centenario");
 		e2.setVida(100);
 //		db.guardarEstadisticas(e2);
+		logger.info("Leaving setUp");
 	}
 
 	@BeforeClass
 	public static void setUp() throws Exception {
+		logger.info("Entering setUp before each test: {}", iteration++);
 		Monedero m = new Monedero();
 		partida.setNombrePartida("Example");
 		partida.setSkin("Ezio, el Arquero Centenario");
@@ -117,40 +125,50 @@ public class MainDBTest {
 
 	@Test
 	public void testGuardarPartida() {
+		logger.info("Starting testGuardarPartida");
 		Mockito.lenient().when(databaseMock.guardarPartida(partida2)).thenReturn(true);
+		logger.debug("Finishing testGuardarPartida");
 	}
 
 	@Test
 	public void testGuardarEstadisticas() {
+		logger.info("Starting testGuardarEstadisticas");
 		Mockito.lenient().when(databaseMock.guardarEstadisticas(e2)).thenReturn(true);
+		logger.debug("Finishing testGuardarEstadisticas");
 	}
 
 	@Test
 	@PerfTest(invocations = 100, threads = 40)
 	public void testCargarPartida() {
+		logger.info("Starting testCargarPartida");
 		String[] p = new String[9];
 		p[0] = "Ezio, el Arquero Centenario"; p[1] = "8"; p[2] = "8"; p[3] = "3"; p[4] = "3"; p[5] = "1000"; p[6] = "100"; p[7] = "100"; p[8] = "50";
 		when(databaseMock.cargarPartida("Example")).thenReturn(p);
+		logger.debug("Finishing testCargarPartida");
 	}
 
 	@Test
 	@PerfTest(invocations = 100, threads = 40)
 	public void testMostrarPartidas() {
+		logger.info("Starting testMostrarPartidas");
 		List<Partida> listaExpected = new ArrayList<Partida>();
 		listaExpected.add(partida);
 		listaExpected.add(partida2);
-
+		
 		when(databaseMock.mostrarPartidas()).thenReturn(listaExpected);
+		logger.debug("Finishing testMostrarPartidas");
 	}
 
 	@Test
 	@PerfTest(invocations = 100, threads = 40)
 	public void testMostrarEstadisticas() {
+		logger.info("Starting testMostrarEstadisticas");
 		List<Estadisticas> listaExpected = new ArrayList<Estadisticas>();
 		listaExpected.add(e1);
 		listaExpected.add(e2);
 		
 		when(databaseMock.mostrarEstadisticas()).thenReturn(listaExpected);
+		logger.debug("Finishing testMostrarEstadisticas");
 	}
 
 }
