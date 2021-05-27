@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import categories.IntegrationTest;
+import db.MainDBTest;
 
 
 public class MonederoTest {
@@ -29,6 +30,7 @@ public class MonederoTest {
 	
 	Monedero moneda;
 	
+	final static Logger logger = LoggerFactory.getLogger(MonederoTest.class);
 	
 	
 	
@@ -42,19 +44,21 @@ public class MonederoTest {
 	@PerfTest(invocations = 150)
 	@Required(max = 20, average = 1)
 	public void RendiTestMoneda() {
-		
+		logger.info("Starting RendiTestMoneda");
 		moneda = new Monedero();
 		assertTrue(moneda.getDinero() == 1000);
-
+		logger.debug("Finishing RendiTestMoneda");
 	}
 
 	@Test
 	@PerfTest(invocations = 125)
 	@Required(max = 20, average = 1)
 	public void RendiTestGanar() {
+		logger.debug("Starting RendiTestGanar");
 		moneda = new Monedero();
 		moneda.ganar();
 		assertTrue(moneda.getDinero() == 1100);
+		logger.debug("Finishing RendiTestGanar");
 
 	}
 
@@ -62,9 +66,11 @@ public class MonederoTest {
 	@PerfTest(invocations = 115)
 	@Required(max = 20, average = 1)
 	public void RendiTestPerder() {
+		logger.debug("Starting RendiTestPerder");
 		moneda = new Monedero();
 		moneda.perder();
 		assertTrue(moneda.getDinero() == 900);
+		logger.debug("Finishing RendiTestPerder");
 
 	}
 	
@@ -72,9 +78,11 @@ public class MonederoTest {
 	@PerfTest(invocations = 200)
 	@Required(max = 20, average = 1)
 	public void compra() {
+		logger.debug("Starting RendiTestCompra");
 		moneda = new Monedero();
 		moneda.compra(100);
 		assertTrue(moneda.getDinero() == 900);	
+		logger.debug("Finishing RendiTestCompra");
 		
 		
 	}
