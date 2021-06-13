@@ -30,6 +30,17 @@ jobs:
     - name: Test with Maven
       run: mvn test -DargLine="-Dcontiperf.active=false"
       
+    - name: Prepare database for integration tests
+      run: | 
+        sudo /etc/init.d/mysql start
+        mysql -uroot -proot < src/main/resources/database.sql
+        mvn --batch-mode --update-snapshots compile 
+        mvn --batch-mode --update-snapshots datanucleus:enhance
+        mvn --batch-mode --update-snapshots datanucleus:schema-create
+        mvn --batch-mode --update-snapshots exec:java -Pdatos
+    - name: Build with Maven including integration tests
+      run: mvn --batch-mode --update-snapshots verify -Pintegracion
+      
     - name: Generate documentation
       run: mvn doxygen:report
       
