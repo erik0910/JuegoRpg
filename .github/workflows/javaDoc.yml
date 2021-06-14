@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: C:\Users\xabie\git\JuegoRpg\Rpg
+        working-directory: JuegoRpg\Rpg
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
