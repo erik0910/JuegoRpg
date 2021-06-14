@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: JuegoRpg\Rpg
+        working-directory: ./rpg
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
