@@ -21,6 +21,8 @@
 		<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<sonar.projectKey>Rpg</sonar.projectKey>
+		<sonar.organization>team01</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
