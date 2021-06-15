@@ -27,7 +27,7 @@ public class RoomTest {
 	
 	@Test
 	@PerfTest(invocations = 10)
-	@Required(max = 220, average = 220)
+	@Required(max = 500, average = 220)
 	public void funcionaminetoJugador2() {
 	Room.jugadores=false;
 	Room.enemigos=true;
