@@ -8,7 +8,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+      defaults:
+      run:
+        working-directory: ./rpg
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
