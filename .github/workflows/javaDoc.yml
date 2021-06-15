@@ -24,10 +24,3 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
       
-    - name: Generate documentation
-      run: mvn doxygen:report
-      
-    - name: Publish on Github Pages
-      uses: crazy-max/ghaction-github-pages@v2.3.0
-      with:
-        build_dir: target/doxygen/html
